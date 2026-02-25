@@ -1,0 +1,38 @@
+@use "~/styles/helpers" as *;
+
+.header-menu {
+  &__list {
+    display: flex;
+    column-gap: rem(50);
+  }
+
+  &__link {
+    font-family: var(--font-family-accent);
+    font-weight: 400;
+    font-size: rem(26);
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--color-accent);
+      opacity: 0;
+      width: 100%;
+      height: rem(60);
+      transition-duration: var(--transition-duration);
+      border-radius: 100%;
+      filter: blur(200px);
+    }
+
+    @include hover {
+      color: var(--color-accent);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

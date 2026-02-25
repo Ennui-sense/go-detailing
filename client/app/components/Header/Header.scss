@@ -1,0 +1,17 @@
+@use "~/styles/helpers" as *;
+
+.header {
+  background-color: rgba(0, 0, 0, 1);
+  padding-block: rem(40);
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+    column-gap: rem(20);
+  }
+}

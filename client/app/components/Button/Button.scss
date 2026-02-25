@@ -1,0 +1,19 @@
+@use "~/styles/helpers" as *;
+
+.button {
+  @include button-reset;
+  @include flex-center(true);
+
+  font-weight: 400;
+  font-size: rem(24);
+	padding-inline: rem(28);
+	height: var(--button-height);
+	color: var(--color-light);
+	border: var(--border);
+	border-radius: var(--border-radius-small);
+	background: var(--color-gradient);
+
+	&--phone {
+		background: transparent;
+	}
+}
