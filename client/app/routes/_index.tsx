@@ -2,6 +2,7 @@ import Page from "~/layouts/Page";
 
 import Hero from "~/sections/Hero/Hero";
 import Benefits from "~/sections/Benefits/Benefits";
+import Brands from "~/sections/Brands/Brands";
 
 export function meta() {
   return [
@@ -15,6 +16,7 @@ export default function IndexRoute() {
     <Page>
       <Hero />
       <Benefits />
+      <Brands />
     </Page>
   );
 }
