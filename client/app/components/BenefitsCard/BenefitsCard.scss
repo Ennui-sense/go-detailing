@@ -1,0 +1,24 @@
+@use "~/styles/helpers" as *;
+
+.benefits-card {
+  display: flex;
+  column-gap: rem(40);
+
+  &__number {
+    font-family: var(--font-family-accent);
+    font-weight: 400;
+    font-size: rem(36);
+    color: var(--color-accent);
+  }
+
+  &__label {
+    background: var(--color-dark);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 200;
+    font-size: rem(32);
+		max-width: rem(500);
+		white-space: pre-line;
+  }
+}

@@ -1,0 +1,17 @@
+@use "~/styles/helpers" as *;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(60);
+	margin-top: rem(70);
+
+  &--default {
+    .section__title {
+      background: var(--color-dark);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
