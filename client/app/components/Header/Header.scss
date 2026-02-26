@@ -1,8 +1,12 @@
 @use "~/styles/helpers" as *;
 
 .header {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: transparent;
   padding-block: rem(40);
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 2;
 
   &__inner {
     display: flex;

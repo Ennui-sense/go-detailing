@@ -1,0 +1,40 @@
+@use "~/styles/helpers" as *;
+
+.hero {
+	position: relative;
+
+  &__bg {
+    &-image {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &::after {
+      content: "";
+			width: 100%;
+			background: var(--color-dark);
+			position: absolute;
+			inset: 0;
+			opacity: 0.8;
+			backdrop-filter: blur(rem(4));
+    }
+  }
+
+	&__inner {
+		position: absolute;
+		top: rem(328);
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(60);
+		align-items: center;
+	}
+
+	&__title {
+		&-accent {
+			color: var(--color-accent)
+		}
+	}
+}

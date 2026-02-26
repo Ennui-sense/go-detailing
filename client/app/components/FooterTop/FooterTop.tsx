@@ -2,7 +2,6 @@ import "./FooterTop.scss";
 
 import Logo from "../Logo/Logo";
 import Menu from "../Menu/Menu";
-import { MenuLinksData } from "~/data/MenuLinksData";
 
 const FooterTop = () => {
   return (
