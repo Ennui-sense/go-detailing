@@ -1,0 +1,29 @@
+@use "~/styles/helpers" as *;
+
+.footer-bottom {
+  padding-block: rem(40);
+  display: flex;
+  justify-content: space-between;
+
+  &__info {
+    font-size: rem(18);
+    line-height: 1.41;
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
+  }
+
+  &__text {
+    max-width: rem(650);
+  }
+
+  &__developer {
+    color: var(--color-accent);
+
+    &-link {
+      @include hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

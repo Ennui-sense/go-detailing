@@ -1,6 +1,6 @@
 @use "~/styles/helpers" as *;
 
-.header-menu {
+.menu {
   &__list {
     display: flex;
     column-gap: rem(50);
@@ -10,6 +10,7 @@
     font-family: var(--font-family-accent);
     font-weight: 400;
     font-size: rem(26);
+    z-index: 2;
     position: relative;
 
     &::after {
@@ -22,9 +23,9 @@
       opacity: 0;
       width: 100%;
       height: rem(60);
-      transition-duration: var(--transition-duration);
       border-radius: 100%;
-      filter: blur(200px);
+      filter: blur(rem(96));
+      transition-duration: var(--transition-duration);
     }
 
     @include hover {
@@ -33,6 +34,12 @@
       &::after {
         opacity: 1;
       }
+    }
+  }
+
+  &:where(.footer-top__menu) {
+    .menu__list {
+      column-gap: rem(90);
     }
   }
 }

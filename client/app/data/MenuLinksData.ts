@@ -1,10 +1,10 @@
-interface IHeaderMenuLink {
+interface IMenuLink {
 	id: number;
 	label: string;
 	href: string;
 }
 
-export const HeaderMenuLinksData: IHeaderMenuLink[] = [
+export const MenuLinksData: IMenuLink[] = [
 	{
 		id: 1,
 		label: "Главная",
