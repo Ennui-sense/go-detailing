@@ -1,23 +1,33 @@
 @use "~/styles/helpers" as *;
 
 .section {
-  display: flex;
-  flex-direction: column;
-  row-gap: rem(60);
-	margin-top: rem(70);
+  margin-bottom: rem(70);
 
-	&__title {
-		&-accent {
-			color: var(--color-accent);
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(60);
+    align-items: center;
+
+		&:has(.brands) {
+			overflow: hidden;
 		}
-	}
 
-  // &--default {
-  //   .section__title {
-  //     background: var(--color-dark);
-  //     background-clip: text;
-  //     -webkit-background-clip: text;
-  //     -webkit-text-fill-color: transparent;
-  //   }
-  // }
+    &--row {
+      flex-direction: row;
+      justify-content: space-between;
+			align-items: start;
+
+      .section__title {
+        max-width: rem(425);
+				margin-top: rem(100);
+      }
+    }
+  }
+
+  &__title {
+    &-accent {
+      color: var(--color-accent);
+    }
+  }
 }

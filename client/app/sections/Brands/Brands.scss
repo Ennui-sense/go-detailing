@@ -1,24 +1,22 @@
 @use "~/styles/helpers" as *;
 
 .brands {
-	overflow: hidden;
-
-	&__list {
-		display: flex;
-		align-items: center;
-		column-gap: rem(100);
-		animation: marquee 30s linear infinite;
-		width: max-content;
-		will-change: transform;
-	}
+  &__list {
+    display: flex;
+    align-items: center;
+    column-gap: rem(100);
+    animation: marquee 30s linear infinite;
+    width: max-content;
+    will-change: transform;
+  }
 }
 
 @keyframes marquee {
-	0% {
-		transform: translateX(0);
-	}
+  0% {
+    transform: translateX(0);
+  }
 
-	100% {
-		transform: translateX(-50%);
-	}
+  100% {
+    transform: translateX(-50%);
+  }
 }

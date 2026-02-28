@@ -6,7 +6,7 @@ import Button from "~/components/Button/Button";
 
 const Hero = () => {
   return (
-    <section className="hero">
+    <section className="hero section">
       <div className="hero__bg">
         <img
           src={HeroImage}

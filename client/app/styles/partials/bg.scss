@@ -1,9 +1,17 @@
 @use "../helpers/" as *;
 
 .bg {
+	&__dark,
+	&__accent-light {
+		padding-block: rem(70);
+	}
+
 	&__dark {
 		background: var(--color-gradient-dark);
 		color: var(--color-light);
-		padding-block: rem(70);
+	}
+
+	&__accent-light {
+		background: var(--color-gradient-light);
 	}
 }

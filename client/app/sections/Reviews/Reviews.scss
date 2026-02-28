@@ -2,32 +2,32 @@
 
 .reviews {
   &__inner {
-    position: relative;
-		display: flex;
-		flex-direction: column;
-		row-gap: rem(60);
-		align-items: center;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: rem(-70);
-			left: 0;
-			width: 100%;
-			height: calc(100% + rem(140));
-			opacity: 0.2;
-      background-color: var(--color-accent);
-			filter: var(--filter)
-    }
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(60);
+    align-items: center;
   }
 
   &__list {
     display: flex;
     column-gap: rem(30);
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: rem(-70);
+      left: 0;
+      width: 100%;
+      height: calc(100% + rem(140));
+      opacity: 0.15;
+      background-color: var(--color-accent);
+      filter: var(--filter);
+    }
   }
 
-	&__buttons {
-		display: flex;
-		column-gap: rem(30);
-	}
+  &__buttons {
+    display: flex;
+    column-gap: rem(30);
+  }
 }
