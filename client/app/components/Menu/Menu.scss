@@ -24,7 +24,7 @@
       width: 100%;
       height: rem(60);
       border-radius: 100%;
-      filter: blur(rem(96));
+      filter: var(--filter);
       transition-duration: var(--transition-duration);
     }
 

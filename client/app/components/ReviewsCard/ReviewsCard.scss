@@ -1,0 +1,31 @@
+@use "~/styles/helpers" as *;
+
+.reviews-card {
+  padding: rem(56);
+  border: var(--border);
+  border-radius: var(--border-radius-large);
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(40);
+
+  &__info {
+    display: flex;
+    column-gap: rem(40);
+    font-weight: 400;
+    font-size: rem(32);
+    line-height: 1.55;
+  }
+
+	&__rate {
+		display: flex;
+		column-gap: rem(6);
+		align-items: center;
+
+		&::after {
+			@include square(rem(28));
+
+			content: "";
+			background: url("../../assets/icons/star.svg");
+		}
+	}
+}

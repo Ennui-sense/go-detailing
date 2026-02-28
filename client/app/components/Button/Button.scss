@@ -31,6 +31,7 @@
 
 	&--phone {
 		background: transparent;
+		border-color: var(--color-accent);
 	}
 
 	@include hover(false) {

@@ -1,0 +1,9 @@
+@use "../helpers/" as *;
+
+.bg {
+	&__dark {
+		background: var(--color-gradient-dark);
+		color: var(--color-light);
+		padding-block: rem(70);
+	}
+}

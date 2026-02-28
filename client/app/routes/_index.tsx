@@ -3,6 +3,7 @@ import Page from "~/layouts/Page";
 import Hero from "~/sections/Hero/Hero";
 import Benefits from "~/sections/Benefits/Benefits";
 import Brands from "~/sections/Brands/Brands";
+import Reviews from "~/sections/Reviews/Reviews";
 
 export function meta() {
   return [
@@ -17,6 +18,10 @@ export default function IndexRoute() {
       <Hero />
       <Benefits />
       <Brands />
+
+      <div className="bg__dark">
+        <Reviews />
+      </div>
     </Page>
   );
 }

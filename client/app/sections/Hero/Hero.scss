@@ -2,6 +2,7 @@
 
 .hero {
 	position: relative;
+	color: var(--color-light);
 
   &__bg {
     &-image {
@@ -33,6 +34,8 @@
 	}
 
 	&__title {
+		text-wrap: nowrap;
+
 		&-accent {
 			color: var(--color-accent)
 		}
