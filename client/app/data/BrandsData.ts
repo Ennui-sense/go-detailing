@@ -4,6 +4,8 @@ import SomeImage from "~/assets/images/some.png";
 import ExeedImage from "~/assets/images/exeed.png";
 import BmwImage from "~/assets/images/bmw.png";
 import LexusImage from "~/assets/images/lexus.png";
+import PorscheImage from "~/assets/images/porsche.png";
+import NissanImage from "~/assets/images/nissan.png";
 
 interface IBrand {
 	id: number;
@@ -34,5 +36,13 @@ export const BrandsData: IBrand[] = [
 	{
 		id: 6,
 		imageSrc: LexusImage
+	},
+	{
+		id: 7,
+		imageSrc: PorscheImage
+	},
+	{
+		id: 8,
+		imageSrc: NissanImage
 	}
 ];
