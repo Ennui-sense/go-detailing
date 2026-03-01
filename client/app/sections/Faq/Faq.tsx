@@ -1,22 +1,29 @@
 import "./Faq.scss";
 
 import Section from "~/layouts/Section/Section";
-import FaqCard from "~/components/FaqCard/FaqCard";
+import FaqAccordion from "~/components/FaqAccordion/FaqAccordion";
 
 import { FaqCardsData } from "~/data/FaqCardsData";
 
+import { useState } from "react";
+
 const Faq = () => {
+  const [openId, setOpenId] = useState<number | null>(null);
+
   return (
     <Section title="Часто задаваемые вопросы" className="faq" isRow>
-      <div className="faq__inner">
-        <ul className="faq__list">
-          {FaqCardsData.map(({ id, text, title }) => (
-            <li className="faq__item" key={id}>
-              <FaqCard text={text} title={title} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="faq__list">
+        {FaqCardsData.map(({ id, text, title }) => (
+          <li className="faq__item" key={id}>
+            <FaqAccordion
+              text={text}
+              title={title}
+              onClick={() => (openId === id ? setOpenId(null) : setOpenId(id))}
+              isOpen={openId === id}
+            />
+          </li>
+        ))}
+      </ul>
     </Section>
   );
 };

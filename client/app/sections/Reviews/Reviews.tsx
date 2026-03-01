@@ -17,7 +17,7 @@ const Reviews = () => {
       }
       className="reviews"
     >
-      <div className="reviews__inner container">
+      <div className="reviews__inner">
         <ul className="reviews__list">
           {ReviewsCardsData.map(({ id, text, name, rate }) => (
             <li className="reviews__item" key={id}>

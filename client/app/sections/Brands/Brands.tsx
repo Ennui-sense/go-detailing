@@ -8,7 +8,7 @@ const Brands = () => {
   const duplicateBrandsData = [...BrandsData, ...BrandsData];
 
   return (
-    <Section className="brands">
+    <Section className="brands" isMarquee>
       <ul className="brands__list">
         {duplicateBrandsData.map(({ imageSrc, id }, index) => (
           <li className="brands__item" key={id - index}>

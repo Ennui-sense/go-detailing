@@ -1,7 +1,9 @@
 @use "~/styles/helpers" as *;
 
 .section {
-  margin-bottom: rem(70);
+  &:not(:last-child) {
+    margin-bottom: rem(70);
+  }
 
   &__inner {
     display: flex;
@@ -9,18 +11,18 @@
     row-gap: rem(60);
     align-items: center;
 
-		&:has(.brands) {
+		&--marquee {
 			overflow: hidden;
 		}
 
     &--row {
       flex-direction: row;
       justify-content: space-between;
-			align-items: start;
+      align-items: start;
 
       .section__title {
         max-width: rem(425);
-				margin-top: rem(100);
+        margin-top: rem(100);
       }
     }
   }
