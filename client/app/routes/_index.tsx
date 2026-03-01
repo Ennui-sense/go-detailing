@@ -6,6 +6,7 @@ import Brands from "~/sections/Brands/Brands";
 import Reviews from "~/sections/Reviews/Reviews";
 import Faq from "~/sections/Faq/Faq";
 import Steps from "~/sections/Steps/Steps";
+import Cta from "~/sections/Cta/Cta";
 
 export function meta() {
   return [
@@ -30,6 +31,10 @@ export default function IndexRoute() {
       </div>
 
       <Steps />
+
+      <div className="bg__dark">
+        <Cta />
+      </div>
     </Page>
   );
 }

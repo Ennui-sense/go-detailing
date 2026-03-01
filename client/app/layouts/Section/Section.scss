@@ -11,25 +11,37 @@
     row-gap: rem(60);
     align-items: center;
 
-		&--marquee {
-			overflow: hidden;
-		}
+    &--marquee {
+      overflow: hidden;
+    }
 
     &--row {
       flex-direction: row;
       justify-content: space-between;
       align-items: start;
 
-      .section__title {
-        max-width: rem(425);
-        margin-top: rem(100);
-      }
+      // .section__title {
+      //   margin-top: rem(100);
+      // }
     }
   }
 
+	&__header {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(20);
+	}
+
   &__title {
+    white-space: pre-line;
+
     &-accent {
       color: var(--color-accent);
     }
+  }
+
+  &__description {
+    font-size: rem(28);
+    line-height: 1.55;
   }
 }

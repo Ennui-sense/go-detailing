@@ -5,17 +5,21 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 
 interface SectionProps {
-  title?: ReactNode;
+  title: ReactNode;
+  description?: string;
   className: string;
   children: ReactNode;
   isRow?: boolean;
   isMarquee?: boolean;
+  marginTop?: number;
 }
 
 const Section = ({
   title,
+  description,
   className,
   children,
+  marginTop,
   isRow = false,
   isMarquee = false,
 }: SectionProps) => {
@@ -28,9 +32,14 @@ const Section = ({
           "section__inner--marquee": isMarquee,
         })}
       >
-        <h2 className={clsx("section__title", { "visually-hidden": !title })}>
-          {title}
-        </h2>
+        <header
+          className={clsx("section__header", { "visually-hidden": !title })}
+          style={{ marginTop: `${marginTop && marginTop / 16}rem` }}
+        >
+          <h2 className="section__title">{title}</h2>
+
+          <p className="section__description">{description}</p>
+        </header>
 
         <div className={clsx("section__body", className)}>{children}</div>
       </div>

@@ -11,7 +11,12 @@ const Faq = () => {
   const [openId, setOpenId] = useState<number | null>(null);
 
   return (
-    <Section title="Часто задаваемые вопросы" className="faq" isRow>
+    <Section
+      title={"Часто\nзадаваемые\nвопросы"}
+      className="faq"
+      isRow
+      marginTop={100}
+    >
       <ul className="faq__list">
         {FaqAccordionsData.map(({ id, text, title }) => (
           <li className="faq__item" key={id}>
