@@ -3,7 +3,7 @@ import "./Faq.scss";
 import Section from "~/layouts/Section/Section";
 import FaqAccordion from "~/components/FaqAccordion/FaqAccordion";
 
-import { FaqCardsData } from "~/data/FaqCardsData";
+import { FaqAccordionsData } from "~/data/FaqAccordionsData";
 
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ const Faq = () => {
   return (
     <Section title="Часто задаваемые вопросы" className="faq" isRow>
       <ul className="faq__list">
-        {FaqCardsData.map(({ id, text, title }) => (
+        {FaqAccordionsData.map(({ id, text, title }) => (
           <li className="faq__item" key={id}>
             <FaqAccordion
               text={text}

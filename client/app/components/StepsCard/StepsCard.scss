@@ -1,0 +1,37 @@
+@use "~/styles/helpers" as *;
+
+.steps-card {
+  max-width: rem(890);
+  display: flex;
+  column-gap: rem(85);
+  align-items: center;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
+  }
+
+  &__wrapper-image {
+    @include square(rem(100));
+    @include flex-center(true);
+
+    border-radius: 50%;
+    background-color: var(--color-accent-light);
+    flex-shrink: 0;
+  }
+
+  &__body {
+    line-height: 1.55;
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: rem(36);
+    font-family: var(--font-family-base);
+  }
+
+  &__description {
+    font-size: rem(28);
+  }
+}

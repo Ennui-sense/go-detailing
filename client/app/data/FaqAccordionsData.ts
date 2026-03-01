@@ -1,10 +1,10 @@
-interface IFaqCard {
+interface IFaqAccordion {
   id: number;
   title: string;
   text: string;
 }
 
-export const FaqCardsData: IFaqCard[] = [
+export const FaqAccordionsData: IFaqAccordion[] = [
   {
     id: 1,
     title:
