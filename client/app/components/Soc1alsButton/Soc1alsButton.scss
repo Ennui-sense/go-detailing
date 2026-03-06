@@ -1,0 +1,12 @@
+@use "~/styles/helpers" as *;
+
+.soc1als-button {
+	@include button-reset;
+	@include square(var(--button-height-large));
+	@include flex-center(true);
+
+	border-radius: 50%;
+	border: var(--border);
+	color: var(--color-light);
+	border-width: rem(2);
+}
