@@ -1,10 +1,11 @@
 @use "~/styles/helpers/" as *;
 
 .faq-accordion {
-  padding: rem(36);
+  padding: rem(24) rem(36);
   border: var(--border);
   border-radius: var(--border-radius-small);
-  background: rgba(255, 255, 255, 0.94);
+  background: var(--color-accent-light-alt);
+	border-color: var(--color-gray-light);
   max-width: rem(1000);
   font-size: rem(28);
   line-height: 1.41;
