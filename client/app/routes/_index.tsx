@@ -3,6 +3,7 @@ import Page from "~/layouts/Page";
 import Hero from "~/sections/Hero/Hero";
 import Benefits from "~/sections/Benefits/Benefits";
 import Brands from "~/sections/Brands/Brands";
+import Services from "~/sections/Services/Services";
 import Reviews from "~/sections/Reviews/Reviews";
 import Faq from "~/sections/Faq/Faq";
 import Steps from "~/sections/Steps/Steps";
@@ -23,6 +24,7 @@ export default function IndexRoute() {
       <Brands />
 
       <div className="bg__dark">
+        <Services />
         <Reviews />
       </div>
 

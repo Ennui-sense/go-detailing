@@ -1,0 +1,54 @@
+@use "~/styles/helpers" as *;
+
+.services-info {
+  border: var(--border);
+  border-radius: var(--border-radius-large);
+  padding: rem(40);
+  width: 100%;
+  border-color: var(--color-gray-light);
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(24);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    font-size: rem(24);
+    line-height: 1.55;
+  }
+
+  &__time {
+    font-weight: 200;
+    font-size: rem(28);
+    line-height: 1.2;
+    opacity: 0.8;
+  }
+
+  &__list {
+    font-weight: 100;
+    font-size: rem(24);
+    line-height: 1.55;
+  }
+
+  &__text {
+		&.italic {
+			font-style: italic;
+		}
+
+		&.marker {
+			@include flex-center(true);
+
+			column-gap: rem(15);
+
+			&::before {
+				@include square(rem(7));
+
+				content: '';
+				border-radius: 50%;
+				background-color: var(--color-light);
+				flex-shrink: 0;
+			}
+		}
+  }
+}

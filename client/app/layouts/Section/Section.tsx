@@ -6,12 +6,13 @@ import clsx from "clsx";
 
 interface SectionProps {
   title: ReactNode;
-  description?: string;
   className: string;
   children: ReactNode;
+  description?: string;
   isRow?: boolean;
   isMarquee?: boolean;
   marginTop?: number;
+	hiddenTitle?: boolean;
 }
 
 const Section = ({
@@ -22,6 +23,7 @@ const Section = ({
   marginTop,
   isRow = false,
   isMarquee = false,
+	hiddenTitle = false
 }: SectionProps) => {
   return (
     <section className="section">
@@ -33,7 +35,7 @@ const Section = ({
         })}
       >
         <header
-          className={clsx("section__header", { "visually-hidden": !title })}
+          className={clsx("section__header", { "visually-hidden": hiddenTitle })}
           style={{ marginTop: `${marginTop && marginTop / 16}rem` }}
         >
           <h2 className="section__title">{title}</h2>

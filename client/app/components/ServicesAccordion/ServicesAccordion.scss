@@ -1,0 +1,62 @@
+@use "~/styles/helpers" as *;
+
+.services-accordion {
+  padding: rem(30) rem(50);
+  background: var(--color-gradient);
+  border-radius: var(--border-radius);
+  position: relative;
+  max-width: rem(825);
+  border: var(--border);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(15);
+  transition-duration: var(--transition-duration);
+
+  &.active {
+    background: var(--color-light);
+
+    .services-accordion__button {
+      color: var(--color-dark);
+    }
+  }
+
+  &__button {
+    @include button-reset;
+    @include flex-center(true);
+
+    font-weight: 400;
+    font-size: rem(40);
+    letter-spacing: 0.04em;
+    font-family: var(--font-family-accent);
+    color: var(--color-light);
+    line-height: 1;
+    width: 100%;
+    justify-content: start;
+  }
+
+  &__price {
+    font-weight: 400;
+    font-size: rem(36);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: var(--color-accent);
+    font-family: var(--font-family-accent);
+    position: absolute;
+    top: rem(30);
+    right: rem(50);
+    z-index: -1;
+  }
+
+  &__collapse {
+    overflow: hidden;
+    transition-duration: var(--transition-duration);
+  }
+
+  &__body {
+    color: var(--color-dark);
+    font-weight: 100;
+    font-size: rem(20);
+    line-height: 1.3;
+  }
+}
