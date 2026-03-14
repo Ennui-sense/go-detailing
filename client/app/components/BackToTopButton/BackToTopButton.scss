@@ -1,0 +1,25 @@
+@use "~/styles/helpers" as *;
+
+.back-to-top-button {
+  @include button-reset;
+  @include flex-center(true);
+  @include square(rem(70));
+
+  position: fixed;
+  bottom: rem(-80);
+  right: rem(20);
+  border-radius: 50%;
+  border: var(--border);
+  color: var(--color-light);
+  background-color: rgba(59, 141, 242, 0.18);
+  transition-duration: var(--transition-duration);
+  z-index: 999;
+
+	& svg {
+		z-index: 100;
+	}
+
+  &.active {
+    bottom: rem(20);
+  }
+}
