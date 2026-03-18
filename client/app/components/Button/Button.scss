@@ -34,9 +34,14 @@
 		border-color: var(--color-accent);
 	}
 
+	&--dark {
+		color: var(--color-dark)
+	}
+
 	@include hover(false) {
 		&::after {
 			opacity: 1;
 		}
 	}
+
 }

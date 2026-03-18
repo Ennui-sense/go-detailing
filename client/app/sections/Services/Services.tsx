@@ -9,7 +9,11 @@ import { ServicesCardsData } from "~/data/ServicesCardsData";
 
 import { useState } from "react";
 
-const Services = () => {
+interface ServicesProps {
+  isHero?: boolean;
+}
+
+const Services = ({ isHero }: ServicesProps) => {
   const [activeId, setActiveId] = useState<number>(1);
 
   const handleClick = (id: number) => {
@@ -21,7 +25,7 @@ const Services = () => {
   )[0];
 
   return (
-    <Section title="Комплексный подход" className="services">
+    <Section title="Комплексный подход" className="services" isHero>
       <div className="services__inner">
         <div className="services__accordions">
           {ServicesCardsData.map(
@@ -39,11 +43,7 @@ const Services = () => {
           )}
         </div>
         <div className="services__body">
-          <ServicesInfo
-            time={time}
-            includedItems={includedItems}
-						key={id}
-          />
+          <ServicesInfo time={time} includedItems={includedItems} key={id} />
           <Button className="services__button">Уточнить детали</Button>
         </div>
       </div>

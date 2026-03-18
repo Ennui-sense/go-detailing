@@ -7,7 +7,7 @@ import { StepsCardsData } from "~/data/StepsCardsData";
 
 const Steps = () => {
   return (
-    <Section title="Порядок выполнения работ" className="steps">
+    <Section title="Порядок выполнения работ" className="steps" marginTop>
       <ol className="steps__list">
         {StepsCardsData.map(({ id, Icon, title, description }) => (
           <li className="steps__item" key={id}>

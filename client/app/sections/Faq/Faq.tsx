@@ -15,7 +15,7 @@ const Faq = () => {
       title={"Часто\nзадаваемые\nвопросы"}
       className="faq"
       isRow
-      marginTop={100}
+      marginTop
     >
       <ul className="faq__list">
         {FaqAccordionsData.map(({ id, text, title }) => (

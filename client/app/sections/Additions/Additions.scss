@@ -1,0 +1,16 @@
+@use "~/styles/helpers" as *;
+
+.additions {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(60);
+		align-items: center;
+	}
+	
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: rem(30)
+	}
+}

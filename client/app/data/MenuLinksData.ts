@@ -17,8 +17,8 @@ export const MenuLinksData: IMenuLink[] = [
 	},
 	{
 		id: 3,
-		label: "FAQ",
-		href: "/faq"
+		label: "О нас",
+		href: "/about"
 	},
 	{
 		id: 4,

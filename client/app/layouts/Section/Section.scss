@@ -5,6 +5,12 @@
     margin-bottom: rem(70);
   }
 
+	&:has(.additions) {
+		.section__header {
+			text-align: center;
+		}
+	}
+
   &__inner {
     display: flex;
     flex-direction: column;
@@ -19,17 +25,21 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: start;
-
-      // .section__title {
-      //   margin-top: rem(100);
-      // }
     }
+
+		&--hero {
+			padding-top: rem(120);
+		}
   }
 
 	&__header {
 		display: flex;
 		flex-direction: column;
 		row-gap: rem(20);
+
+		&--margin-top {
+			margin-top: rem(100);
+		}
 	}
 
   &__title {

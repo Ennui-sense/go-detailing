@@ -1,0 +1,100 @@
+@use "~/styles/helpers" as *;
+
+.additions-card {
+  position: relative;
+  color: var(--color-light);
+  border-radius: var(--border-radius-large);
+  width: rem(400);
+  height: rem(300);
+  perspective: rem(1000);
+
+  &__wrapper-image {
+    position: absolute;
+    inset: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 53, 100, 0.28);
+      backdrop-filter: blur(rem(6));
+      border-radius: var(--border-radius-large);
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    border-radius: var(--border-radius-large);
+  }
+
+  &__inner {
+    height: 100%;
+    width: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+
+    &.is-flipped {
+      transform: rotateY(180deg);
+    }
+  }
+
+  &__face {
+    position: absolute;
+    padding: rem(30);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius-large);
+
+    &--front {
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+      line-height: 1.2;
+      font-weight: 200;
+      font-size: rem(16);
+      background: var(--color-gradient);
+			background-color: #fff;
+      color: var(--color-dark);
+      border: var(--border);
+
+      .additions-card__title {
+        text-align: left;
+        align-self: start;
+        margin-bottom: rem(15);
+      }
+    }
+  }
+
+  &__title {
+    font-family: var(--font-family-base);
+    font-weight: 200;
+    font-size: rem(32);
+    line-height: 0.93;
+    text-align: center;
+    max-width: 100%;
+    z-index: 100;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: auto;
+  }
+
+  &__price {
+		font-family: var(--font-family-accent);
+    font-weight: 400;
+    font-size: rem(24);
+  }
+}

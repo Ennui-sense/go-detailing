@@ -11,8 +11,10 @@ interface SectionProps {
   description?: string;
   isRow?: boolean;
   isMarquee?: boolean;
-  marginTop?: number;
-	hiddenTitle?: boolean;
+  marginTop?: boolean;
+  hiddenTitle?: boolean;
+  isHero?: boolean;
+	isHeaderCenter?: boolean
 }
 
 const Section = ({
@@ -20,10 +22,11 @@ const Section = ({
   description,
   className,
   children,
-  marginTop,
+  marginTop = false,
   isRow = false,
   isMarquee = false,
-	hiddenTitle = false
+  hiddenTitle = false,
+  isHero = false,
 }: SectionProps) => {
   return (
     <section className="section">
@@ -32,11 +35,14 @@ const Section = ({
           container: !isMarquee,
           "section__inner--row": isRow,
           "section__inner--marquee": isMarquee,
+          "section__inner--hero": isHero,
         })}
       >
         <header
-          className={clsx("section__header", { "visually-hidden": hiddenTitle })}
-          style={{ marginTop: `${marginTop && marginTop / 16}rem` }}
+          className={clsx("section__header", {
+            "section__header--margin-top": marginTop,
+            "visually-hidden": hiddenTitle,
+          })}
         >
           <h2 className="section__title">{title}</h2>
 
