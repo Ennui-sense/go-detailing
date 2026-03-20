@@ -15,15 +15,34 @@ const FooterBottom = () => {
           согласия владельца преследуется по закону
         </div>
 
-        <p className="footer-bottom__developer">
-          Разработка сайта:{" "}
-          <a
+        <div className="footer-bottom__developers">
+          <p className="footer-bottom__developer">
+            Дизайн сайта:{" "}
+            <a
+              className="footer-bottom__developer-link"
+              href="https://clck.ru/3S323i"
+            >
+              Келлер Мила
+            </a>{" "}
+          </p>
+          <p className="footer-bottom__developer">
+            Разработка сайта:{" "}
+            <a
+              className="footer-bottom__developer-link"
+              href="https://portfolioshreder.vercel.app/"
+            >
+              Шредер Анатолий
+            </a>{" "}
+          </p>
+        </div>
+
+        {/* <a
             className="footer-bottom__developer-link"
             href="https://t.me/child_of_mooon"
           >
-            Lune Phlare
+            Шредер Анатолий
           </a>
-        </p>
+        </p> */}
       </div>
 
       <Soc1als className="footer__socials" />

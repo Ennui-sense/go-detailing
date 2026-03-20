@@ -25,7 +25,7 @@ const Services = ({ isHero }: ServicesProps) => {
   )[0];
 
   return (
-    <Section title="Комплексный подход" className="services" isHero>
+    <Section title="Комплексный подход" className="services" isHero={isHero}>
       <div className="services__inner">
         <div className="services__accordions">
           {ServicesCardsData.map(

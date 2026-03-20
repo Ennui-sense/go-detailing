@@ -28,11 +28,11 @@ export default function IndexRoute() {
         <Reviews />
       </div>
 
+      <Steps />
+
       <div className="bg__accent-light">
         <Faq />
       </div>
-
-      <Steps />
 
       <div className="bg__dark">
         <Cta />

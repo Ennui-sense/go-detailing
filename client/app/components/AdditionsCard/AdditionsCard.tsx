@@ -5,16 +5,14 @@ import type { IAdditionsCard } from "~/data/AdditionsCardsData";
 
 interface AdditionsCardProps {
   data: IAdditionsCard;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
+  onClick: () => void;
   visibleDetails: boolean;
 }
 
 const AdditionsCard = ({
   data,
-  onMouseEnter,
-  onMouseLeave,
-  visibleDetails,
+  onClick,
+  visibleDetails
 }: AdditionsCardProps) => {
   const { title, time, description, imageSrc, price } = data;
 
@@ -35,8 +33,7 @@ const AdditionsCard = ({
   return (
     <article
       className="additions-card"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+			onClick={onClick}
     >
       <div
         className={clsx("additions-card__inner", {

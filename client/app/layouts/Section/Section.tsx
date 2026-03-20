@@ -46,7 +46,7 @@ const Section = ({
         >
           <h2 className="section__title">{title}</h2>
 
-          <p className="section__description">{description}</p>
+          {description && <p className="section__description">{description}</p>}
         </header>
 
         <div className={clsx("section__body", className)}>{children}</div>

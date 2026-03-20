@@ -17,6 +17,11 @@
     max-width: rem(650);
   }
 
+	&__developers {
+		display: flex;
+		flex-direction: column;
+	}
+
   &__developer {
     color: var(--color-accent);
 

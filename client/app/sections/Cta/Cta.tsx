@@ -21,9 +21,6 @@ const Cta = () => {
     >
       <div className="cta__body">
         <Button className="cta__button">Заполнить</Button>
-        <p className="cta__text">
-          Нажимая «Заказать», вы соглашаетесь с обработкой персональных данных
-        </p>
       </div>
     </Section>
   );

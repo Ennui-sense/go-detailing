@@ -34,9 +34,9 @@ const Reviews = () => {
         <div className="reviews__buttons">
           <Button
             className="reviews__button button--phone"
-            href="tel:+79223186599"
+            href="tel:+73422737107"
           >
-            +7 922 318 6599
+            +7 (342) 27-37-107
           </Button>
           <Button className="reviews__button">Записаться</Button>
         </div>
