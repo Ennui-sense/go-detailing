@@ -1,0 +1,14 @@
+@use "~/styles/helpers" as *;
+
+.about {
+  &__text {
+		font-size: rem(32);
+    line-height: 1.5;
+    text-align: center;
+		
+		&-accent {
+			font-style: italic;
+			font-weight: 500;
+		}
+  }
+}

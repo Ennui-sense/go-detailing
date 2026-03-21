@@ -18,9 +18,9 @@ export const ContactsLinksData: IContactsLink[] = [
 	},
 	{
 		id: 2,
-		label: "GOdetail@gmail.com",
+		label: "godetailing@mail.com",
 		Icon: LetterIcon,
-		href: "mailto:GOdetail@gmail.com"
+		href: "mailto:godetailing@mail.com"
 	},
 	{
 		id: 3,
