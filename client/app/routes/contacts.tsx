@@ -1,9 +1,8 @@
 import type { Route } from "./+types/contacts";
 
 import Page from "~/layouts/Page";
-import Additions from "~/sections/Additions/Additions";
-import Services from "~/sections/Services/Services";
-import Reviews from "~/sections/Reviews/Reviews";
+import Contacts from "~/sections/Contacts/Contacts";
+import Process from "~/sections/Process/Process";
 
 export function meta() {
   return [
@@ -16,13 +15,8 @@ export default function ContactsRoute() {
   return (
     <Page>
       <div className="bg__dark">
-        <Services isHero />
-      </div>
-      <div className="bg__accent-light">
-        <Additions />
-      </div>
-      <div className="bg__dark">
-        <Reviews />
+        <Contacts isHero />
+        <Process />
       </div>
     </Page>
   );

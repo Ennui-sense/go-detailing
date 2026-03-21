@@ -14,7 +14,7 @@ interface SectionProps {
   marginTop?: boolean;
   hiddenTitle?: boolean;
   isHero?: boolean;
-	isHeaderCenter?: boolean
+	isLeft?: boolean
 }
 
 const Section = ({
@@ -27,6 +27,7 @@ const Section = ({
   isMarquee = false,
   hiddenTitle = false,
   isHero = false,
+	isLeft = false
 }: SectionProps) => {
   return (
     <section className="section">
@@ -34,8 +35,8 @@ const Section = ({
         className={clsx("section__inner", {
           container: !isMarquee,
           "section__inner--row": isRow,
-          "section__inner--marquee": isMarquee,
           "section__inner--hero": isHero,
+          "section__inner--left": isLeft,
         })}
       >
         <header

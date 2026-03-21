@@ -5,11 +5,17 @@
     margin-bottom: rem(70);
   }
 
-	&:has(.additions) {
-		.section__header {
-			text-align: center;
-		}
-	}
+  &:has(.additions) {
+    .section__header {
+      text-align: center;
+    }
+  }
+
+  &:has(.brands) {
+    .section__inner {
+      overflow: hidden;
+    }
+  }
 
   &__inner {
     display: flex;
@@ -17,30 +23,30 @@
     row-gap: rem(60);
     align-items: center;
 
-    &--marquee {
-      overflow: hidden;
-    }
-
     &--row {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
 
-		&--hero {
-			padding-top: rem(120);
-		}
+    &--hero {
+      padding-top: rem(120);
+    }
+
+    &--left {
+			align-items: start;
+    }
   }
 
-	&__header {
-		display: flex;
-		flex-direction: column;
-		row-gap: rem(20);
+  &__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
 
-		&--margin-top {
-			margin-top: rem(100);
-		}
-	}
+    &--margin-top {
+      margin-top: rem(100);
+    }
+  }
 
   &__title {
     white-space: pre-line;

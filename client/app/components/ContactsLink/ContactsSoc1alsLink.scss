@@ -1,0 +1,15 @@
+@use "~/styles/helpers" as *;
+
+.contacts-soc1als-link {
+  display: flex;
+  align-items: center;
+  column-gap: rem(30);
+
+  & svg {
+    color: var(--color-accent);
+  }
+
+  @include hover(false) {
+    opacity: 0.6;
+  }
+}
