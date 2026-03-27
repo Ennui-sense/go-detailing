@@ -3,6 +3,14 @@
 .section {
   &:not(:last-child) {
     margin-bottom: rem(70);
+
+		@include tablet {
+			margin-bottom: rem(50);
+		}
+
+		@include mobile {
+			margin-bottom: rem(30);
+		}
   }
 
   &:has(.additions) {
@@ -22,6 +30,14 @@
     flex-direction: column;
     row-gap: rem(60);
     align-items: center;
+
+		@include desktop {
+			row-gap: rem(40);
+		}
+
+		@include mobile {
+			row-gap: rem(20);
+		}
 
     &--row {
       flex-direction: row;
@@ -50,6 +66,7 @@
 
   &__title {
     white-space: pre-line;
+		text-align: center;
 
     &-accent {
       color: var(--color-accent);

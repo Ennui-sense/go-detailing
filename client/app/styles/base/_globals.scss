@@ -48,7 +48,7 @@ h1,
 
 h2,
 .h2 {
-  font-size: rem(50);
+	@include fluid-text(50, 20);
 }
 
 h3,

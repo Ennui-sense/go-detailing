@@ -1,6 +1,8 @@
 @use "~/styles/helpers" as *;
 
 .reviews-card {
+  @include fluid-text(24, 12);
+
   padding: rem(56);
   border: var(--border);
   border-radius: var(--border-radius-large);
@@ -8,24 +10,42 @@
   flex-direction: column;
   row-gap: rem(40);
 
+	@include tablet {
+		row-gap: rem(30)
+	}
+
+	@include mobile {
+		padding: rem(30);
+		row-gap: rem(15);
+	}
+
+	@include mobile-s {
+		padding: rem(18)
+	}
+
   &__info {
+		@include fluid-text(32, 16);
+
     display: flex;
     column-gap: rem(40);
     font-weight: 400;
-    font-size: rem(32);
     line-height: 1.55;
+
+		@include mobile {
+			justify-content: space-between;
+		}
   }
 
-	&__rate {
-		display: flex;
-		column-gap: rem(6);
-		align-items: center;
+  &__rate {
+    display: flex;
+    column-gap: rem(6);
+    align-items: center;
 
-		&::after {
-			@include square(rem(28));
+    &::after {
+      @include square(rem(28));
 
-			content: "";
-			background: url("../../assets/icons/star.svg");
-		}
-	}
+      content: "";
+      background: url("../../assets/icons/star.svg");
+    }
+  }
 }

@@ -20,14 +20,14 @@ export default function IndexRoute() {
   return (
     <Page>
       <Hero />
-      {/* <Benefits />
+      <Benefits />
       <Brands />
 
       <div className="bg__dark">
-        <Services />
+        {/* <Services /> */}
         <Reviews />
       </div>
-
+{/* 
       <Steps />
 
       <div className="bg__accent-light">

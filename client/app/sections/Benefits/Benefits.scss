@@ -5,6 +5,10 @@
     @include flex-center;
 
     flex-direction: column;
+
+		@include mobile-s {
+			row-gap: rem(20);
+		}
   }
 
   &__item {
@@ -12,7 +16,7 @@
 
     &:first-child {
       .benefits-card__label {
-        margin-left: rem(10);
+        margin-left: fluid(10, 5);
       }
     }
   }

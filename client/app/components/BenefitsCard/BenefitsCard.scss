@@ -3,18 +3,29 @@
 .benefits-card {
   display: flex;
   column-gap: rem(40);
+	align-items: center;
+
+	@include mobile {
+		column-gap: rem(20);
+	}
 
   &__number {
+    @include fluid-text(36, 16);
+
     font-family: var(--font-family-accent);
     font-weight: 400;
-    font-size: rem(36);
     color: var(--color-accent);
   }
 
   &__label {
+    @include fluid-text(32, 15);
+
     color: var(--color-dark);
     font-weight: 300;
-    font-size: rem(32);
-		text-wrap: nowrap;
+    text-wrap: nowrap;
+
+		@include mobile {
+			text-wrap: wrap;
+		}
   }
 }

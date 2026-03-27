@@ -11,7 +11,7 @@ const Brands = () => {
     <Section className="brands" isMarquee title="Автомобили, с которыми мы работаем" hiddenTitle>
       <ul className="brands__list">
         {duplicateBrandsData.map(({ imageSrc, id }, index) => (
-          <li className="brands__item" key={id - index}>
+          <li className="brands__item" key={`${id}-${index}`}>
             <img
               src={imageSrc}
               alt=""

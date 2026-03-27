@@ -4,6 +4,14 @@
 	&__dark,
 	&__accent-light {
 		padding-block: rem(70);
+
+		@include tablet {
+			padding-block: rem(50);
+		}
+
+		@include mobile {
+			padding-block: rem(30);
+		}
 	}
 
 	&__dark {

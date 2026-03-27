@@ -1,7 +1,8 @@
 @use "~/styles/helpers" as *;
 
 .brands {
-	align-self: start;
+  align-self: start;
+
   &__list {
     display: flex;
     align-items: center;
@@ -9,6 +10,38 @@
     animation: marquee 30s linear infinite;
     width: max-content;
     will-change: transform;
+
+    @include desktop {
+      column-gap: rem(60);
+    }
+
+    @include mobile {
+      column-gap: rem(36);
+    }
+  }
+
+  &__item {
+    @include flex-center;
+  }
+
+  &__image {
+    width: auto;
+    height: auto;
+
+    @include desktop {
+      max-width: rem(330);
+      max-height: rem(130);
+    }
+
+    @include tablet {
+      max-width: rem(300);
+      max-height: rem(115);
+    }
+
+    @include mobile {
+      max-width: rem(120);
+      max-height: rem(55);
+    }
   }
 }
 
