@@ -3,20 +3,32 @@
 .header {
   background-color: transparent;
   padding-block: rem(40);
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: 2;
-	color: var(--color-light);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  color: var(--color-light);
+
+  @include desktop {
+    padding-block: rem(30);
+  }
 
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    column-gap: rem(12);
+    flex-wrap: wrap;
+    row-gap: rem(12);
   }
 
   &__buttons {
     display: flex;
     column-gap: rem(20);
+    align-items: center;
+
+    @include mobile {
+      column-gap: rem(10);
+    }
   }
 }

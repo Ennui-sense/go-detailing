@@ -1,9 +1,10 @@
 @use "./../helpers" as *;
 
 body {
+	@include fluid-text(24, 14);
+
   font-family: var(--font-family-base);
   font-weight: 100;
-  font-size: rem(24);
   line-height: 1.55;
   color: var(--color-dark);
   background-color: var(--color-light);
@@ -37,7 +38,14 @@ h3,
 }
 
 h1,
-.h1,
+.h1 {
+  @include fluid-text(60, 24);
+
+	@include mobile {
+		letter-spacing: 0;
+	}
+}
+
 h2,
 .h2 {
   font-size: rem(50);

@@ -18,7 +18,7 @@
 	--font-family-base: "Geologica", sans-serif;
 
 	--container-width: #{rem(1680)};
-	--container-padding-x: #{rem(25)};
+	--container-padding-x: #{rem(20)};
 
 	--button-height: #{rem(70)};
 	--button-height-large: #{rem(75)};
@@ -32,4 +32,16 @@
 	--filter: blur(#{rem(200)});
 
 	--transition-duration: .25s;
+
+	@include desktop {
+		--button-height: #{rem(60)};
+	}
+
+	@include mobile {
+		--button-height: #{rem(50)};
+	}
+
+	@include mobile-s {
+		--button-height: #{rem(36)};
+	}
 }

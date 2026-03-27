@@ -1,44 +1,72 @@
 @use "~/styles/helpers" as *;
 
 .hero {
-	position: relative;
-	color: var(--color-light);
+  position: relative;
+  color: var(--color-light);
 
   &__bg {
     &-image {
       width: 100%;
-			// height: 100vhx;
       object-fit: cover;
+
+      @include desktop {
+        height: rem(800);
+      }
+
+      @include mobile {
+        height: rem(650);
+      }
     }
 
     &::after {
       content: "";
-			width: 100%;
-			background: var(--color-gradient-dark);
-			position: absolute;
-			inset: 0;
-			opacity: 0.8;
-			backdrop-filter: blur(rem(4));
+      width: 100%;
+      background: var(--color-gradient-dark);
+      position: absolute;
+      inset: 0;
+      opacity: 0.8;
+      backdrop-filter: blur(rem(4));
     }
   }
 
-	&__inner {
-		position: absolute;
-		top: rem(328);
-		left: 50%;
-		transform: translateX(-50%);
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		row-gap: rem(60);
-		align-items: center;
-	}
+  &__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(60);
+    align-items: center;
 
-	&__title {
-		text-wrap: nowrap;
+    @include tablet {
+      row-gap: rem(40);
+    }
 
-		&-accent {
-			color: var(--color-accent)
-		}
-	}
+    @include mobile {
+      row-gap: rem(30);
+    }
+  }
+
+  &__title {
+    text-wrap: nowrap;
+
+    @include mobile {
+      text-wrap: wrap;
+    }
+
+    &-accent {
+      color: var(--color-accent);
+    }
+  }
+
+  &__text {
+    font-weight: 200;
+		
+    @include mobile-s {
+      max-width: rem(250);
+    }
+  }
 }

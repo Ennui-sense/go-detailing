@@ -1,0 +1,16 @@
+@use "~/styles/helpers" as *;
+
+.burger-button {
+	@include button-reset;
+	@include square(rem(26));
+	@include flex-center(true);
+
+	flex-direction: column;
+	row-gap: rem(8);
+
+	&__line {
+		width: 100%;
+		height: rem(1);
+		background-color: var(--color-light);
+	}
+}

@@ -1,1 +1,17 @@
 @use "~/styles/helpers" as *;
+
+.logo {
+	&__image {
+		@include desktop {
+			width: rem(140);
+		}
+
+		@include mobile {
+			width: rem(100);
+		}
+
+		@include mobile-s {
+			width: rem(75);
+		}
+	}
+}

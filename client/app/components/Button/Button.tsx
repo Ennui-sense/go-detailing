@@ -10,13 +10,13 @@ interface ButtonProps {
 
 const Button = ({ className, href, children, variant }: ButtonProps) => {
   return href ? (
-    <a href={href} className={clsx("button", className)}>
+    <a href={href} className={clsx(className, "button")}>
       {children}
     </a>
   ) : (
     <button
       type="button"
-      className={clsx("button", className, `button--${variant}`)}
+      className={clsx(className, "button", `button--${variant}`)}
     >
       {children}
     </button>

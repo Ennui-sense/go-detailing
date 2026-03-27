@@ -20,7 +20,7 @@ export default function IndexRoute() {
   return (
     <Page>
       <Hero />
-      <Benefits />
+      {/* <Benefits />
       <Brands />
 
       <div className="bg__dark">
@@ -36,7 +36,7 @@ export default function IndexRoute() {
 
       <div className="bg__dark">
         <Cta />
-      </div>
+      </div> */}
     </Page>
   );
 }

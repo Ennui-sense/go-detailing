@@ -1,17 +1,17 @@
 import clsx from "clsx";
 import "./Logo.scss";
 
-import LogoImage from "~/assets/images/logo.svg";
-
 interface LogoProps {
   className: string;
+	imageSrc: string
 }
 
-const Logo = ({ className }: LogoProps) => {
+const Logo = ({ className, imageSrc }: LogoProps) => {
+
   return (
     <a href="/" className={clsx("logo", className)}>
       <img
-        src={LogoImage}
+        src={imageSrc}
         alt="Наш логотип"
         className="logo__image"
         width={190}

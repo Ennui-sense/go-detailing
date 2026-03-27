@@ -147,7 +147,7 @@ export const ServicesCardsData: IServicesCard[] = [
       },
       {
         id: 9,
-        label: "Гибридное керамическое покрытие — блеск и защита на 12 месяцев",
+        label: "Гибридное кварцевое покрытие — блеск и защита на 12 месяцев",
         marker: true,
       },
       {
