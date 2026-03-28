@@ -12,6 +12,7 @@ interface ServicesCardProps {
   description: string;
   time: number;
   includedItems: IIncludedItem[];
+	id: number;
 }
 
 const ServicesCard = ({
@@ -21,6 +22,7 @@ const ServicesCard = ({
   maxPrice,
   description,
   includedItems,
+	id
 }: ServicesCardProps) => {
   const formatPrice = (minPrice: number, maxPrice: number) => {
     return `от ${minPrice.toLocaleString("ru-Ru")} ₽-${maxPrice.toLocaleString("ru-Ru")} ₽`;
@@ -48,8 +50,8 @@ const ServicesCard = ({
           <p className="services-card__price">
             {formatPrice(minPrice, maxPrice)}
           </p>
-          <ServicesInfo includedItems={includedItems} />
-          <Button className="services-card__button">Заказать</Button>
+          <ServicesInfo includedItems={includedItems}/>
+          <Button className="services-card__button" variant={id === 2 ? "dark" : undefined}>Заказать</Button>
         </div>
       </div>
     </article>

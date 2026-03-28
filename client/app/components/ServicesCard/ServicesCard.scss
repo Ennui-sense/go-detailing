@@ -1,8 +1,6 @@
 @use "~/styles/helpers" as *;
 
 .services-card {
-  background-color: var(--color-accent-dark);
-  color: var(--color-light);
   border: var(--border);
   padding: rem(40) rem(32) rem(20);
   border-radius: var(--border-radius-small);

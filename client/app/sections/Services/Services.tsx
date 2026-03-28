@@ -74,6 +74,7 @@ const Services = ({ isHero }: ServicesProps) => {
           <div className="services__pagination"></div>
           <Swiper
             slidesPerView={1}
+						spaceBetween={40}
             modules={[Pagination]}
             className="services__swiper"
             pagination={{
@@ -93,9 +94,10 @@ const Services = ({ isHero }: ServicesProps) => {
                 maxPrice,
                 minPrice,
                 id,
+								time,
                 includedItems,
               }) => (
-                <SwiperSlide key={id}>
+                <SwiperSlide key={id} className="services__swiper-slide">
                   <ServicesCard
                     time={time}
                     title={title}
@@ -103,9 +105,10 @@ const Services = ({ isHero }: ServicesProps) => {
                     maxPrice={maxPrice}
                     minPrice={minPrice}
                     includedItems={includedItems}
+										id={id}
                   />
                 </SwiperSlide>
-              ),
+              )
             )}
           </Swiper>
         </div>
