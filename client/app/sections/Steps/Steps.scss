@@ -1,20 +1,64 @@
 @use "~/styles/helpers" as *;
 
 .steps {
-	width: 100%;
+  width: 100%;
 
   &__list {
     display: flex;
     flex-direction: column;
-    align-items: end;
+
+		@include mobile {
+			row-gap: rem(20);
+		}
   }
 
   &__item {
-    &:nth-child(2n) {
-			align-self: start;
+    display: grid;
+    grid-template-columns: 1fr rem(80) 1fr;
+    column-gap: rem(85);
+    align-items: center;
+    width: 100%;
 
-      .steps-card {
-        flex-direction: row-reverse;
+		@include desktop {
+			column-gap: rem(50);
+			grid-template-columns: 1fr rem(80) 1fr;
+		}
+
+		@include tablet {
+			column-gap: rem(35);
+			grid-template-columns: 1fr rem(60) 1fr;
+		}
+
+		@include mobile {
+			display: flex;
+			column-gap: rem(20);
+
+			.steps-card__image {
+				flex-shrink: 0;
+			}
+		}
+
+    &--left {
+      .steps-card__content {
+        grid-column: 1;
+				grid-row: 1;
+      }
+
+      .steps-card__image {
+        grid-column: 2;
+				grid-row: 1;
+      }
+    }
+
+    &--right {
+      .steps-card__content {
+        grid-column: 3;
+				grid-row: 1;
+      }
+
+      .steps-card__image {
+        grid-column: 2;
+				grid-row: 1;
       }
     }
   }

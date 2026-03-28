@@ -27,7 +27,7 @@ export default function IndexRoute() {
         {/* <Services /> */}
         <Reviews />
       </div>
-{/* 
+
       <Steps />
 
       <div className="bg__accent-light">
@@ -36,7 +36,7 @@ export default function IndexRoute() {
 
       <div className="bg__dark">
         <Cta />
-      </div> */}
+      </div>
     </Page>
   );
 }

@@ -1,37 +1,61 @@
 @use "~/styles/helpers" as *;
 
 .steps-card {
-  max-width: rem(890);
-  display: flex;
-  column-gap: rem(85);
-  align-items: center;
-
-  &__body {
-    display: flex;
-    flex-direction: column;
-    row-gap: rem(20);
-  }
-
-  &__wrapper-image {
+  &__image {
     @include square(rem(100));
     @include flex-center(true);
 
     border-radius: 50%;
     background-color: var(--color-accent-light);
-    flex-shrink: 0;
+
+		@include desktop {
+			@include square(rem(80));
+
+			& svg {
+				@include square(rem(45))
+			}
+		}
+
+		@include tablet {
+			@include square(rem(60));
+
+			& svg {
+				@include square(rem(35))
+			}
+		}
+
+		@include mobile {
+			@include square(rem(50));
+
+			& svg {
+				@include square(rem(30))
+			}
+		}
   }
 
-  &__body {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
     line-height: 1.55;
+
+		@include tablet {
+			row-gap: rem(12);
+		}
+
+		@include mobile {
+			row-gap: rem(6) 
+		}
   }
 
   &__title {
+		@include fluid-text(36, 14);
+
     font-weight: 300;
-    font-size: rem(36);
     font-family: var(--font-family-base);
   }
 
   &__description {
-    font-size: rem(28);
+		@include fluid-text(28, 12);
   }
 }

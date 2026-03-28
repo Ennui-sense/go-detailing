@@ -4,13 +4,13 @@
   &:not(:last-child) {
     margin-bottom: rem(70);
 
-		@include tablet {
-			margin-bottom: rem(50);
-		}
+    @include tablet {
+      margin-bottom: rem(50);
+    }
 
-		@include mobile {
-			margin-bottom: rem(30);
-		}
+    @include mobile {
+      margin-bottom: rem(30);
+    }
   }
 
   &:has(.additions) {
@@ -31,18 +31,32 @@
     row-gap: rem(60);
     align-items: center;
 
-		@include desktop {
-			row-gap: rem(40);
-		}
+    @include desktop {
+      row-gap: rem(40);
+    }
 
-		@include mobile {
-			row-gap: rem(20);
-		}
+    @include mobile {
+      row-gap: rem(20);
+    }
 
     &--row {
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: start;
+      column-gap: rem(40);
+
+      .section__title {
+        text-align: start;
+      }
+
+      @include mobile {
+        flex-direction: column;
+        align-items: center;
+
+        .section__title {
+          text-align: center;
+        }
+      }
     }
 
     &--hero {
@@ -50,7 +64,7 @@
     }
 
     &--left {
-			align-items: start;
+      align-items: start;
     }
   }
 
@@ -59,14 +73,26 @@
     flex-direction: column;
     row-gap: rem(20);
 
+		@include mobile {
+			row-gap: rem(5);
+		}
+
     &--margin-top {
-      margin-top: rem(100);
+      margin-top: rem(70);
+
+      @include tablet {
+        margin-top: rem(50);
+      }
+
+      @include mobile {
+        margin-top: rem(30);
+      }
     }
   }
 
   &__title {
     white-space: pre-line;
-		text-align: center;
+    text-align: center;
 
     &-accent {
       color: var(--color-accent);
@@ -74,7 +100,12 @@
   }
 
   &__description {
-    font-size: rem(28);
+		@include fluid-text(28, 12);
+
     line-height: 1.55;
+
+		@include mobile {
+			text-align: center;
+		}
   }
 }

@@ -8,16 +8,16 @@ interface StepsCardProps {
 
 const StepsCard = ({ Icon, title, description }: StepsCardProps) => {
   return (
-    <article className="steps-card">
-      <div className="steps-card__wrapper-image">
+    <>
+      <div className="steps-card__image">
         <Icon />
       </div>
 
-      <div className="steps-card__body">
+      <div className="steps-card__content">
         <h3 className="steps-card__title">{title}</h3>
         <p className="steps-card__description">{description}</p>
       </div>
-    </article>
+    </>
   );
 };
 
