@@ -1,4 +1,4 @@
-import "./BackToTopButton.scss";
+import "./ArrowButton.scss";
 
 import clsx from "clsx";
 
@@ -6,7 +6,17 @@ import { useEffect, useState } from "react";
 
 import ArrowTopIcon from "~/assets/icons/arrow-top.svg?react";
 
-const BackToTopButton = () => {
+interface ArrowButtonProps {
+  onClick?: () => void;
+  directionArrow?: "top" | "right" | "bottom" | "left";
+  className: string;
+}
+
+const ArrowButton = ({
+  onClick,
+  directionArrow,
+  className,
+}: ArrowButtonProps) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
@@ -25,12 +35,17 @@ const BackToTopButton = () => {
   return (
     <button
       type="button"
-      className={clsx("back-to-top-button", { active: isVisible })}
-      onClick={() => scrollToTop()}
+      className={clsx(
+        "arrow-button",
+        // { active: isVisible },
+        `arrow-button--${directionArrow}`,
+        className,
+      )}
+      onClick={onClick}
     >
       <ArrowTopIcon />
     </button>
   );
 };
 
-export default BackToTopButton;
+export default ArrowButton;

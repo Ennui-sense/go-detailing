@@ -1,13 +1,13 @@
 @use "~/styles/helpers" as *;
 
-.back-to-top-button {
+.arrow-button {
   @include button-reset;
   @include flex-center(true);
   @include square(rem(70));
 
-  position: fixed;
-  bottom: rem(-80);
-  right: rem(20);
+  // position: fixed;
+  // bottom: rem(-80);
+  // right: rem(20);
   border-radius: 50%;
   border: var(--border);
   color: var(--color-light);
@@ -22,4 +22,12 @@
   &.active {
     bottom: rem(20);
   }
+	
+	&--right {
+		transform: rotate(90deg)
+	}
+
+	&--left {
+		transform: rotate(270deg)
+	}
 }

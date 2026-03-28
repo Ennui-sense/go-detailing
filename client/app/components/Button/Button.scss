@@ -36,11 +36,6 @@
   &--phone {
     background: transparent;
     border-color: var(--color-accent);
-
-    @include mobile {
-      border: none;
-      letter-spacing: 0.04em;
-    }
   }
 
   &--dark {

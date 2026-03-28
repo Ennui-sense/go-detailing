@@ -1,7 +1,7 @@
 import Header from "~/components/Header/Header";
 import Footer from "~/components/Footer/Footer";
 
-import BackToTopButton from "~/components/BackToTopButton/BackToTopButton";
+// import BackToTopButton from "~/components/BackToTopButton/BackToTopButton";
 
 import type { ReactNode } from "react";
 
@@ -16,7 +16,7 @@ const Page = ({ children }: PageProps) => {
       <main>{children}</main>
       {/* <Footer /> */}
 
-      <BackToTopButton />
+      {/* <BackToTopButton /> */}
     </>
   );
 };

@@ -1,31 +1,28 @@
 @use "~/styles/helpers" as *;
 
 .reviews {
-	width: 100%;
-	
+  width: 100%;
+
   &__inner {
     display: flex;
     flex-direction: column;
     row-gap: rem(60);
     align-items: center;
+  }
+
+  &__body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: rem(20);
+    position: relative;
 
     @include tablet {
       row-gap: rem(40);
     }
 
-		@include mobile {
-			row-gap: rem(20);
-		}
-  }
-
-  &__list {
-    display: flex;
-    column-gap: rem(30);
-    position: relative;
-
-    @include desktop {
-      flex-direction: column;
-      row-gap: rem(30);
+    @include mobile {
+      row-gap: rem(20);
     }
 
     &::after {
@@ -41,12 +38,20 @@
     }
   }
 
-	&__slider {
-		width: 100%;
-	}
+  // &__slider {
+  //   padding: rem(30) !important;
+  // }
+
+  &__swiper-button {
+    flex-shrink: 0;
+  }
 
   &__buttons {
     display: flex;
     column-gap: rem(30);
+
+    @include mobile {
+      column-gap: rem(20);
+    }
   }
 }

@@ -6,34 +6,40 @@
   padding: rem(56);
   border: var(--border);
   border-radius: var(--border-radius-large);
+	border-color: var(--color-gray-light);
   display: flex;
   flex-direction: column;
   row-gap: rem(40);
 
-	@include tablet {
-		row-gap: rem(30)
-	}
+  // @include hover(false) {
+  //   box-shadow: 0 0 rem(50) 0 rgba(59, 141, 242, 0.37);
+  // }
 
-	@include mobile {
-		padding: rem(30);
-		row-gap: rem(15);
-	}
+  @include tablet {
+    padding: rem(32);
+    row-gap: rem(30);
+  }
 
-	@include mobile-s {
-		padding: rem(18)
-	}
+  @include mobile {
+    padding: rem(20);
+    row-gap: rem(15);
+  }
+
+  @include mobile-s {
+    padding: rem(18);
+  }
 
   &__info {
-		@include fluid-text(32, 16);
+    @include fluid-text(32, 16);
 
     display: flex;
     column-gap: rem(40);
     font-weight: 400;
     line-height: 1.55;
 
-		@include mobile {
-			justify-content: space-between;
-		}
+    @include mobile {
+      justify-content: space-between;
+    }
   }
 
   &__rate {

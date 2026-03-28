@@ -24,7 +24,7 @@ export default function IndexRoute() {
       <Brands />
 
       <div className="bg__dark">
-        {/* <Services /> */}
+        <Services />
         <Reviews />
       </div>
 

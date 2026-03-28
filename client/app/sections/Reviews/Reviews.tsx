@@ -3,35 +3,45 @@ import "./Reviews.scss";
 import Section from "~/layouts/Section/Section";
 import ReviewsCard from "~/components/ReviewsCard/ReviewsCard";
 import Button from "~/components/Button/Button";
+import ArrowButton from "~/components/ArrowButton/ArrowButton";
 
 import { ReviewsCardsData } from "~/data/ReviewsCardsData";
 
 import { useState, useEffect } from "react";
+import type { Swiper as SwiperType } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
-import "swiper/swiper.css";
+import "swiper/css";
 
 const Reviews = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isTablet, setIsTablet] = useState<boolean>(false);
+  const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 47.9375rem)");
+    const mobileQuery = window.matchMedia("(max-width: 47.9375rem)");
+    const tabletQuery = window.matchMedia("(max-width: 64rem)");
 
     const checkMobile = () => {
-      setIsMobile(mediaQuery.matches);
+      setIsMobile(mobileQuery.matches);
+      setIsTablet(tabletQuery.matches);
     };
 
     checkMobile();
 
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
+    mobileQuery.addEventListener("change", checkMobile);
+    tabletQuery.addEventListener("change", checkMobile);
+
+		
+    return () => {
+			mobileQuery.removeEventListener("change", checkMobile);
+      tabletQuery.removeEventListener("change", checkMobile);
     };
-
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
+
+  const slidesPerView = isMobile ? 1.4 : isTablet ? 2 : 3
 
   return (
     <Section
@@ -44,11 +54,21 @@ const Reviews = () => {
       className="reviews"
     >
       <div className="reviews__inner">
-        {isMobile ? (
+        <div className="reviews__body">
+          {!isMobile && (
+            <ArrowButton
+              directionArrow="left"
+              onClick={() => swiper?.slidePrev()}
+              className="reviews__swiper-button"
+            />
+          )}
+
           <Swiper
-            slidesPerView={1.4}
-						spaceBetween="20"
-						className="reviews__slider"
+            onSwiper={setSwiper}
+            slidesPerView={slidesPerView}
+            spaceBetween={isMobile ? 12 : isTablet ? 20 : 30}
+            className="reviews__slider"
+            modules={[Navigation]}
           >
             {ReviewsCardsData.map(({ id, text, name, rate }) => (
               <SwiperSlide className="reviews__item" key={id}>
@@ -61,20 +81,15 @@ const Reviews = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        ) : (
-          <ul className="reviews__list">
-            {ReviewsCardsData.map(({ id, text, name, rate }) => (
-              <li className="reviews__item" key={id}>
-                <ReviewsCard
-                  text={text}
-                  name={name}
-                  rate={rate}
-                  className="reviews__card"
-                />
-              </li>
-            ))}
-          </ul>
-        )}
+
+          {!isMobile && (
+            <ArrowButton
+              directionArrow="right"
+              onClick={() => swiper?.slideNext()}
+              className="reviews__swiper-button"
+            />
+          )}
+        </div>
 
         <div className="reviews__buttons">
           <Button

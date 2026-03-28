@@ -1,0 +1,85 @@
+@use "~/styles/helpers" as *;
+
+.services-card {
+  background-color: var(--color-accent-dark);
+  color: var(--color-light);
+  border: var(--border);
+  padding: rem(40) rem(32) rem(20);
+  border-radius: var(--border-radius-small);
+
+  @include mobile {
+    padding: rem(20) rem(16) rem(30);
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(40);
+
+    @include mobile {
+      row-gap: rem(24);
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(12);
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: rem(1);
+      background-color: var(--color-gray-light);
+      position: absolute;
+      left: 0;
+      bottom: rem(-20);
+
+      @include mobile {
+        bottom: rem(-10);
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include fluid-text(30, 18);
+  }
+
+  &__info {
+    @include fluid-text(28, 16);
+  }
+
+  &__description {
+    @include fluid-text(20, 14);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(32);
+
+		@include mobile {
+			row-gap: rem(16)
+		}
+  }
+
+  &__price {
+    @include fluid-text(36, 20);
+
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: var(--color-accent);
+    font-family: var(--font-family-accent);
+  }
+
+  &__button {
+    margin-inline: auto;
+  }
+}
