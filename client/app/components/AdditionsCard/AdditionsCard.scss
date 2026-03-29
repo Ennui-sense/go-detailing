@@ -9,6 +9,16 @@
   perspective: rem(1000);
 	cursor: pointer;
 
+	@include tablet {
+		width: rem(300);
+		height: rem(250);
+	}
+
+	@include mobile-s {
+		width: rem(240);
+		height: rem(200);
+	}
+
   &__wrapper-image {
     position: absolute;
     inset: 0;
@@ -26,6 +36,7 @@
   &__image {
     object-fit: cover;
     width: 100%;
+		height: 100%;
     border-radius: var(--border-radius-large);
   }
 
@@ -53,16 +64,25 @@
     flex-direction: column;
     border-radius: var(--border-radius-large);
 
+		@include mobile {
+			padding: rem(24) rem(16)
+		}
+
+		@include mobile-s {
+			padding: rem(16) rem(10);
+		}
+
     &--front {
       align-items: center;
       justify-content: center;
     }
 
     &--back {
+			@include fluid-text(16, 14);
+
       transform: rotateY(180deg);
       line-height: 1.2;
       font-weight: 200;
-      font-size: rem(16);
       background: var(--color-gradient);
 			background-color: #fff;
       color: var(--color-dark);
@@ -72,14 +92,19 @@
         text-align: left;
         align-self: start;
         margin-bottom: rem(15);
+
+				@include mobile-s {
+					margin-bottom: rem(8);
+				}
       }
     }
   }
 
   &__title {
+		@include fluid-text(32, 16);
+
     font-family: var(--font-family-base);
     font-weight: 200;
-    font-size: rem(32);
     line-height: 0.93;
     text-align: center;
     max-width: 100%;
@@ -94,8 +119,9 @@
   }
 
   &__price {
+		@include fluid-text(24, 14);
+
 		font-family: var(--font-family-accent);
     font-weight: 400;
-    font-size: rem(24);
   }
 }

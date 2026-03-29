@@ -7,12 +7,14 @@ interface AdditionsCardProps {
   data: IAdditionsCard;
   onClick: () => void;
   visibleDetails: boolean;
+  isMobile?: boolean;
 }
 
 const AdditionsCard = ({
   data,
   onClick,
-  visibleDetails
+  visibleDetails,
+  isMobile,
 }: AdditionsCardProps) => {
   const { title, time, description, imageSrc, price } = data;
 
@@ -33,11 +35,11 @@ const AdditionsCard = ({
   return (
     <article
       className="additions-card"
-			onClick={onClick}
+      onClick={isMobile ? undefined : onClick}
     >
       <div
         className={clsx("additions-card__inner", {
-          "is-flipped": visibleDetails,
+          "is-flipped": isMobile ? true : visibleDetails ? true : false,
         })}
       >
         <div className="additions-card__face additions-card__face--front">
@@ -63,12 +65,6 @@ const AdditionsCard = ({
           <p className="additions-card__description">{description}</p>
         </div>
       </div>
-      {/* {!visibleDetails ? (
-        <div className="additions-card__inner">
-          <h3 className="additions-card__title">{title}</h3>
-        </div>
-      ) : (
-      )} */}
     </article>
   );
 };

@@ -52,8 +52,9 @@ const Reviews = () => {
         </>
       }
       className="reviews"
+			isMobileSlider
     >
-      <div className="reviews__inner">
+      <div className="reviews__inner container">
         <div className="reviews__body">
           {!isMobile && (
             <ArrowButton

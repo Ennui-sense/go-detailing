@@ -1,6 +1,12 @@
 @use "~/styles/helpers" as *;
 
 .about {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(70);
+	}
+
   &__text {
 		font-size: rem(32);
     line-height: 1.5;
@@ -11,4 +17,14 @@
 			font-weight: 500;
 		}
   }
+
+	&__images {
+		display: flex;
+		justify-content: space-between;
+		column-gap: rem(20);
+	}
+
+	&__image {
+		border-radius: var(--border-radius-large);
+	}
 }

@@ -9,12 +9,13 @@ interface SectionProps {
   className: string;
   children: ReactNode;
   description?: string;
-  isRow?: boolean;
   isMarquee?: boolean;
   marginTop?: boolean;
   hiddenTitle?: boolean;
+  isRow?: boolean;
   isHero?: boolean;
-	isLeft?: boolean
+  isLeft?: boolean;
+  isMobileSlider?: boolean;
 }
 
 const Section = ({
@@ -23,17 +24,18 @@ const Section = ({
   className,
   children,
   marginTop = false,
-  isRow = false,
   isMarquee = false,
   hiddenTitle = false,
+  isRow = false,
   isHero = false,
-	isLeft = false
+  isLeft = false,
+  isMobileSlider = false,
 }: SectionProps) => {
   return (
     <section className="section">
       <div
         className={clsx("section__inner", {
-          container: !isMarquee,
+          container: !isMarquee && !isMobileSlider,
           "section__inner--row": isRow,
           "section__inner--hero": isHero,
           "section__inner--left": isLeft,
@@ -43,6 +45,7 @@ const Section = ({
           className={clsx("section__header", {
             "section__header--margin-top": marginTop,
             "visually-hidden": hiddenTitle,
+            "container": isMobileSlider,
           })}
         >
           <h2 className="section__title">{title}</h2>
