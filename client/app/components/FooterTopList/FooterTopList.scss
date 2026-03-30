@@ -1,0 +1,25 @@
+@use "~/styles/helpers" as *;
+
+.footer-top-list {
+	&__title {
+		@include fluid-text(24, 16);
+
+		margin-bottom: rem(20);
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(14);
+	}
+
+	&__item {
+		color: var(--color-gray-light)
+	}
+
+	&__link {
+		@include hover(true) {
+			color: var(--color-accent);
+		}
+	}
+}

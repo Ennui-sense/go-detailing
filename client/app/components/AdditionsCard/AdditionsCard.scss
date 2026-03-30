@@ -87,6 +87,7 @@
 			background-color: #fff;
       color: var(--color-dark);
       border: var(--border);
+			z-index: 200;
 
       .additions-card__title {
         text-align: left;

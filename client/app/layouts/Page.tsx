@@ -14,7 +14,7 @@ const Page = ({ children }: PageProps) => {
     <>
       <Header />
       <main>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
 
       {/* <BackToTopButton /> */}
     </>

@@ -27,7 +27,7 @@ type NewsItem = {
 };
 
 const News = () => {
-  const [data, setData] = useState<NewsItem[]>([]);
+  const [data, setData] = useState<NewsItem[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isTablet, setIsTablet] = useState<boolean>(false);
@@ -39,7 +39,12 @@ const News = () => {
         setIsLoading(true);
         const res = await axios.get<{ result: NewsItem[] }>(API_URL);
 
-        setData([...res.data.result, ...res.data.result, ...res.data.result, ...res.data.result]);
+        setData([
+          ...res.data.result,
+          ...res.data.result,
+          ...res.data.result,
+          ...res.data.result,
+        ]);
       } catch (error) {
         console.error("Ошибка при получении данных:(", error);
       } finally {
@@ -72,45 +77,52 @@ const News = () => {
 
   const slidesPerView = isMobile ? 1.4 : isTablet ? 2 : 3;
 
+  if (isLoading) {
+    return <p>Загрузка новосткей...</p>;
+  }
+
+  if (!data) {
+    return <p>Данные не найдены</p>;
+  }
+
   return (
-    <Section title="Актуальное в нашем блоге" className="news" marginTop isMobileSlider>
-      {isLoading ? (
-        <div className="news__inner container">
-          <p className="news__loading-text">Загрузка новостей...</p>
-        </div>
-      ) : (
-        <div className="news__inner container">
-          {!isMobile && (
-            <ArrowButton
-              directionArrow="left"
-              onClick={() => swiper?.slidePrev()}
-              className="news__swiper-button"
-            />
-          )}
+    <Section
+      title="Актуальное в нашем блоге"
+      className="news"
+      marginTop
+      isMobileSlider
+    >
+      <div className="news__inner container">
+        {!isMobile && (
+          <ArrowButton
+            directionArrow="left"
+            onClick={() => swiper?.slidePrev()}
+            className="news__swiper-button"
+          />
+        )}
 
-          <Swiper
-            onSwiper={setSwiper}
-            slidesPerView={slidesPerView}
-            spaceBetween={isMobile ? 20 : 30}
-            className="news__slider"
-            modules={[Navigation]}
-          >
-            {data.map(({ id, text, photo, date, url }) => (
-              <SwiperSlide className="news__item" key={id}>
-                <NewsCard text={text} photo={photo} date={date} url={url} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <Swiper
+          onSwiper={setSwiper}
+          slidesPerView={slidesPerView}
+          spaceBetween={isMobile ? 20 : 30}
+          className="news__slider"
+          modules={[Navigation]}
+        >
+          {data.map(({ id, text, photo, date, url }) => (
+            <SwiperSlide className="news__item" key={id}>
+              <NewsCard text={text} photo={photo} date={date} url={url} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-          {!isMobile && (
-            <ArrowButton
-              directionArrow="right"
-              onClick={() => swiper?.slideNext()}
-              className="news__swiper-button"
-            />
-          )}
-        </div>
-      )}
+        {!isMobile && (
+          <ArrowButton
+            directionArrow="right"
+            onClick={() => swiper?.slideNext()}
+            className="news__swiper-button"
+          />
+        )}
+      </div>
     </Section>
   );
 };
