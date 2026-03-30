@@ -26,27 +26,31 @@
 
   &__swiper {
     width: 100%;
+    height: auto;
+  }
 
-    &-slide {
-      &:first-child {
-        .services-card {
-          background-color: var(--color-accent-dark);
-          color: var(--color-light);
-        }
+  &__swiper-slide {
+    display: flex;
+    height: auto;
+
+    &:first-child {
+      .services-card {
+        background-color: var(--color-accent-dark);
+        color: var(--color-light);
       }
+    }
 
-      &:nth-child(2) {
-        .services-card {
-          background-color: var(--color-light);
-          color: var(--color-dark);
-        }
+    &:nth-child(2) {
+      .services-card {
+        background-color: var(--color-light);
+        color: var(--color-dark);
       }
+    }
 
-      &:last-child {
-        .services-card {
-          background-color: rgba(59, 141, 242, 0.31);;
-          color: var(--color-light);
-        }
+    &:last-child {
+      .services-card {
+        background-color: rgba(59, 141, 242, 0.31);
+        color: var(--color-light);
       }
     }
   }

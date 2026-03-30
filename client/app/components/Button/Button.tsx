@@ -10,7 +10,7 @@ interface ButtonProps {
 
 const Button = ({ className, href, children, variant }: ButtonProps) => {
   return href ? (
-    <a href={href} className={clsx(className, "button")}>
+    <a href={href} className={clsx(className, "button", `button--${variant}`)}>
       {children}
     </a>
   ) : (

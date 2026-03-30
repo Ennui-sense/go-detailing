@@ -1,0 +1,53 @@
+@use "~/styles/helpers" as *;
+
+.news-card {
+	@include fluid-text(20, 14);
+
+  padding: rem(45);
+  border-radius: var(--border-radius-large);
+  border: var(--border);
+  color: var(--color-gray-dark);
+  border-color: var(--color-gray-alt);
+  font-weight: 200;
+  background-color: rgba(59, 141, 242, 0.04);
+
+	@include desktop {
+		padding: rem(20);
+	}
+
+  // @include hover(false) {
+  //   box-shadow: 0 0 rem(50) 0 rgba(59, 141, 242, 0.37);
+  // }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
+  }
+
+  &__image {
+    border-radius: var(--border-radius-large);
+    object-fit: cover;
+    width: 100%;
+    height: rem(250);
+
+		@include mobile-s {
+			height: rem(150)
+		}
+  }
+
+  &__text {
+    // height: rem(100);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    pointer-events: none;
+  }
+
+  &__button {
+    align-self: start;
+    justify-self: start;
+  }
+}

@@ -8,6 +8,7 @@ import Reviews from "~/sections/Reviews/Reviews";
 import Faq from "~/sections/Faq/Faq";
 import Steps from "~/sections/Steps/Steps";
 import Cta from "~/sections/Cta/Cta";
+import News from "~/sections/News/News";
 
 export function meta() {
   return [
@@ -28,6 +29,7 @@ export default function IndexRoute() {
         <Reviews />
       </div>
 
+      <News />
       <Steps />
 
       <div className="bg__accent-light">

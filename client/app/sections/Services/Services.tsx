@@ -13,6 +13,8 @@ import { useState, useEffect } from "react";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
+import { motion } from "motion/react";
+
 interface ServicesProps {
   isHero?: boolean;
 }
@@ -65,8 +67,16 @@ const Services = ({ isHero }: ServicesProps) => {
             )}
           </div>
           <div className="services__body">
-            <ServicesInfo time={time} includedItems={includedItems} border/>
-            <Button className="services__button">Уточнить детали</Button>
+            <ServicesInfo time={time} includedItems={includedItems} border />
+
+            <motion.div
+              initial={{ opacity: 0, x: 100 }} // Начальное состояние (до появления)
+              whileInView={{ opacity: 1, x: 0 }} // Состояние при попадании в поле видимости
+              transition={{ duration: 1 }} // Настройки анимации
+              viewport={{ once: false }} // Анимировать только один раз (или false, чтобы каждый раз)
+            >
+              <Button className="services__button">Уточнить детали</Button>
+            </motion.div>
           </div>
         </div>
       ) : (
@@ -74,7 +84,7 @@ const Services = ({ isHero }: ServicesProps) => {
           <div className="services__pagination"></div>
           <Swiper
             slidesPerView={1}
-						spaceBetween={40}
+            spaceBetween={40}
             modules={[Pagination]}
             className="services__swiper"
             pagination={{
@@ -94,7 +104,7 @@ const Services = ({ isHero }: ServicesProps) => {
                 maxPrice,
                 minPrice,
                 id,
-								time,
+                time,
                 includedItems,
               }) => (
                 <SwiperSlide key={id} className="services__swiper-slide">
@@ -105,10 +115,10 @@ const Services = ({ isHero }: ServicesProps) => {
                     maxPrice={maxPrice}
                     minPrice={minPrice}
                     includedItems={includedItems}
-										id={id}
+                    id={id}
                   />
                 </SwiperSlide>
-              )
+              ),
             )}
           </Swiper>
         </div>

@@ -1,0 +1,21 @@
+@use "~/styles/helpers" as *;
+
+.news {
+	width: 100%;
+
+	&__inner {
+		display: flex;
+		justify-content: center;
+		column-gap: rem(20);
+		align-items: center;
+		width: 100%;
+
+		@include mobile {
+			padding-right: 0 !important;
+		}
+	}
+
+	&__swiper-button {
+		flex-shrink: 0;
+	}
+}

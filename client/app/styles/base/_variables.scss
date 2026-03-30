@@ -1,50 +1,66 @@
 @use "./../helpers" as *;
 
 :root {
-	--color-light: #fff;
-	--color-dark: #000;
+  --color-light: #fff;
+  --color-dark: #000;
 
-	--color-gray: #3b3b3b;
-	--color-gray-light: #acacb1;
+  --color-gray: #3b3b3b;
+  --color-gray-light: #acacb1;
+  --color-gray-dark: #686868;
+  --color-gray-alt: #e4e4e4;
 
-	--color-accent: #3b8df2;
-	--color-accent-light: #dceafd;
-	--color-accent-light-alt: #f8fbff;
-	--color-accent-dark: #090f26;
-	
-	--color-gradient-dark: linear-gradient(134deg, #000 0%, #080824 100%);
-	--color-gradient: linear-gradient(152deg, rgba(59, 141, 242, 0.35) 10.1%, rgba(8, 8, 36, 0.01) 46.66%, rgba(59, 141, 242, 0.36) 87.72%);
-	--color-gradient-hover: linear-gradient(152deg, #3b8df2 10.1%, rgba(8, 8, 36, 0.79) 46.66%, #3b8df2 87.72%);
-	--color-gradient-light: linear-gradient(153deg, rgba(59, 141, 242, 0.12) 0%, rgba(59, 141, 242, 0.16) 100%);
+  --color-accent: #3b8df2;
+  --color-accent-light: #dceafd;
+  --color-accent-light-alt: #f8fbff;
+  --color-accent-dark: #090f26;
 
-	--font-family-accent: "Seenonim", sans-serif;
-	--font-family-base: "Geologica", sans-serif;
+  --color-gradient-dark: linear-gradient(134deg, #000 0%, #080824 100%);
+  --color-gradient: linear-gradient(
+    152deg,
+    rgba(59, 141, 242, 0.35) 10.1%,
+    rgba(8, 8, 36, 0.01) 46.66%,
+    rgba(59, 141, 242, 0.36) 87.72%
+  );
+  --color-gradient-hover: linear-gradient(
+    152deg,
+    #3b8df2 10.1%,
+    rgba(8, 8, 36, 0.79) 46.66%,
+    #3b8df2 87.72%
+  );
+  --color-gradient-light: linear-gradient(
+    153deg,
+    rgba(59, 141, 242, 0.12) 0%,
+    rgba(59, 141, 242, 0.16) 100%
+  );
 
-	--container-width: #{rem(1680)};
-	--container-padding-x: #{rem(20)};
+  --font-family-accent: "Seenonim", sans-serif;
+  --font-family-base: "Geologica", sans-serif;
 
-	--button-height: #{rem(70)};
-	--button-height-large: #{rem(75)};
+  --container-width: #{rem(1680)};
+  --container-padding-x: #{rem(20)};
 
-	--border: #{rem(1)} solid currentColor;
+  --button-height: #{rem(70)};
+  --button-height-large: #{rem(75)};
 
-	--border-radius-small: #{rem(10)};
-	--border-radius: #{rem(15)};
-	--border-radius-large: #{rem(20)};
+  --border: #{rem(1)} solid currentColor;
 
-	--filter: blur(#{rem(60)});
+  --border-radius-small: #{rem(10)};
+  --border-radius: #{rem(15)};
+  --border-radius-large: #{rem(20)};
 
-	--transition-duration: .25s;
+  --filter: blur(#{rem(60)});
 
-	@include desktop {
-		--button-height: #{rem(60)};
-	}
+  --transition-duration: 0.25s;
 
-	@include mobile {
-		--button-height: #{rem(50)};
-	}
+  @include desktop {
+    --button-height: #{rem(60)};
+  }
 
-	@include mobile-s {
-		--button-height: #{rem(36)};
-	}
+  @include mobile {
+    --button-height: #{rem(50)};
+  }
+
+  @include mobile-s {
+    --button-height: #{rem(36)};
+  }
 }
