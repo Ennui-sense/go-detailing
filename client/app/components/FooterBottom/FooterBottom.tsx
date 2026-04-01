@@ -2,7 +2,11 @@ import "./FooterBottom.scss";
 
 import Soc1als from "../Soc1als/Soc1als";
 
-const FooterBottom = () => {
+interface FooterBottomProps {
+  isMobile: boolean;
+}
+
+const FooterBottom = ({ isMobile }: FooterBottomProps) => {
   return (
     <div className="footer-bottom">
       <div className="footer-bottom__info">
@@ -37,7 +41,7 @@ const FooterBottom = () => {
         </p>
       </div>
 
-      <Soc1als className="footer__socials" />
+      {!isMobile && <Soc1als className="footer-bottom__soc1als" />}
     </div>
   );
 };

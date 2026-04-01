@@ -3,32 +3,58 @@
 .footer-bottom {
   padding-block: rem(60);
   display: flex;
-  justify-content: space-between;
-	align-items: end;
+  align-items: flex-end;
 
-	&__text {
-		@include fluid-text(18, 12);
+  @include tablet {
+    flex-wrap: wrap;
+    gap: rem(20);
+  }
 
-		line-height: 1.41;
-	}
+  @include mobile-s {
+    padding-block: rem(15) rem(30);
+  }
 
   &__info {
     display: flex;
     flex-direction: column;
     row-gap: rem(10);
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   &__text {
+    @include fluid-text(18, 12);
+
     max-width: rem(600);
+    width: auto;
+    min-width: 0;
+    line-height: 1.41;
+    overflow-wrap: break-word;
+
+    @include tablet {
+      max-width: none;
+    }
   }
 
-	&__developers {
-		@include fluid-text(18, 12);
+  &__developers {
+    @include fluid-text(18, 12);
 
-		display: flex;
-		flex-direction: column;
-		line-height: 1.25;
-	}
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+    margin-left: rem(110);
+
+    @include desktop {
+      margin-left: rem(30);
+    }
+
+    @include tablet {
+      order: 3;
+      flex: 0 0 100%;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
 
   &__developer {
     color: var(--color-accent);
@@ -37,6 +63,15 @@
       @include hover {
         text-decoration: underline;
       }
+    }
+  }
+
+  &__soc1als {
+    flex: 0 0 auto;
+    margin-left: auto;
+
+    @include tablet {
+      order: 2;
     }
   }
 }

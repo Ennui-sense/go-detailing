@@ -69,14 +69,14 @@ const Services = ({ isHero }: ServicesProps) => {
           <div className="services__body">
             <ServicesInfo time={time} includedItems={includedItems} border />
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 100 }} // Начальное состояние (до появления)
               whileInView={{ opacity: 1, x: 0 }} // Состояние при попадании в поле видимости
               transition={{ duration: 1 }} // Настройки анимации
               viewport={{ once: false }} // Анимировать только один раз (или false, чтобы каждый раз)
             >
               <Button className="services__button">Уточнить детали</Button>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       ) : (

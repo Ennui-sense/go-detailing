@@ -9,4 +9,16 @@
 	border: var(--border);
 	color: var(--color-light);
 	border-width: rem(2);
+
+	& svg {
+		width: 65%;
+	}
+
+	@include desktop {
+		@include square(rem(60))
+	}
+
+	@include tablet {
+		@include square(rem(50))
+	}
 }

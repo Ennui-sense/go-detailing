@@ -5,12 +5,20 @@
 		@include fluid-text(24, 16);
 
 		margin-bottom: rem(20);
+
+		@include mobile-s {
+			margin-bottom: rem(16);
+		}
 	}
 
 	&__list {
 		display: flex;
 		flex-direction: column;
 		row-gap: rem(14);
+
+		@include mobile-s {
+			row-gap: rem(10);
+		}
 	}
 
 	&__item {

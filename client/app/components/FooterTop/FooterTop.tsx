@@ -3,12 +3,17 @@ import "./FooterTop.scss";
 import Logo from "../Logo/Logo";
 import FooterTopList from "../FooterTopList/FooterTopList";
 import Button from "../Button/Button";
+import Soc1als from "../Soc1als/Soc1als";
 
 import LogoImageSrc from "~/assets/images/logo.svg";
 
 import { FooterTopListsData } from "~/data/FooterTopListsData";
 
-const FooterTop = () => {
+interface FooterTopProps {
+  isMobile: boolean;
+}
+
+const FooterTop = ({ isMobile }: FooterTopProps) => {
   return (
     <div className="footer-top">
       <Logo className="footer-top__logo" imageSrc={LogoImageSrc} />
@@ -21,7 +26,10 @@ const FooterTop = () => {
 
       <div className="footer-top__info">
         <div className="footer-top__contacts">
-          <Button className="footer-top__phone-link" href="tel:+73422737107">
+          <Button
+            className="footer-top__phone-link button--phone"
+            href="tel:+73422737107"
+          >
             +7 (342) 27-37-107
           </Button>
           <a
@@ -31,7 +39,11 @@ const FooterTop = () => {
             godetailing@mail.com
           </a>
         </div>
-        <p className="footer-top__address">г. Пермь, ул. Монастырская,25</p>
+        {isMobile ? (
+          <Soc1als className="footer-top__soc1als" />
+        ) : (
+          <p className="footer-top__address">г. Пермь, ул. Монастырская,25</p>
+        )}
       </div>
     </div>
   );

@@ -1,17 +1,21 @@
 @use "~/styles/helpers" as *;
 
 .logo {
-	&__image {
-		@include desktop {
-			width: rem(140);
-		}
+  &__image {
+    @include desktop {
+      width: rem(140);
+    }
 
-		@include mobile {
-			width: rem(100);
-		}
-
-		@include mobile-s {
-			width: rem(75);
-		}
-	}
+    @include mobile {
+      width: rem(100);
+    }
+  }
+	
+  &:not(.footer-top__logo) {
+    .logo__image {
+      @include mobile-s {
+        width: rem(75);
+      }
+    }
+  }
 }
