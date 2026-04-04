@@ -12,6 +12,8 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import { Navigation } from "swiper/modules";
 
+import "swiper/swiper-bundle.css";
+
 const BASE_URL = import.meta.env.PROD
   ? import.meta.env.VITE_STRAPI_URL
   : "http://localhost:1337";
@@ -26,7 +28,11 @@ type NewsItem = {
   url: string;
 };
 
-const News = () => {
+interface NewsProps {
+  isLastSection?: boolean;
+}
+
+const News = ({ isLastSection }: NewsProps) => {
   const [data, setData] = useState<NewsItem[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -78,7 +84,7 @@ const News = () => {
   const slidesPerView = isMobile ? 1.4 : isTablet ? 2 : 3;
 
   if (isLoading) {
-    return <p>Загрузка новосткей...</p>;
+    return <p>Загрузка новостей...</p>;
   }
 
   if (!data) {
@@ -91,6 +97,7 @@ const News = () => {
       className="news"
       marginTop
       isMobileSlider
+      isLastSectionMargin={isLastSection}
     >
       <div className="news__inner container">
         {!isMobile && (

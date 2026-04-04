@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services_items",
+  "info": {
+    "singularName": "services-item",
+    "pluralName": "services-items",
+    "displayName": "Services Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "marker": {
+      "type": "boolean"
+    },
+    "italic": {
+      "type": "boolean"
+    }
+  }
+}

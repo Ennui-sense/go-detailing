@@ -55,7 +55,7 @@ const Hero = () => {
           </p>
         )}
 
-        <Button className="hero__button">Записаться</Button>
+        <Button className="hero__button" href="#services" openInNewWindow={false}>Выбрать тариф</Button>
       </div>
     </section>
   );

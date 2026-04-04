@@ -1,16 +1,17 @@
 @use "~/styles/helpers" as *;
 
 .section {
-  &:not(:last-child) {
+  &:not(:last-child),
+	&--last-section-margin {
     margin-bottom: rem(70);
 
-    @include tablet {
-      margin-bottom: rem(50);
-    }
-
-    @include mobile {
-      margin-bottom: rem(30);
-    }
+		@include tablet {
+			margin-bottom: rem(50);
+		}
+	
+		@include mobile {
+			margin-bottom: rem(30);
+		}
   }
 
   &:has(.additions) {
@@ -62,8 +63,8 @@
     &--hero {
       padding-top: rem(140);
 
-			@include tablet {
-				padding-top: rem(100);
+			@include desktop {
+				padding-top: rem(180);
 			}
 
 			@include mobile {
@@ -73,6 +74,10 @@
 
     &--left {
       align-items: start;
+
+			@include mobile {
+				align-items: center;
+			}
     }
   }
 

@@ -5,8 +5,14 @@
   align-items: center;
   column-gap: rem(30);
 
+	@include mobile {
+		column-gap: rem(20);
+	}
+
   & svg {
     color: var(--color-accent);
+		width: fluid(44, 22);
+		height: auto;
   }
 
   @include hover(false) {

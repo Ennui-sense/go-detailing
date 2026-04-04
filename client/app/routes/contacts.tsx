@@ -3,6 +3,7 @@ import type { Route } from "./+types/contacts";
 import Page from "~/layouts/Page";
 import Contacts from "~/sections/Contacts/Contacts";
 import Process from "~/sections/Process/Process";
+import News from "~/sections/News/News";
 
 export function meta() {
   return [
@@ -18,6 +19,8 @@ export default function ContactsRoute() {
         <Contacts isHero />
         <Process />
       </div>
+
+      <News isLastSection/>
     </Page>
   );
 }

@@ -44,6 +44,7 @@
     column-gap: rem(45);
     justify-content: space-between;
     transition-duration: 0s;
+		color: var(--color-dark);
 
     &::after {
       @include square(rem(24));

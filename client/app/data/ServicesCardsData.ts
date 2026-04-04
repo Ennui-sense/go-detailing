@@ -6,6 +6,7 @@ interface IServicesCard {
   description: string;
   time: number; // в минутах
   includedItems: IIncludedItem[];
+  href: string;
 }
 
 export interface IIncludedItem {
@@ -24,6 +25,7 @@ export const ServicesCardsData: IServicesCard[] = [
     description:
       "Специально для тех, кому важно идеальное состояние интерьера — профессиональная химчистка салона с использованием качественных средств",
     time: 180,
+    href: "https://n2018856.yclients.com/",
     includedItems: [
       {
         id: 1,
@@ -65,6 +67,7 @@ export const ServicesCardsData: IServicesCard[] = [
     description:
       "Подойдет большинству автовладельцев, идеальный баланс цены и качества для регулярного поддержания чистоты автомобиля",
     time: 270,
+    href: "https://n2056470.yclients.com/",
     includedItems: [
       {
         id: 1,
@@ -105,6 +108,7 @@ export const ServicesCardsData: IServicesCard[] = [
     description:
       "Идеально подойдет, если автомобиль сильно загрязнен или давно нуждается в профессиональной чистке",
     time: 390,
+    href: "https://n2056482.yclients.com",
     includedItems: [
       {
         id: 1,

@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "minPrice": {
+      "type": "biginteger"
+    },
+    "maxPrice": {
+      "type": "biginteger"
+    },
+    "description": {
+      "type": "string"
+    },
+    "time": {
+      "type": "time"
+    },
+    "href": {
+      "type": "string"
+    },
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::services-item.services-item"
+    }
+  }
+}

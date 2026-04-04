@@ -14,6 +14,7 @@ interface SectionProps {
   hiddenTitle?: boolean;
   isRow?: boolean;
   isHero?: boolean;
+  isLastSectionMargin?: boolean;
   isLeft?: boolean;
   isMobileSlider?: boolean;
 }
@@ -30,9 +31,14 @@ const Section = ({
   isHero = false,
   isLeft = false,
   isMobileSlider = false,
+  isLastSectionMargin = false,
 }: SectionProps) => {
   return (
-    <section className="section">
+    <section
+      className={clsx("section", {
+        "section--last-section-margin": isLastSectionMargin,
+      })}
+    >
       <div
         className={clsx("section__inner", {
           container: !isMarquee && !isMobileSlider,
@@ -45,7 +51,7 @@ const Section = ({
           className={clsx("section__header", {
             "section__header--margin-top": marginTop,
             "visually-hidden": hiddenTitle,
-            "container": isMobileSlider,
+            container: isMobileSlider,
           })}
         >
           <h2 className="section__title">{title}</h2>

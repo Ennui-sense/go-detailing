@@ -43,7 +43,7 @@ const Services = ({ isHero }: ServicesProps) => {
     setActiveId(id === activeId ? activeId : id);
   };
 
-  const { includedItems, id, time } = ServicesCardsData.filter(
+  const { includedItems, time, href } = ServicesCardsData.filter(
     ({ id }) => id === activeId,
   )[0];
 
@@ -69,14 +69,16 @@ const Services = ({ isHero }: ServicesProps) => {
           <div className="services__body">
             <ServicesInfo time={time} includedItems={includedItems} border />
 
-            {/* <motion.div
+            <motion.div
               initial={{ opacity: 0, x: 100 }} // Начальное состояние (до появления)
               whileInView={{ opacity: 1, x: 0 }} // Состояние при попадании в поле видимости
               transition={{ duration: 1 }} // Настройки анимации
               viewport={{ once: false }} // Анимировать только один раз (или false, чтобы каждый раз)
             >
-              <Button className="services__button">Уточнить детали</Button>
-            </motion.div> */}
+              <Button className="services__button" href={href}>
+                Уточнить детали
+              </Button>
+            </motion.div>
           </div>
         </div>
       ) : (
@@ -106,6 +108,7 @@ const Services = ({ isHero }: ServicesProps) => {
                 id,
                 time,
                 includedItems,
+								href
               }) => (
                 <SwiperSlide key={id} className="services__swiper-slide">
                   <ServicesCard
@@ -116,6 +119,7 @@ const Services = ({ isHero }: ServicesProps) => {
                     minPrice={minPrice}
                     includedItems={includedItems}
                     id={id}
+										href={href}
                   />
                 </SwiperSlide>
               ),

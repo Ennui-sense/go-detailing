@@ -1,0 +1,43 @@
+@use "~/styles/helpers" as *;
+
+.cookie {
+	background: var(--color-gradient-dark);
+	position: fixed;
+	transform: translateY(100%);
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	transition-duration: var(--transition-duration);
+	z-index: 999;
+
+	&--active {
+		transform: translateY(0);
+	}
+
+	&__inner {
+		padding-block: rem(35);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: rem(20);
+
+		@include mobile {
+			flex-direction: column;
+			row-gap: rem(16);
+			padding-block: rem(16);
+			text-align: center
+		}
+	}
+
+	&__text {
+		@include fluid-text(24, 12);
+
+		font-weight: 200;
+		color: var(--color-light);
+		white-space: pre-wrap;
+
+		@include mobile {
+			white-space: normal;
+		}
+	}
+}
