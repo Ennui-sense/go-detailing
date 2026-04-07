@@ -15,6 +15,8 @@ import { Pagination } from "swiper/modules";
 
 import { motion } from "motion/react";
 
+import "swiper/swiper-bundle.css"
+
 interface ServicesProps {
   isHero?: boolean;
 }

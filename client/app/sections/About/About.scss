@@ -4,11 +4,15 @@
 	&__inner {
 		display: flex;
 		flex-direction: column;
-		row-gap: rem(70);
+
+		@include mobile {
+			row-gap: rem(25)
+		}
 	}
 
   &__text {
-		font-size: rem(32);
+		@include fluid-text(32, 16);
+
     line-height: 1.5;
     text-align: center;
 		

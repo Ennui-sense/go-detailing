@@ -1,0 +1,60 @@
+@use "~/styles/helpers" as *;
+
+.comparison {
+  width: 100%;
+
+  &__image {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    object-fit: cover;
+
+    @include desktop {
+      left: 100%;
+      transform: translateX(rem(-150));
+    }
+
+    @include tablet {
+      width: rem(200);
+      transform: translateX(rem(-100));
+    }
+
+    @include mobile {
+      width: rem(220);
+      transform: translateX(rem(-40));
+    }
+
+    @include mobile-s {
+      transform: translateX(rem(-120)) rotate(-5deg);
+    }
+  }
+
+  &__inner {
+    padding-block: rem(70);
+
+    @include desktop {
+      padding-right: rem(150);
+    }
+
+    @include tablet {
+      padding-right: rem(100);
+      padding-block: rem(50);
+    }
+
+    @include mobile {
+      padding-block: rem(30);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(60);
+
+    @include desktop {
+      row-gap: rem(40);
+    }
+  }
+}

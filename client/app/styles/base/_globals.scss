@@ -1,14 +1,14 @@
 @use "./../helpers" as *;
 
 body {
-	@include fluid-text(24, 14);
+  @include fluid-text(24, 14);
 
   font-family: var(--font-family-base);
   font-weight: 100;
   line-height: 1.55;
   color: var(--color-dark);
   background-color: var(--color-light);
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 a {
@@ -35,26 +35,26 @@ h3,
   font-weight: 400;
   font-family: var(--font-family-accent);
   letter-spacing: 0.04em;
-	line-height: 1.06;
+  line-height: 1.06;
 }
 
 h1,
 .h1 {
   @include fluid-text(60, 24);
 
-	@include mobile {
-		letter-spacing: 0;
-	}
+  @include mobile {
+    letter-spacing: 0;
+  }
 }
 
 h2,
 .h2 {
-	@include fluid-text(50, 20);
+  @include fluid-text(50, 20);
 }
 
 h3,
 .h3 {
-  font-size: rem(40);
+  @include fluid-text(40, 16);
 }
 
 :not(input):focus-visible {

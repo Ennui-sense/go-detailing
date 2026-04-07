@@ -3,6 +3,7 @@ import type { Route } from "./+types/about";
 import Page from "~/layouts/Page";
 import About from "~/sections/About/About";
 import Services from "~/sections/Services/Services";
+import Comparison from "~/sections/Comparison/Comparison";
 
 export function meta() {
   return [
@@ -14,10 +15,17 @@ export function meta() {
 export default function AboutRoute() {
   return (
     <Page>
+			<h1 className="visually-hidden">Информация о нас</h1>
+
       <div className="bg__dark">
-				<About isHero/>
-				<Services/>
-			</div>
+        <About isHero />
+      </div>
+			
+      <Comparison />
+
+      <div className="bg__dark">
+        <Services />
+      </div>
     </Page>
   );
 }

@@ -1,6 +1,10 @@
 @use "../helpers/" as *;
 
 .bg {
+	&:not(:last-child) {
+		margin-bottom: rem(70);
+	}
+
 	&__dark,
 	&__accent-light {
 		padding-block: rem(70);

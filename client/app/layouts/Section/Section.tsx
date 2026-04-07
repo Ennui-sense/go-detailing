@@ -9,14 +9,15 @@ interface SectionProps {
   className: string;
   children: ReactNode;
   description?: string;
-  isMarquee?: boolean;
   marginTop?: boolean;
   hiddenTitle?: boolean;
+  isMarquee?: boolean;
   isRow?: boolean;
   isHero?: boolean;
   isLastSectionMargin?: boolean;
   isLeft?: boolean;
   isMobileSlider?: boolean;
+	isComparationSection?: boolean;
 }
 
 const Section = ({
@@ -32,11 +33,13 @@ const Section = ({
   isLeft = false,
   isMobileSlider = false,
   isLastSectionMargin = false,
+	isComparationSection = false
 }: SectionProps) => {
   return (
     <section
       className={clsx("section", {
         "section--last-section-margin": isLastSectionMargin,
+				"section--comparation": isComparationSection
       })}
     >
       <div

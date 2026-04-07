@@ -1,0 +1,89 @@
+@use "~/styles/helpers" as *;
+
+.comparison-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: rem(40);
+
+  &--reversed {
+    flex-direction: row-reverse;
+  }
+
+  @include tablet {
+    column-gap: rem(20);
+  }
+
+  @include mobile {
+    flex-direction: column;
+    row-gap: rem(12);
+    align-items: start;
+		padding-left: rem(24);
+  }
+
+  &__body {
+    max-width: rem(550);
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(30);
+
+    @include tablet {
+      row-gap: rem(16);
+    }
+
+    @include mobile {
+      display: contents;
+    }
+  }
+
+  &__step {
+    color: var(--color-gray-dark);
+    order: 1;
+  }
+
+  &__title {
+    order: 2;
+  }
+
+  &__list {
+    padding-left: rem(50);
+    order: 4;
+
+    @include tablet {
+      padding-left: rem(25);
+    }
+
+		@include mobile {
+			padding-left: 0
+		}
+  }
+
+  &__item {
+    @include fluid-text(32, 16);
+
+    list-style-type: disc;
+    font-weight: 200;
+    line-height: 1.5;
+  }
+
+  &__image {
+    border-radius: var(--border-radius);
+
+    @include desktop {
+      width: rem(450);
+    }
+
+    @include tablet {
+      width: rem(330);
+    }
+
+    @include mobile {
+      order: 3;
+			width: rem(250);
+    }
+
+		@include mobile-s {
+			width: rem(210);
+		}
+  }
+}
