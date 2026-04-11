@@ -8,14 +8,14 @@ import ServicesDesktop from "~/components/ServicesDesktop/ServicesDesktop";
 import ServicesMobile from "~/components/ServicesMobile/ServicesMobile";
 
 interface ServicesProps {
-  isHero?: boolean;
+  heroOffset?: boolean;
 }
 
-const Services = ({ isHero }: ServicesProps) => {
+const Services = ({ heroOffset }: ServicesProps) => {
   const isTablet = useMediaQuery("(max-width: 64rem)");
 
   return (
-    <Section title="Комплексный подход" className="services" isHero={isHero}>
+    <Section title="Комплексный подход" bodyClassName="services" heroOffset={heroOffset}>
       <div className="services__inner">
         {!isTablet ? <ServicesDesktop /> : <ServicesMobile />}
       </div>

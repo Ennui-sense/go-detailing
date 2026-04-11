@@ -6,7 +6,7 @@ import Button from "~/components/Button/Button";
 const Cta = () => {
   return (
     <Section
-      className="cta"
+      bodyClassName="cta"
       title={
         <>
           Хотите привести
@@ -16,7 +16,7 @@ const Cta = () => {
           состояние?
         </>
       }
-      isRow
+      innerLayout="row"
       description="Заполните форму и мы свяжемся с вами!"
     >
       <div className="cta__body">

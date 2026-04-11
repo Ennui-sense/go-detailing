@@ -8,12 +8,17 @@ import { ContactsLinksData } from "~/data/ContactsLinksData";
 import mapImageSrc from "~/assets/images/map.jpg";
 
 interface ContactsProps {
-  isHero?: boolean;
+  heroOffset?: boolean;
 }
 
-const Contacts = ({ isHero }: ContactsProps) => {
+const Contacts = ({ heroOffset }: ContactsProps) => {
   return (
-    <Section className="contacts" title="Как с нами связаться?" isHero={isHero} isLeft>
+    <Section
+      bodyClassName="contacts"
+      title="Как с нами связаться?"
+      heroOffset={heroOffset}
+      align="left"
+    >
       <div className="contacts__inner">
         <div className="contacts__body">
           <p className="contacts__hours">Ежедневно, 24/7</p>

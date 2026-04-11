@@ -39,8 +39,8 @@ const Reviews = () => {
           <span className="section__title-accent">сияющих</span> авто
         </>
       }
-      className="reviews"
-      isMobileSlider
+      bodyClassName="reviews"
+      withHeaderContainer
     >
       <div className="reviews__inner container">
         <div className="reviews__body">

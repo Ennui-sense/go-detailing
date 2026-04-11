@@ -16,11 +16,11 @@ export default function ContactsRoute() {
   return (
     <Page>
       <div className="bg__dark">
-        <Contacts isHero />
+        <Contacts heroOffset />
         <Process />
       </div>
 
-      <News isLastSection/>
+      <News withBottomMargin/>
     </Page>
   );
 }

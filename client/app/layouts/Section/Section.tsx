@@ -6,63 +6,80 @@ import clsx from "clsx";
 
 interface SectionProps {
   title: ReactNode;
-  className: string;
-  children: ReactNode;
   description?: string;
-  marginTop?: boolean;
-  hiddenTitle?: boolean;
-  isMarquee?: boolean;
-  isRow?: boolean;
-  isHero?: boolean;
-  isLastSectionMargin?: boolean;
-  isLeft?: boolean;
-  isMobileSlider?: boolean;
-	isComparationSection?: boolean;
+  bodyClassName: string;
+  children: ReactNode;
+  titleHidden?: boolean;
+  heroOffset?: boolean;
+  innerLayout?: "column" | "row";
+  align?: "left" | "center";
+  withHeaderContainer?: boolean;
+  withTopMargin?: boolean;
+  withBottomMargin?: boolean;
+  withoutBottomMargin?: boolean;
 }
 
 const Section = ({
   title,
   description,
-  className,
+  bodyClassName,
   children,
-  marginTop = false,
-  isMarquee = false,
-  hiddenTitle = false,
-  isRow = false,
-  isHero = false,
-  isLeft = false,
-  isMobileSlider = false,
-  isLastSectionMargin = false,
-	isComparationSection = false
+  withTopMargin = false,
+  titleHidden = false,
+  innerLayout = "column",
+  heroOffset = false,
+  align = "center",
+  withHeaderContainer = false,
+  withBottomMargin = false,
+  withoutBottomMargin = false,
 }: SectionProps) => {
+  const shouldHeaderRender = !titleHidden || description;
+
   return (
     <section
       className={clsx("section", {
-        "section--last-section-margin": isLastSectionMargin,
-				"section--comparation": isComparationSection
+        "section--bottom-margin": withBottomMargin,
+        "section--without-bottom-margin": withoutBottomMargin,
       })}
     >
       <div
         className={clsx("section__inner", {
-          container: !isMarquee && !isMobileSlider,
-          "section__inner--row": isRow,
-          "section__inner--hero": isHero,
-          "section__inner--left": isLeft,
+          container: !withHeaderContainer,
+          "section__inner--row": innerLayout === "row",
+          "section__inner--hero": heroOffset,
+          "section__inner--left": align === "left",
         })}
       >
-        <header
-          className={clsx("section__header", {
-            "section__header--margin-top": marginTop,
-            "visually-hidden": hiddenTitle,
-            container: isMobileSlider,
-          })}
-        >
-          <h2 className="section__title">{title}</h2>
+        {shouldHeaderRender ? (
+          <header
+            className={clsx("section__header", {
+              "section__header--margin-top": withTopMargin,
+              container: withHeaderContainer,
+            })}
+          >
+            <h2
+              className={clsx("section__title", {
+                "visually-hidden": titleHidden,
+              })}
+            >
+              {title}
+            </h2>
 
-          {description && <p className="section__description">{description}</p>}
-        </header>
+            {description && (
+              <p className="section__description">{description}</p>
+            )}
+          </header>
+        ) : (
+          <h2
+            className={clsx("section__title", {
+              "visually-hidden": titleHidden,
+            })}
+          >
+            {title}
+          </h2>
+        )}
 
-        <div className={clsx("section__body", className)}>{children}</div>
+        <div className={clsx("section__body", bodyClassName)}>{children}</div>
       </div>
     </section>
   );

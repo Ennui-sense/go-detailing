@@ -18,7 +18,7 @@ export default function AboutRoute() {
 			<h1 className="visually-hidden">Информация о нас</h1>
 
       <div className="bg__dark">
-        <About isHero />
+        <About heroOffset />
       </div>
 			
       <Comparison />

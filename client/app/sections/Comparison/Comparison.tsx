@@ -9,11 +9,11 @@ import ComparisonCard from "~/components/ComparisonCard/ComparisonCard";
 const Comparison = () => {
   return (
     <Section
-      className="comparison"
+      bodyClassName="comparison"
       title="Сравнение сервисов"
-      hiddenTitle
-      marginTop
-      isComparationSection
+      titleHidden
+      withTopMargin
+			withoutBottomMargin
     >
       <div className="comparison__inner">
         <ol className="comparison__list">

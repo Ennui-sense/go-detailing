@@ -2,6 +2,11 @@
 
 .comparison {
   width: 100%;
+	position: relative;
+	
+	.section {
+		margin-bottom: 0;
+	}
 
   &__image {
     position: absolute;

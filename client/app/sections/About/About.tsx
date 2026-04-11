@@ -3,10 +3,10 @@ import "./About.scss";
 import Section from "~/layouts/Section/Section";
 
 interface AboutProps {
-  isHero?: boolean;
+  heroOffset?: boolean;
 }
 
-const About = ({ isHero }: AboutProps) => {
+const About = ({ heroOffset }: AboutProps) => {
   return (
     <Section
       title={
@@ -15,8 +15,8 @@ const About = ({ isHero }: AboutProps) => {
           эволюция детейлинга
         </>
       }
-      className="about"
-      isHero={isHero}
+      bodyClassName="about"
+      heroOffset={heroOffset}
     >
       <div className="about__inner">
         <p className="about__text">

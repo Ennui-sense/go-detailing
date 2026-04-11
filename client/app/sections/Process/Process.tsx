@@ -5,7 +5,7 @@ import Button from "~/components/Button/Button";
 
 const Process = () => {
   return (
-    <Section className="process" title="Сервис выезда" isLeft>
+    <Section bodyClassName="process" title="Сервис выезда" align="left">
       <div className="process__inner">
         <div className="process__body">
           <p className="process__text">

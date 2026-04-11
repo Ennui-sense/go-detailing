@@ -98,3 +98,11 @@ export type ComparisonCard =  {
   imageSrc: string;
   items: ComparisonCardItem[];
 }
+
+export type NewsItem = {
+  id: number;
+  text: string;
+  photo: string;
+  date: number;
+  url: string;
+};

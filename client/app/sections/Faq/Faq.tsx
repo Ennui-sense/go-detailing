@@ -13,8 +13,8 @@ const Faq = () => {
   return (
     <Section
       title={"Часто задаваемые вопросы"}
-      className="faq"
-      isRow
+      bodyClassName="faq"
+      innerLayout="row"
     >
       <ul className="faq__list">
         {FaqAccordionsData.map(({ id, text, title }) => (

@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 const Steps = () => {
   return (
-    <Section title="Порядок выполнения работ" className="steps" marginTop>
+    <Section title="Порядок выполнения работ" bodyClassName="steps" withTopMargin>
       <ol className="steps__list">
         {StepsCardsData.map(({ id, Icon, title, description }, index) => (
           <li

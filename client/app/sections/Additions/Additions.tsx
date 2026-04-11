@@ -41,10 +41,10 @@ const Additions = () => {
 
   return (
     <Section
-      className="additions"
+      bodyClassName="additions"
       title="Добавьте к заказу"
       description="Ознакомьтесь с подробностями услуг, совершив всего один клик"
-      isMobileSlider
+      withHeaderContainer
     >
       <div className="additions__inner container">
         {isMobile ? (

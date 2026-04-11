@@ -1,6 +1,7 @@
 import "./News.scss";
 
 import { useState, useEffect } from "react";
+import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import Section from "~/layouts/Section/Section";
 import NewsCard from "~/components/NewsCard/NewsCard";
@@ -20,24 +21,19 @@ const BASE_URL = import.meta.env.PROD
 
 const API_URL = `${BASE_URL}/api/vk-news?populate=*`;
 
-type NewsItem = {
-  id: number;
-  text: string;
-  photo: string;
-  date: number;
-  url: string;
-};
+import type { NewsItem } from "~/types";
 
 interface NewsProps {
-  isLastSection?: boolean;
+  withBottomMargin?: boolean;
 }
 
-const News = ({ isLastSection }: NewsProps) => {
+const News = ({ withBottomMargin }: NewsProps) => {
   const [data, setData] = useState<NewsItem[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [isTablet, setIsTablet] = useState<boolean>(false);
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
+
+  const isMobile = useMediaQuery("(max-width: 47.9375rem)");
+  const isTablet = useMediaQuery("(max-width: 64rem)");
 
   useEffect(() => {
     const getNews = async () => {
@@ -61,43 +57,24 @@ const News = ({ isLastSection }: NewsProps) => {
     getNews();
   }, []);
 
-  useEffect(() => {
-    const mobileQuery = window.matchMedia("(max-width: 47.9375rem)");
-    const tabletQuery = window.matchMedia("(max-width: 64rem)");
-
-    const checkMobile = () => {
-      setIsMobile(mobileQuery.matches);
-      setIsTablet(tabletQuery.matches);
-    };
-
-    checkMobile();
-
-    mobileQuery.addEventListener("change", checkMobile);
-    tabletQuery.addEventListener("change", checkMobile);
-
-    return () => {
-      mobileQuery.removeEventListener("change", checkMobile);
-      tabletQuery.removeEventListener("change", checkMobile);
-    };
-  }, []);
-
-  const slidesPerView = isMobile ? 1.4 : isTablet ? 2 : 3;
-
+	
   if (isLoading) {
-    return <p>Загрузка новостей...</p>;
+		return <p>Загрузка новостей...</p>;
   }
-
+	
   if (!data) {
-    return <p>Данные не найдены</p>;
+		return <p>Данные не найдены</p>;
   }
+	
+	const slidesPerView = isMobile ? 1.4 : isTablet ? 2 : 3;
 
   return (
     <Section
       title="Актуальное в нашем блоге"
-      className="news"
-      marginTop
-      isMobileSlider
-      isLastSectionMargin={isLastSection}
+      bodyClassName="news"
+      withTopMargin
+      withBottomMargin={withBottomMargin}
+      withHeaderContainer
     >
       <div className="news__inner container">
         {!isMobile && (

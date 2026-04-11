@@ -2,7 +2,7 @@
 
 .section {
   &:not(:last-child),
-	&--last-section-margin {
+	&--bottom-margin {
     margin-bottom: rem(70);
 
 		@include tablet {
@@ -14,22 +14,9 @@
 		}
   }
 
-	&--comparation {
+	&--without-bottom-margin {
 		margin-bottom: 0 !important; 
-		position: relative;
 	}
-
-  &:has(.additions) {
-    .section__header {
-      text-align: center;
-    }
-  }
-
-  &:has(.brands) {
-    .section__inner {
-      overflow: hidden;
-    }
-  }
 
   &__inner {
     display: flex;

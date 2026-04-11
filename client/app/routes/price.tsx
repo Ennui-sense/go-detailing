@@ -16,7 +16,7 @@ export default function PriceRoute() {
   return (
     <Page>
       <div className="bg__dark">
-        <Services isHero />
+        <Services heroOffset />
       </div>
       <div className="bg__accent-light">
         <Additions />

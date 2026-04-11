@@ -8,7 +8,11 @@ const Brands = () => {
   const marqueeBrands = [...BrandsData, ...BrandsData];
 
   return (
-    <Section className="brands" isMarquee title="Автомобили, с которыми мы работаем" hiddenTitle>
+    <Section
+      bodyClassName="brands"
+      title="Автомобили, с которыми мы работаем"
+      titleHidden
+    >
       <ul className="brands__list">
         {marqueeBrands.map(({ imageSrc, id }, index) => (
           <li className="brands__item" key={`${id}-${index}`}>
