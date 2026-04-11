@@ -7,7 +7,7 @@ import { Soc1alsButtonsData } from "~/data/Soc1alsButtonsData";
 import Soc1alsButton from "../Soc1alsButton/Soc1alsButton";
 
 interface Soc1alsProps {
-  className: string;
+  className?: string;
 }
 
 const Soc1als = ({ className }: Soc1alsProps) => {

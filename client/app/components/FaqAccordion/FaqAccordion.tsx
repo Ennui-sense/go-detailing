@@ -7,8 +7,8 @@ import { useRef } from "react";
 interface FaqAccordionProps {
   title: string;
   text: string;
-  onClick: () => void;
   isOpen: boolean;
+  onClick: () => void;
 }
 
 const FaqAccordion = ({ title, text, onClick, isOpen }: FaqAccordionProps) => {
@@ -35,7 +35,7 @@ const FaqAccordion = ({ title, text, onClick, isOpen }: FaqAccordionProps) => {
         }
       >
         <div className="faq-accordion__body" ref={accordionRef}>
-          {text}
+          <p className="faq-accordion__text">{text}</p>
         </div>
       </div>
     </div>

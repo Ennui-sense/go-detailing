@@ -7,6 +7,7 @@ import Button from "~/components/Button/Button";
 import AdditionsCard from "~/components/AdditionsCard/AdditionsCard";
 
 import { useState, useRef, useEffect } from "react";
+import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,9 +15,10 @@ const Additions = () => {
   const [visibleCardDetailsId, setVisibleCardDetailsId] = useState<
     number | null
   >(null);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const additionsListRef = useRef<HTMLUListElement>(null);
+  const isMobile = useMediaQuery("(max-width: 47.9375rem)");
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -33,20 +35,6 @@ const Additions = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [additionsListRef]);
 
-  useEffect(() => {
-    const mobileMedia = window.matchMedia("(max-width: 47.9375rem");
-
-    const handleChange = () => {
-      setIsMobile(mobileMedia.matches);
-    };
-
-    handleChange();
-
-    mobileMedia.addEventListener("change", handleChange);
-
-    return () => mobileMedia.removeEventListener("change", handleChange);
-  }, []);
-
   const onClick = (id: number) => {
     setVisibleCardDetailsId(id === visibleCardDetailsId ? null : id);
   };
@@ -56,18 +44,22 @@ const Additions = () => {
       className="additions"
       title="Добавьте к заказу"
       description="Ознакомьтесь с подробностями услуг, совершив всего один клик"
-			isMobileSlider
+      isMobileSlider
     >
       <div className="additions__inner container">
         {isMobile ? (
-          <Swiper className="additions__swiper" spaceBetween={16} slidesPerView={1.4}>
+          <Swiper
+            className="additions__swiper"
+            spaceBetween={16}
+            slidesPerView="auto"
+          >
             {AdditionsCardsData.map((data) => (
-              <SwiperSlide key={data.id}>
+              <SwiperSlide key={data.id} className="additions__swiper-slide">
                 <AdditionsCard
                   data={data}
                   onClick={() => onClick(data.id)}
                   visibleDetails={visibleCardDetailsId === data.id}
-									isMobile={isMobile}
+                  isMobile={isMobile}
                 />
               </SwiperSlide>
             ))}

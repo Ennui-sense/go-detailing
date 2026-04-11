@@ -3,14 +3,9 @@ import PhoneCallIcon from "~/assets/icons/phone-call.svg?react";
 import BrushIcon from "~/assets/icons/brush.svg?react";
 import CarIcon from "~/assets/icons/car.svg?react";
 
-interface IStepsCard {
-  id: number;
-  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  title: string;
-  description: string;
-}
+import type { StepsCard } from "~/types";
 
-export const StepsCardsData: IStepsCard[] = [
+export const StepsCardsData: StepsCard[] = [
   {
     id: 1,
     Icon: DocumentIcon,

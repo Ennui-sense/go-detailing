@@ -1,11 +1,6 @@
-interface IReviewsCard {
-	id: number;
-	text: string;
-	name: string;
-	rate: number;
-}
+import type { ReviewsCard } from "~/types"
 
-export const ReviewsCardsData: IReviewsCard[] = [
+export const ReviewsCardsData: ReviewsCard[] = [
 	{
 		id: 1,
 		text: "Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так. Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад",

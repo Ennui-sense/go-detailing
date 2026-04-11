@@ -1,13 +1,14 @@
-import clsx from "clsx";
 import "./Button.scss";
+import clsx from "clsx";
 
 interface ButtonProps {
-  className: string;
+  className?: string;
   children: string;
   href?: string;
   variant?: "dark";
   openInNewWindow?: boolean;
-	onClick?: () => void;
+  isPhoneButton?: boolean;
+  onClick?: () => void;
 }
 
 const Button = ({
@@ -15,22 +16,29 @@ const Button = ({
   href,
   children,
   variant,
+  isPhoneButton = false,
   openInNewWindow = true,
-	onClick
+  onClick,
 }: ButtonProps) => {
   return href ? (
     <a
       href={href}
-      className={clsx(className, "button", `button--${variant}`)}
+      className={clsx(className, "button", {
+        "button--phone": isPhoneButton,
+        [`button--${variant}`]: variant,
+      })}
       target={openInNewWindow ? "_blank" : undefined}
+			rel={openInNewWindow ? "noopener noreferrer" : undefined}
     >
       {children}
     </a>
   ) : (
     <button
       type="button"
-      className={clsx(className, "button", `button--${variant}`)}
-			onClick={onClick}
+      className={clsx(className, "button", `button--${variant}`, {
+        "button--phone": isPhoneButton,
+      })}
+      onClick={onClick}
     >
       {children}
     </button>

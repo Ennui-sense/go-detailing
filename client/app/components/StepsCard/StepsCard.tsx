@@ -8,7 +8,7 @@ interface StepsCardProps {
 
 const StepsCard = ({ Icon, title, description }: StepsCardProps) => {
   return (
-    <>
+    <div className="steps-card">
       <div className="steps-card__image">
         <Icon />
       </div>
@@ -17,7 +17,7 @@ const StepsCard = ({ Icon, title, description }: StepsCardProps) => {
         <h3 className="steps-card__title">{title}</h3>
         <p className="steps-card__description">{description}</p>
       </div>
-    </>
+    </div>
   );
 };
 

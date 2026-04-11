@@ -1,9 +1,6 @@
-interface IBenefitsCard {
-	id: number;
-	label: string
-}
+import type { BenefitsCard } from "~/types"
 
-export const BenefitsCardsData: IBenefitsCard[] = [
+export const BenefitsCardsData: BenefitsCard[] = [
 	{
 		id: 1,
 		label: "Используем только профессиональные средства"

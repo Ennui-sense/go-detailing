@@ -5,7 +5,7 @@ interface ReviewsCardProps {
   text: string;
   name: string;
   rate: number;
-  className: string;
+  className?: string;
 }
 
 const ReviewsCard = ({ text, name, rate, className }: ReviewsCardProps) => {

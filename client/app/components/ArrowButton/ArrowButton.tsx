@@ -7,7 +7,7 @@ import ArrowTopIcon from "~/assets/icons/arrow-top.svg?react";
 interface ArrowButtonProps {
   onClick?: () => void;
   directionArrow?: "top" | "right" | "bottom" | "left";
-  className: string;
+  className?: string;
   isVisible?: boolean;
   isScrollButton?: boolean;
 }
@@ -24,8 +24,8 @@ const ArrowButton = ({
       type="button"
       className={clsx(
         "arrow-button",
-        `arrow-button--${directionArrow}`,
         {
+					[`arrow-button--${directionArrow}`]: directionArrow,
           "arrow-button--visible": isVisible,
           "arrow-button--scroll": isScrollButton,
         },

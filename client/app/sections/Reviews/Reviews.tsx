@@ -7,41 +7,29 @@ import ArrowButton from "~/components/ArrowButton/ArrowButton";
 
 import { ReviewsCardsData } from "~/data/ReviewsCardsData";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useMediaQuery } from "~/hooks/useMediaQuery";
+
 import type { Swiper as SwiperType } from "swiper";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-
-import "swiper/css";
+import "swiper/swiper-bundle.css";
 
 const Reviews = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [isTablet, setIsTablet] = useState<boolean>(false);
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
-  useEffect(() => {
-    const mobileQuery = window.matchMedia("(max-width: 47.9375rem)");
-    const tabletQuery = window.matchMedia("(max-width: 64rem)");
+  const isMobile = useMediaQuery("(max-width: 47.9375rem)");
+  const isTablet = useMediaQuery("(max-width: 64rem)");
 
-    const checkMobile = () => {
-      setIsMobile(mobileQuery.matches);
-      setIsTablet(tabletQuery.matches);
-    };
+  let slidesPerView = 3;
+  let spaceBetween = 30;
 
-    checkMobile();
-
-    mobileQuery.addEventListener("change", checkMobile);
-    tabletQuery.addEventListener("change", checkMobile);
-
-		
-    return () => {
-			mobileQuery.removeEventListener("change", checkMobile);
-      tabletQuery.removeEventListener("change", checkMobile);
-    };
-  }, []);
-
-  const slidesPerView = isMobile ? 1.4 : isTablet ? 2 : 3
+  if (isMobile) {
+    slidesPerView = 1.4;
+    spaceBetween = 12;
+  } else if (isTablet) {
+    slidesPerView = 2;
+    spaceBetween = 20;
+  }
 
   return (
     <Section
@@ -52,7 +40,7 @@ const Reviews = () => {
         </>
       }
       className="reviews"
-			isMobileSlider
+      isMobileSlider
     >
       <div className="reviews__inner container">
         <div className="reviews__body">
@@ -67,9 +55,8 @@ const Reviews = () => {
           <Swiper
             onSwiper={setSwiper}
             slidesPerView={slidesPerView}
-            spaceBetween={isMobile ? 12 : isTablet ? 20 : 30}
+            spaceBetween={spaceBetween}
             className="reviews__slider"
-            modules={[Navigation]}
           >
             {ReviewsCardsData.map(({ id, text, name, rate }) => (
               <SwiperSlide className="reviews__item" key={id}>
@@ -94,8 +81,9 @@ const Reviews = () => {
 
         <div className="reviews__buttons">
           <Button
-            className="reviews__button button--phone"
+            className="reviews__button"
             href="tel:+73422737107"
+            isPhoneButton
           >
             +7 (342) 27-37-107
           </Button>

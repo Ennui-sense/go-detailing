@@ -3,30 +3,16 @@ import "./Footer.scss";
 import FooterTop from "../FooterTop/FooterTop";
 import FooterBottom from "../FooterBottom/FooterBottom";
 
-import { useState, useEffect } from "react";
+import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 const Footer = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const mobileQuery = window.matchMedia("(max-width: 30rem)");
-
-    const handleChange = () => {
-      setIsMobile(mobileQuery.matches);
-    };
-
-    handleChange();
-
-    mobileQuery.addEventListener("change", handleChange);
-
-    return () => mobileQuery.removeEventListener("change", handleChange);
-  }, []);
+	const isMobileSmall = useMediaQuery("(max-width: 30rem)")
 
   return (
     <footer className="footer">
       <div className="footer__inner container">
-        <FooterTop isMobile={isMobile}/>
-        <FooterBottom isMobile={isMobile}/>
+        <FooterTop isMobile={isMobileSmall}/>
+        <FooterBottom isMobile={isMobileSmall}/>
       </div>
     </footer>
   );

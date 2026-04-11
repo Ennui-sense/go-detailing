@@ -1,18 +1,15 @@
-import ZeekrImage from "~/assets/images/zeekr.png";
-import MercedezImage from "~/assets/images/mercedez.png";
-import SomeImage from "~/assets/images/some.png";
-import ExeedImage from "~/assets/images/exeed.png";
-import BmwImage from "~/assets/images/bmw.png";
-import LexusImage from "~/assets/images/lexus.png";
-import PorscheImage from "~/assets/images/porsche.png";
-import NissanImage from "~/assets/images/nissan.png";
+import ZeekrImage from "~/assets/images/brands/zeekr.png";
+import MercedezImage from "~/assets/images/brands/mercedez.png";
+import LiImage from "~/assets/images/brands/li.png";
+import ExeedImage from "~/assets/images/brands/exeed.png";
+import BmwImage from "~/assets/images/brands/bmw.png";
+import LexusImage from "~/assets/images/brands/lexus.png";
+import PorscheImage from "~/assets/images/brands/porsche.png";
+import NissanImage from "~/assets/images/brands/nissan.png";
 
-interface IBrand {
-	id: number;
-	imageSrc: string
-}
+import type { Brand } from "~/types";
 
-export const BrandsData: IBrand[] = [
+export const BrandsData: Brand[] = [
 	{
 		id: 1,
 		imageSrc: ZeekrImage
@@ -23,7 +20,7 @@ export const BrandsData: IBrand[] = [
 	},
 	{
 		id: 3,
-		imageSrc: SomeImage
+		imageSrc: LiImage
 	},
 	{
 		id: 4,

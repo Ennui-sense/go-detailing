@@ -54,16 +54,14 @@
   }
 
   &__info {
+		@include fluid-text(28, 16);
+
     display: flex;
     justify-content: space-between;
   }
 
   &__title {
     @include fluid-text(30, 18);
-  }
-
-  &__info {
-    @include fluid-text(28, 16);
   }
 
   &__description {

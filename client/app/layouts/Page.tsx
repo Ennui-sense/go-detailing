@@ -18,7 +18,7 @@ const Page = ({ children }: PageProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisibleBackToTopButton(window.scrollY > 0);
+      setIsVisibleBackToTopButton(window.scrollY > 200);
     };
 
     handleScroll();

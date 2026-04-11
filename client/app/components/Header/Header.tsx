@@ -4,32 +4,35 @@ import Logo from "../Logo/Logo";
 import Menu from "../Menu/Menu";
 import Button from "../Button/Button";
 import BurgerButton from "../BurgerButton/BurgerButton";
+import MenuModal from "../MobileModal/MobileModal";
 
 import { useState, useEffect } from "react";
+
+import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import LogoImageSrc from "~/assets/images/logo.svg";
 import LogoImageSrcMobile from "~/assets/images/logo-mobile.svg";
 
 const Header = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const isMobile = useMediaQuery("(max-width: 47.9375rem)");
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 47.9375rem)");
+    document.documentElement.classList.toggle("is-lock", isModalOpen);
 
-    const checkMobile = () => {
-      setIsMobile(mediaQuery.matches);
+    return () => {
+      document.documentElement.classList.remove("is-lock");
     };
-
-    checkMobile();
-
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
+  }, [isModalOpen]);
 
   return (
     <div className="header">
@@ -42,8 +45,9 @@ const Header = () => {
 
         <div className="header__buttons">
           <Button
-            className="header__phone button--phone"
+            className="header__phone"
             href="tel:+73422737107"
+            isPhoneButton
           >
             +7 (342) 27-37-107
           </Button>
@@ -51,7 +55,10 @@ const Header = () => {
           {!isMobile ? (
             <Button className="header__button">Записаться</Button>
           ) : (
-            <BurgerButton onClick={() => console.log("click")} />
+            <>
+              <BurgerButton onClick={openModal} />
+              {isModalOpen && <MenuModal closeModal={closeModal} />}
+            </>
           )}
         </div>
       </div>

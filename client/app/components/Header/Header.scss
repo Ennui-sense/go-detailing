@@ -31,11 +31,4 @@
       column-gap: rem(10);
     }
   }
-
-  &__phone {
-    @include mobile {
-      border: none !important;
-      letter-spacing: 0.04em;
-    }
-  }
 }

@@ -1,6 +1,6 @@
 @use "~/styles/helpers" as *;
 
-.footer-top-list {
+.footer-group {
 	&__title {
 		@include fluid-text(24, 16);
 

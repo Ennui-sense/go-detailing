@@ -3,26 +3,32 @@ import "./ServicesCard.scss";
 import ServicesInfo from "../ServicesInfo/ServicesInfo";
 import Button from "../Button/Button";
 
-import type { IIncludedItem } from "~/data/ServicesCardsData";
+import type { ServicesIncludedItem } from "~/types";
 
 interface ServicesCardProps {
-  title: string;
+  label: string;
+  value: string;
   minPrice: number;
   maxPrice: number;
   description: string;
   time: number;
-  includedItems: IIncludedItem[];
+  includedItems: ServicesIncludedItem[];
+  includedItemsOnBodywork?: ServicesIncludedItem[];
+  includedItemsOnSalon?: ServicesIncludedItem[];
   id: number;
   href: string;
 }
 
 const ServicesCard = ({
   time,
-  title,
+  label,
+  value,
   minPrice,
   maxPrice,
   description,
   includedItems,
+  includedItemsOnBodywork,
+  includedItemsOnSalon,
   id,
   href,
 }: ServicesCardProps) => {
@@ -41,7 +47,7 @@ const ServicesCard = ({
       <div className="services-card__inner">
         <header className="services-card__header">
           <div className="services-card__info">
-            <h3 className="services-card__title">{title}</h3>
+            <h3 className="services-card__title">{label}</h3>
             <p className="services-card__time">{formatTime(time)}</p>
           </div>
 
@@ -52,7 +58,12 @@ const ServicesCard = ({
           <p className="services-card__price">
             {formatPrice(minPrice, maxPrice)}
           </p>
-          <ServicesInfo includedItems={includedItems} />
+          <ServicesInfo
+            includedItems={includedItems}
+            isSalonService={value === "salon"}
+            includedItemsOnBodywork={includedItemsOnBodywork}
+            includedItemsOnSalon={includedItemsOnSalon}
+          />
           <Button
             className="services-card__button"
             variant={id === 2 ? "dark" : undefined}

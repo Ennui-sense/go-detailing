@@ -33,5 +33,9 @@
 
   &__swiper {
     width: 100%;
+
+		&-slide {
+			width: auto !important;
+		}
   }
 }

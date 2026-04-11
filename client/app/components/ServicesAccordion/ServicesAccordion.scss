@@ -5,14 +5,11 @@
   background: var(--color-gradient);
   border-radius: var(--border-radius);
   position: relative;
-  // max-width: rem(825);
 	min-width: rem(725);
-  // width: 100%;
   border: var(--border);
   z-index: 1;
   display: flex;
   flex-direction: column;
-  // row-gap: rem(15);
   transition-duration: var(--transition-duration);
 
 	@include desktop {
@@ -20,7 +17,7 @@
 		padding: rem(20) rem(40);
 	}
 
-  &.active {
+  &--active {
     background: var(--color-light);
 
     .services-accordion__button {
@@ -67,7 +64,7 @@
     transition-duration: var(--transition-duration);
   }
 
-  &__body {
+  &__description {
 		@include fluid-text(20, 14);
 
     color: var(--color-dark);

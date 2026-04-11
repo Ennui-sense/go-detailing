@@ -3,7 +3,7 @@ import "./Benefits.scss";
 import Section from "~/layouts/Section/Section";
 import BenefitsCard from "~/components/BenefitsCard/BenefitsCard";
 
-import { BenefitsCardsData } from "~/data/BenefitsCardsDataNew";
+import { BenefitsCardsData } from "~/data/BenefitsCardsData";
 
 const Benefits = () => {
   return (

@@ -1,8 +1,6 @@
 @use "~/styles/helpers" as *;
 
 .brands {
-  align-self: start;
-
   &__list {
     display: flex;
     align-items: center;
@@ -25,9 +23,6 @@
   }
 
   &__image {
-    width: auto;
-    height: auto;
-
     @include desktop {
       max-width: rem(330);
       max-height: rem(130);

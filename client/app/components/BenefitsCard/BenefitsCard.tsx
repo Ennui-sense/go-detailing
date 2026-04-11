@@ -1,18 +1,18 @@
-import clsx from "clsx";
 import "./BenefitsCard.scss";
+import clsx from "clsx";
 
 interface BenefitsCardProps {
   label: string;
   index: number;
-  className: string;
+  className?: string;
 }
 
 const BenefitsCard = ({ label, index, className }: BenefitsCardProps) => {
   return (
-    <article className={clsx("benefits-card", className)}>
+    <div className={clsx("benefits-card", className)}>
       <p className="benefits-card__number">0{index}</p>
       <p className="benefits-card__label">{label}</p>
-    </article>
+    </div>
   );
 };
 

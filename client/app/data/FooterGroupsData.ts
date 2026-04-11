@@ -1,16 +1,6 @@
-interface IFooterTopItem {
-	id: number;
-	href?: string;
-	label: string;
-}
+import type { FooterGroup } from "~/types"
 
-interface IFooterTopList {
-	id: number;
-	title: string;
-	items: IFooterTopItem[]
-}
-
-export const FooterTopListsData: IFooterTopList[] = [
+export const FooterGroupsData: FooterGroup[] = [
 	{
 		id: 1,
 		title: "Клиентам",

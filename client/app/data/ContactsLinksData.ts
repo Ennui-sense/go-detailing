@@ -2,14 +2,9 @@ import PhoneIcon from "~/assets/icons/phone.svg?react"
 import LetterIcon from "~/assets/icons/letter.svg?react"
 import TelegramIcon from "~/assets/icons/telegram-alt.svg?react"
 
-interface IContactsLink {
-	id: number;
-	label: string;
-	Icon: React.FC<React.SVGProps<SVGSVGElement>>
-	href: string
-}
+import type { ContactsLink } from "~/types"
 
-export const ContactsLinksData: IContactsLink[] = [
+export const ContactsLinksData: ContactsLink[] = [
 	{
 		id: 1,
 		label: "+7 (342) 27-37-107",

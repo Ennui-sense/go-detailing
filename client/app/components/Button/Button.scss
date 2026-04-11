@@ -16,9 +16,9 @@
   position: relative;
   z-index: 1;
 
-	@include mobile {
-		padding-inline: rem(21);
-	}
+  @include mobile {
+    padding-inline: rem(21);
+  }
 
   &::after {
     content: "";
@@ -36,6 +36,11 @@
   &--phone {
     background: transparent;
     border-color: var(--color-accent);
+
+    @include mobile {
+      border: none !important;
+      letter-spacing: 0.04em;
+    }
   }
 
   &--dark {

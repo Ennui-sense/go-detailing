@@ -1,0 +1,88 @@
+@use "~/styles/helpers" as *;
+
+.services-mobile {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(30);
+
+  @include mobile {
+    row-gap: rem(20);
+  }
+
+  &__swiper {
+    width: 100%;
+
+    &-slide {
+      display: flex;
+      height: auto;
+
+      &:first-child {
+        .services-card {
+          background-color: var(--color-accent-dark);
+          color: var(--color-light);
+        }
+      }
+
+      &:nth-child(2) {
+        .services-card {
+          background-color: var(--color-light);
+          color: var(--color-dark);
+        }
+      }
+
+      &:last-child {
+        .services-card {
+          background-color: rgba(59, 141, 242, 0.31);
+          color: var(--color-light);
+        }
+      }
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: space-between;
+
+    &-button {
+      @include button-reset;
+
+      font-family: var(--font-family-accent);
+      font-weight: 400;
+      font-size: rem(28);
+      letter-spacing: 0.03em;
+      color: var(--color-light);
+      position: relative;
+
+      @include mobile {
+        font-size: rem(20);
+      }
+
+      @include mobile-s {
+        font-size: rem(14);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--color-accent);
+        opacity: 0;
+        width: 100%;
+        height: rem(60);
+        border-radius: 100%;
+        filter: var(--filter);
+        transition-duration: var(--transition-duration);
+      }
+
+      &--active {
+        color: var(--color-accent);
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

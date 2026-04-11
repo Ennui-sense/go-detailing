@@ -5,12 +5,12 @@ import { BrandsData } from "~/data/BrandsData";
 import Section from "~/layouts/Section/Section";
 
 const Brands = () => {
-  const duplicateBrandsData = [...BrandsData, ...BrandsData];
+  const marqueeBrands = [...BrandsData, ...BrandsData];
 
   return (
     <Section className="brands" isMarquee title="Автомобили, с которыми мы работаем" hiddenTitle>
       <ul className="brands__list">
-        {duplicateBrandsData.map(({ imageSrc, id }, index) => (
+        {marqueeBrands.map(({ imageSrc, id }, index) => (
           <li className="brands__item" key={`${id}-${index}`}>
             <img
               src={imageSrc}

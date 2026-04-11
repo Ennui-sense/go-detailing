@@ -10,16 +10,6 @@ import Steps from "~/sections/Steps/Steps";
 import Cta from "~/sections/Cta/Cta";
 import News from "~/sections/News/News";
 
-import { useState, useEffect } from "react";
-
-import axios from "axios";
-
-const BASE_URL = import.meta.env.PROD
-  ? import.meta.env.VITE_STRAPI_URL
-  : "http://localhost:1337";
-
-const API_URL = `${BASE_URL}/main?populate*`
-
 export function meta() {
   return [
     { title: "GO detailing | Главная" },
@@ -27,33 +17,7 @@ export function meta() {
   ];
 }
 
-export default function IndexRoute() {
-	const [data, setData] = useState(null);
-	const [isLoading, setIsLoading] = useState<boolean>(false)
-
-	useEffect(() => {
-		async function loadData() {
-			try {
-				setIsLoading(true)
-				
-				const res = await axios.get(API_URL)
-
-				setData(res.data)
-			} catch (error) {
-				console.error("Ошибка при получении данных:(", error)
-			} finally {
-				setIsLoading(false)
-			}
-		}
-
-		loadData()
-	}, [])
-
-	if (!isLoading) {
-		console.log(data);
-		
-	}
-	
+export default function IndexRoute() {	
 	return (
     <Page>
       <Hero />

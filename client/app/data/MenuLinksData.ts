@@ -1,10 +1,6 @@
-interface IMenuLink {
-	id: number;
-	label: string;
-	href: string;
-}
+import type { MenuLink } from "~/types"
 
-export const MenuLinksData: IMenuLink[] = [
+export const MenuLinksData: MenuLink[] = [
 	{
 		id: 1,
 		label: "Главная",

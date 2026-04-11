@@ -3,42 +3,25 @@ import "./Hero.scss";
 import HeroImageSrc from "~/assets/images/hero-img.jpg";
 import HeroImageMobileSrc from "~/assets/images/hero-img-mobile.jpg";
 
-import { useState, useEffect } from "react";
-
 import Button from "~/components/Button/Button";
 
+import { useMediaQuery } from "~/hooks/useMediaQuery";
+
 const Hero = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 47.9375rem)");
-
-    const checkMobile = () => {
-      setIsMobile(mediaQuery.matches);
-    };
-
-    checkMobile();
-
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
+  const isMobile = useMediaQuery("(max-width: 47.9375rem)");
 
   return (
     <section className="hero section">
-      <div className="hero__bg">
+      <picture className="hero__bg">
+				<source media="(max-width: 47.9375rem)" src={HeroImageMobileSrc}/>
         <img
-          src={isMobile ? HeroImageMobileSrc : HeroImageSrc}
-          alt="Наши работы"
+          src={HeroImageSrc}
+          alt=""
           width={1920}
           height={824}
           className="hero__bg-image"
         />
-      </div>
+      </picture>
 
       <div className="hero__inner container">
         <h1 className="hero__title">
@@ -55,7 +38,13 @@ const Hero = () => {
           </p>
         )}
 
-        <Button className="hero__button" href="#services" openInNewWindow={false}>Выбрать тариф</Button>
+        <Button
+          className="hero__button"
+          href="#services"
+          openInNewWindow={false}
+        >
+          Выбрать тариф
+        </Button>
       </div>
     </section>
   );

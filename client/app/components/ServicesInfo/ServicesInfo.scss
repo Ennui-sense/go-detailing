@@ -6,9 +6,9 @@
   flex-direction: column;
   row-gap: rem(24);
 
-	@include tablet {
-		row-gap: rem(10);
-	}
+  @include tablet {
+    row-gap: rem(10);
+  }
 
   &--border {
     border: var(--border);
@@ -41,27 +41,13 @@
   &__list {
     font-weight: 100;
     line-height: 1.55;
+    list-style-type: disc;
+    padding-left: rem(40);
   }
 
   &__text {
-    &.italic {
+    &--italic {
       font-style: italic;
-    }
-
-    &.marker {
-      display: flex;
-      column-gap: rem(15);
-      align-items: center;
-			padding-left: rem(16);
-
-      &::before {
-        @include square(rem(7));
-
-        content: "";
-        border-radius: 50%;
-        background-color: currentColor;
-        flex-shrink: 0;
-      }
     }
   }
 }

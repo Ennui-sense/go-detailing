@@ -1,25 +1,10 @@
-interface IServicesCard {
-  id: number;
-  title: string;
-  minPrice: number;
-  maxPrice: number;
-  description: string;
-  time: number; // в минутах
-  includedItems: IIncludedItem[];
-  href: string;
-}
+import type { ServicesCard } from "~/types";
 
-export interface IIncludedItem {
-  id: number;
-  label: string;
-  marker?: boolean;
-  italic?: boolean;
-}
-
-export const ServicesCardsData: IServicesCard[] = [
+export const ServicesCardsData: ServicesCard[] = [
   {
     id: 1,
-    title: "Салон",
+    label: "Салон",
+    value: "salon",
     minPrice: 9490,
     maxPrice: 11490,
     description:
@@ -30,134 +15,100 @@ export const ServicesCardsData: IServicesCard[] = [
       {
         id: 1,
         label: "Уборка грязи из ткани и кожи торнадором-экстрактором",
-        marker: true,
       },
       {
         id: 2,
         label: "Мойка всех поверхностей — от пластика до потолка",
-        marker: true,
       },
       {
         id: 3,
         label: "Чистка экранов, стекол, зеркал без разводов",
-        marker: true,
       },
       {
         id: 4,
         label: "Удаление пятен с пластика",
-        marker: true,
       },
       {
         id: 5,
         label: "Паровая дезинфекция всего салона",
-        marker: true,
       },
       {
         id: 6,
         label: "Кондиционирование кожи, предотвращающее растрескивание",
-        marker: true,
       },
     ],
   },
   {
     id: 2,
-    title: "Стандарт",
+    label: "Стандарт",
+    value: "standard",
     minPrice: 13990,
     maxPrice: 16990,
     description:
       "Подойдет большинству автовладельцев, идеальный баланс цены и качества для регулярного поддержания чистоты автомобиля",
     time: 270,
     href: "https://n2056470.yclients.com/",
-    includedItems: [
+    includedItems: [],
+    includedItemsOnBodywork: [
       {
         id: 1,
-        label: "Всё из тарифа «Салон», а также:",
+        label: "Профессиональная ручная мойка кузова",
       },
       {
         id: 2,
-        label: "По кузову:",
-        italic: true,
+        label: "Качественная проработка арок, дисков и резины",
       },
       {
         id: 3,
-        label: "Профессиональная ручная мойка кузова",
-        marker: true,
+        label: "Удаление водного камня со стёкол и лакокрасочного покрытия",
       },
       {
         id: 4,
-        label: "Качественная проработка арок, дисков и резины",
-        marker: true,
-      },
-      {
-        id: 5,
-        label: "Удаление водного камня со стёкол и лакокрасочного покрытия",
-        marker: true,
-      },
-      {
-        id: 6,
         label: "Нанесение антидождя",
-        marker: true,
       },
     ],
   },
   {
     id: 3,
-    title: "Максимум",
+    label: "Максимум",
+    value: "max",
     minPrice: 21490,
     maxPrice: 24490,
     description:
       "Идеально подойдет, если автомобиль сильно загрязнен или давно нуждается в профессиональной чистке",
     time: 390,
     href: "https://n2056482.yclients.com",
-    includedItems: [
+    includedItems: [],
+    includedItemsOnSalon: [
       {
         id: 1,
-        label: "Всё из тарифа «Салон», а также:",
+        label: "Удаление шерсти животных (при необходимости)",
       },
       {
         id: 2,
-        label: "По салону:",
-        italic: true,
+        label: "Удаление тяжёлых пятен (при необходимости)",
       },
       {
         id: 3,
-        label: "Удаление шерсти животных (при необходимости)",
-        marker: true,
+        label: "Озонация — устранение запахов",
+      },
+    ],
+    includedItemsOnBodywork: [
+      {
+        id: 1,
+        label: "Мойка днища и подкапотного пространства",
+      },
+      {
+        id: 2,
+        label: "Защита ручек от микроцарапин",
+      },
+      {
+        id: 3,
+        label: "Гибридное кварцевое покрытие — блеск и защита на 12 месяцев",
       },
       {
         id: 4,
-        label: "Удаление тяжёлых пятен (при необходимости)",
-        marker: true,
-      },
-      {
-        id: 5,
-        label: "Озонация — устранение запахов",
-        marker: true,
-      },
-      {
-        id: 6,
-        label: "По кузову:",
-        italic: true,
-      },
-      {
-        id: 7,
-        label: "Мойка днища и подкапотного пространства",
-        marker: true,
-      },
-      {
-        id: 8,
-        label: "Защита ручек от микроцарапин",
-        marker: true,
-      },
-      {
-        id: 9,
-        label: "Гибридное кварцевое покрытие — блеск и защита на 12 месяцев",
-        marker: true,
-      },
-      {
-        id: 10,
         label: "Удаление следов насекомых, смолы, пыльцы",
-        marker: true,
       },
     ],
   },

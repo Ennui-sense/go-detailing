@@ -1,6 +1,31 @@
 @use "~/styles/helpers" as *;
 
 .steps-card {
+  display: grid;
+  grid-template-columns: 1fr rem(80) 1fr;
+  column-gap: rem(85);
+  align-items: center;
+  width: 100%;
+
+  @include desktop {
+    column-gap: rem(50);
+    grid-template-columns: 1fr rem(80) 1fr;
+  }
+
+  @include tablet {
+    column-gap: rem(35);
+    grid-template-columns: 1fr rem(60) 1fr;
+  }
+
+  @include mobile {
+    display: flex;
+    column-gap: rem(20);
+
+    .steps-card__image {
+      flex-shrink: 0;
+    }
+  }
+	
   &__image {
     @include square(rem(100));
     @include flex-center(true);
@@ -8,29 +33,29 @@
     border-radius: 50%;
     background-color: var(--color-accent-light);
 
-		@include desktop {
-			@include square(rem(80));
+    @include desktop {
+      @include square(rem(80));
 
-			& svg {
-				@include square(rem(45))
-			}
-		}
+      & svg {
+        @include square(rem(45));
+      }
+    }
 
-		@include tablet {
-			@include square(rem(60));
+    @include tablet {
+      @include square(rem(60));
 
-			& svg {
-				@include square(rem(35))
-			}
-		}
+      & svg {
+        @include square(rem(35));
+      }
+    }
 
-		@include mobile {
-			@include square(rem(50));
+    @include mobile {
+      @include square(rem(50));
 
-			& svg {
-				@include square(rem(30))
-			}
-		}
+      & svg {
+        @include square(rem(30));
+      }
+    }
   }
 
   &__content {
@@ -39,23 +64,23 @@
     row-gap: rem(20);
     line-height: 1.55;
 
-		@include tablet {
-			row-gap: rem(12);
-		}
+    @include tablet {
+      row-gap: rem(12);
+    }
 
-		@include mobile {
-			row-gap: rem(6) 
-		}
+    @include mobile {
+      row-gap: rem(6);
+    }
   }
 
   &__title {
-		@include fluid-text(36, 14);
+    @include fluid-text(36, 14);
 
     font-weight: 300;
     font-family: var(--font-family-base);
   }
 
   &__description {
-		@include fluid-text(28, 12);
+    @include fluid-text(28, 12);
   }
 }
