@@ -2,9 +2,9 @@ import PhoneIcon from "~/assets/icons/phone.svg?react"
 import LetterIcon from "~/assets/icons/letter.svg?react"
 import TelegramIcon from "~/assets/icons/telegram-alt.svg?react"
 
-import type { ContactsLink } from "~/types"
+import type { ContactLink } from "~/types"
 
-export const ContactsLinksData: ContactsLink[] = [
+export const ContactsLinksData: ContactLink[] = [
 	{
 		id: 1,
 		label: "+7 (342) 27-37-107",

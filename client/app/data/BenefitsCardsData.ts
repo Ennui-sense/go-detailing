@@ -1,6 +1,6 @@
-import type { BenefitsCard } from "~/types"
+import type { BenefitCard } from "~/types"
 
-export const BenefitsCardsData: BenefitsCard[] = [
+export const BenefitsCardsData: BenefitCard[] = [
 	{
 		id: 1,
 		label: "Используем только профессиональные средства"

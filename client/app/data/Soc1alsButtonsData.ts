@@ -1,10 +1,9 @@
-import type React from "react";
 import VkIcon from "~/assets/icons/vk.svg?react";
 import TelegramIcon from "~/assets/icons/telegram.svg?react";
 
-import type { Soc1alsButton } from "~/types";
+import type { Soc1alButton } from "~/types";
 
-export const Soc1alsButtonsData: Soc1alsButton[] = [
+export const Soc1alsButtonsData: Soc1alButton[] = [
   {
     id: 1,
     Icon: VkIcon,

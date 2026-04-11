@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import "./AdditionsCard.scss";
 
-import type { AdditionsCard } from "~/types";
+import type { AdditionCard } from "~/types";
 
 interface AdditionsCardProps {
-  data: AdditionsCard;
+  data: AdditionCard;
   onClick: () => void;
   visibleDetails: boolean;
   isMobile?: boolean;

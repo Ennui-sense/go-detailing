@@ -1,6 +1,6 @@
-import type { ServicesCard } from "~/types";
+import type { ServiceCard } from "~/types";
 
-export const ServicesCardsData: ServicesCard[] = [
+export const ServicesCardsData: ServiceCard[] = [
   {
     id: 1,
     label: "Салон",

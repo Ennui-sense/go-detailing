@@ -1,6 +1,6 @@
-import type { ReviewsCard } from "~/types"
+import type { ReviewCard } from "~/types"
 
-export const ReviewsCardsData: ReviewsCard[] = [
+export const ReviewsCardsData: ReviewCard[] = [
 	{
 		id: 1,
 		text: "Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так. Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад",

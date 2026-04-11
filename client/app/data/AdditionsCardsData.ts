@@ -8,9 +8,9 @@ import SeventhImageSrc from "~/assets/images/additions/7.jpg";
 import EighthImageSrc from "~/assets/images/additions/8.jpg";
 import NinthImageSrc from "~/assets/images/additions/9.jpg";
 
-import type { AdditionsCard } from "~/types";
+import type { AdditionCard } from "~/types";
 
-export const AdditionsCardsData: AdditionsCard[] = [
+export const AdditionsCardsData: AdditionCard[] = [
   {
     id: 1,
     title: "Гибридное покрытие RestoreFX",

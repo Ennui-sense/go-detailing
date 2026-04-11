@@ -10,13 +10,13 @@ export type FooterGroupItem = {
 	label: string;
 }
 
-export type Soc1alsButton = {
+export type Soc1alButton = {
   id: number;
   Icon: React.FC<React.SVGProps<SVGSVGElement>>;
   title: string;
 }
 
-export type BenefitsCard = {
+export type BenefitCard = {
 	id: number;
 	label: string
 }
@@ -26,7 +26,7 @@ export type Brand = {
 	imageSrc: string
 }
 
-export type ServicesCard = {
+export type ServiceCard = {
   id: number;
   label: string;
 	value: string;
@@ -35,24 +35,24 @@ export type ServicesCard = {
   description: string;
   time: number; // в минутах
   href: string;
-  includedItems: ServicesIncludedItem[];
-  includedItemsOnBodywork?: ServicesIncludedItem[];
-  includedItemsOnSalon?: ServicesIncludedItem[];
+  includedItems: ServiceIncludedItem[];
+  includedItemsOnBodywork?: ServiceIncludedItem[];
+  includedItemsOnSalon?: ServiceIncludedItem[];
 }
 
-export type ServicesIncludedItem = {
+export type ServiceIncludedItem = {
   id: number;
   label: string;
 }
 
-export type ReviewsCard =  {
+export type ReviewCard =  {
 	id: number;
 	text: string;
 	name: string;
 	rate: number;
 }
 
-export type StepsCard = {
+export type StepCard = {
   id: number;
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   title: string;
@@ -65,7 +65,7 @@ export type FaqAccordion = {
   text: string;
 }
 
-export type AdditionsCard = {
+export type AdditionCard = {
   id: number;
   title: string;
   imageSrc: string;
@@ -74,7 +74,7 @@ export type AdditionsCard = {
   description: string;
 }
 
-export type ContactsLink = {
+export type ContactLink = {
 	id: number;
 	label: string;
 	Icon: React.FC<React.SVGProps<SVGSVGElement>>

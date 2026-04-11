@@ -3,9 +3,9 @@ import PhoneCallIcon from "~/assets/icons/phone-call.svg?react";
 import BrushIcon from "~/assets/icons/brush.svg?react";
 import CarIcon from "~/assets/icons/car.svg?react";
 
-import type { StepsCard } from "~/types";
+import type { StepCard } from "~/types";
 
-export const StepsCardsData: StepsCard[] = [
+export const StepsCardsData: StepCard[] = [
   {
     id: 1,
     Icon: DocumentIcon,
