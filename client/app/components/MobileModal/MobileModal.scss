@@ -1,11 +1,11 @@
 @use "~/styles/helpers" as *;
 
 .mobile-modal {
-  // background: linear-gradient(
-  //   329deg,
-  //   rgba(1, 0, 11, 0.97) 0%,
-  //   rgba(1, 0, 11, 0.97) 98.56%
-  // );
+  background: linear-gradient(
+    329deg,
+    rgba(1, 0, 11, 0.90) 0%,
+    rgba(1, 0, 11, 0.15) 98.56%
+  );
   backdrop-filter: blur(14px) !important;
   position: fixed;
   inset: 0;

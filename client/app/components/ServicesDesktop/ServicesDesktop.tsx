@@ -6,7 +6,7 @@ import Button from "~/components/Button/Button";
 
 import { useState } from "react";
 
-import type { ServicesCard } from "~/types";
+import type { ServiceCard } from "~/types";
 
 import { ServicesCardsData } from "~/data/ServicesCardsData";
 
@@ -21,7 +21,7 @@ const ServicesDesktop = () => {
 
   const activeServicesCard = ServicesCardsData.find(
     ({ id }) => id === activeId,
-  ) as ServicesCard;
+  ) as ServiceCard;
 
   return (
     <div className="services-desktop">

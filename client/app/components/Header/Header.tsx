@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { AnimatePresence } from "motion/react";
+
 import "./Header.scss";
 
 import Logo from "../Logo/Logo";
@@ -6,25 +9,18 @@ import Button from "../Button/Button";
 import BurgerButton from "../BurgerButton/BurgerButton";
 import MenuModal from "../MobileModal/MobileModal";
 
-import { useState, useEffect } from "react";
-
 import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import LogoImageSrc from "~/assets/images/logo.svg";
 import LogoImageSrcMobile from "~/assets/images/logo-mobile.svg";
 
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const isMobile = useMediaQuery("(max-width: 47.9375rem)");
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     document.documentElement.classList.toggle("is-lock", isModalOpen);
@@ -35,12 +31,13 @@ const Header = () => {
   }, [isModalOpen]);
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="header__inner container">
         <Logo
           className="header__logo"
           imageSrc={isMobile ? LogoImageSrcMobile : LogoImageSrc}
         />
+
         {!isMobile && <Menu className="header__menu" />}
 
         <div className="header__buttons">
@@ -57,12 +54,14 @@ const Header = () => {
           ) : (
             <>
               <BurgerButton onClick={openModal} />
-              {isModalOpen && <MenuModal closeModal={closeModal} />}
+              <AnimatePresence mode="wait">
+                {isModalOpen && <MenuModal closeModal={closeModal} />}
+              </AnimatePresence>
             </>
           )}
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
