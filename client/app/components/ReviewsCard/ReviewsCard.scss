@@ -1,7 +1,7 @@
 @use "~/styles/helpers" as *;
 
 .reviews-card {
-  @include fluid-text(24, 12);
+  @include fluid-text(24, 16);
 
   padding: rem(56);
   border: var(--border);
@@ -10,10 +10,6 @@
   display: flex;
   flex-direction: column;
   row-gap: rem(40);
-
-  // @include hover(false) {
-  //   box-shadow: 0 0 rem(50) 0 rgba(59, 141, 242, 0.37);
-  // }
 
   @include tablet {
     padding: rem(32);

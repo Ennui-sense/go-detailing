@@ -22,7 +22,7 @@ const Process = () => {
 
 				<div className="process__action">
 					<p className="process__action-text">Заполните форму и мы свяжемся с вами!</p>
-					<Button className="process__action0-">Заполнить</Button>
+					<Button className="process__action-button">Заполнить</Button>
 				</div>
       </div>
     </Section>

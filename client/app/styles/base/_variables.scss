@@ -60,8 +60,4 @@
   @include mobile {
     --button-height: #{rem(50)};
   }
-
-  @include mobile-s {
-    --button-height: #{rem(36)};
-  }
 }

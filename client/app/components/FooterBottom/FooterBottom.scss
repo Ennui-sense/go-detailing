@@ -25,8 +25,12 @@
     }
   }
 
+	&__copyright {
+		@include fluid-text(20, 14)
+	}
+
   &__text {
-    @include fluid-text(18, 12);
+    @include fluid-text(18, 14);
 
     max-width: rem(580);
     width: auto;
@@ -39,7 +43,7 @@
   }
 
   &__developers {
-    @include fluid-text(18, 12);
+    @include fluid-text(18, 14);
 
     display: flex;
     flex-direction: column;

@@ -16,7 +16,7 @@
 
 	@include mobile-s {
 		width: rem(240);
-		height: rem(200);
+		height: rem(240);
 	}
 
   &__wrapper-image {
@@ -78,11 +78,10 @@
     }
 
     &--back {
-			@include fluid-text(16, 14);
-
       transform: rotateY(180deg);
       line-height: 1.2;
       font-weight: 200;
+			font-size: rem(16);
       background: var(--color-gradient);
 			background-color: #fff;
       color: var(--color-dark);
@@ -105,7 +104,7 @@
 		@include fluid-text(32, 16);
 
     font-family: var(--font-family-base);
-    font-weight: 200;
+    font-weight: 300;
     line-height: 0.93;
     text-align: center;
     max-width: 100%;
@@ -116,13 +115,17 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: auto;
+    margin-bottom: rem(30)
   }
 
   &__price {
-		@include fluid-text(24, 14);
+		@include fluid-text(24, 16);
 
 		font-family: var(--font-family-accent);
     font-weight: 400;
   }
+	
+	&__description {
+		margin-top: auto;
+	}
 }

@@ -55,7 +55,8 @@
     row-gap: rem(14);
 
 		@include mobile-s {
-			row-gap: rem(50)
+			row-gap: rem(50);
+			align-items: end;
 		}
   }
 

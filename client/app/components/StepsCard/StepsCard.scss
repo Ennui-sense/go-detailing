@@ -74,13 +74,13 @@
   }
 
   &__title {
-    @include fluid-text(36, 14);
+    @include fluid-text(36, 16);
 
     font-weight: 300;
     font-family: var(--font-family-base);
   }
 
   &__description {
-    @include fluid-text(28, 12);
+    @include fluid-text(28, 16);
   }
 }

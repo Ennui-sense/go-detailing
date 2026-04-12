@@ -28,15 +28,16 @@ const Button = ({
         [`button--${variant}`]: variant,
       })}
       target={openInNewWindow ? "_blank" : undefined}
-			rel={openInNewWindow ? "noopener noreferrer" : undefined}
+      rel={openInNewWindow ? "noopener noreferrer" : undefined}
     >
       {children}
     </a>
   ) : (
     <button
       type="button"
-      className={clsx(className, "button", `button--${variant}`, {
+      className={clsx(className, "button", {
         "button--phone": isPhoneButton,
+        [`button--${variant}`]: variant,
       })}
       onClick={onClick}
     >

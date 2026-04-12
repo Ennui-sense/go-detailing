@@ -80,13 +80,15 @@ const Reviews = () => {
         </div>
 
         <div className="reviews__buttons">
-          <Button
-            className="reviews__button"
-            href="tel:+73422737107"
-            isPhoneButton
-          >
-            +7 (342) 27-37-107
-          </Button>
+          {!isMobile && (
+            <Button
+              className="reviews__button"
+              href="tel:+73422737107"
+              isPhoneButton
+            >
+              +7 (342) 27-37-107
+            </Button>
+          )}
           <Button className="reviews__button">Записаться</Button>
         </div>
       </div>

@@ -14,7 +14,7 @@
 	}
 
 	@include mobile-s {
-		height: rem(630);
+		height: rem(700);
 	}
 
   @include mobile {
@@ -61,11 +61,11 @@
   }
 
   &__title {
-    @include fluid-text(30, 18);
+    @include fluid-text(30, 20);
   }
 
   &__description {
-    @include fluid-text(20, 14);
+    @include fluid-text(20, 16);
   }
 
   &__body {

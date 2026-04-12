@@ -10,7 +10,7 @@
 	}
 
   &__number {
-    @include fluid-text(36, 16);
+    @include fluid-text(36, 20);
 
     font-family: var(--font-family-accent);
     font-weight: 400;
@@ -18,7 +18,7 @@
   }
 
   &__label {
-    @include fluid-text(32, 15);
+    @include fluid-text(32, 16);
 
     color: var(--color-dark);
     font-weight: 300;

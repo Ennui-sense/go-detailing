@@ -1,7 +1,7 @@
 @use "~/styles/helpers/" as *;
 
 .faq-accordion {
-	@include fluid-text(28, 14);
+	@include fluid-text(28, 16);
 
   padding: rem(24) rem(36);
   border: var(--border);

@@ -15,6 +15,8 @@ export function meta() {
 export default function ContactsRoute() {
   return (
     <Page>
+			<h1 className="visually-hidden">Наши контакты</h1>
+
       <div className="bg__dark">
         <Contacts heroOffset />
         <Process />

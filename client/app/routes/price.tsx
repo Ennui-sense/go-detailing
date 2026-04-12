@@ -15,6 +15,8 @@ export function meta() {
 export default function PriceRoute() {
   return (
     <Page>
+			<h1 className="visually-hidden">Наши услуги</h1>
+			
       <div className="bg__dark">
         <Services heroOffset />
       </div>

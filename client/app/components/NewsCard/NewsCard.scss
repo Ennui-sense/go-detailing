@@ -1,7 +1,7 @@
 @use "~/styles/helpers" as *;
 
 .news-card {
-	@include fluid-text(20, 14);
+	@include fluid-text(20, 16);
 
   padding: rem(45);
   border-radius: var(--border-radius-large);
@@ -14,10 +14,6 @@
 	@include desktop {
 		padding: rem(20);
 	}
-
-  // @include hover(false) {
-  //   box-shadow: 0 0 rem(50) 0 rgba(59, 141, 242, 0.37);
-  // }
 
   &__inner {
     display: flex;
@@ -37,7 +33,6 @@
   }
 
   &__text {
-    // height: rem(100);
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

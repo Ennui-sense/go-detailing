@@ -3,7 +3,7 @@
 .button {
   @include button-reset;
   @include flex-center(true);
-  @include fluid-text(24, 12);
+  @include fluid-text(24, 16);
 
   font-weight: 400;
   padding-inline: rem(28);

@@ -64,9 +64,5 @@
 
   &__text {
     font-weight: 200;
-		
-    @include mobile-s {
-      max-width: rem(250);
-    }
   }
 }
