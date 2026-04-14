@@ -1,7 +1,7 @@
 import "./Process.scss";
 
 import Section from "~/layouts/Section/Section";
-import Button from "~/components/Button/Button";
+import Link from "~/components/Link/Link";
 
 const Process = () => {
   return (
@@ -20,10 +20,18 @@ const Process = () => {
           </p>
         </div>
 
-				<div className="process__action">
-					<p className="process__action-text">Заполните форму и мы свяжемся с вами!</p>
-					<Button className="process__action-button">Заполнить</Button>
-				</div>
+        <div className="process__action">
+          <p className="process__action-text">
+            Заполните форму и мы свяжемся с вами!
+          </p>
+          <Link
+            className="process__action-link"
+            href="https://n2056470.yclients.com/"
+            openInNewWindow
+          >
+            Записаться
+          </Link>
+        </div>
       </div>
     </Section>
   );

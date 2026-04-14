@@ -20,9 +20,13 @@
     column-gap: rem(12);
     flex-wrap: wrap;
     row-gap: rem(12);
+
+		@include mobile-s {
+			column-gap: 0;
+		}
   }
 
-  &__buttons {
+  &__actions {
     display: flex;
     column-gap: rem(20);
     align-items: center;
@@ -30,5 +34,9 @@
     @include mobile {
       column-gap: rem(10);
     }
+
+		@include mobile-s {
+			column-gap: 0;
+		}
   }
 }

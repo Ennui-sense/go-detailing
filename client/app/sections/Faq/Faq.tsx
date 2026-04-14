@@ -8,10 +8,10 @@ import { useState } from "react";
 import type { FaqStrapi } from "~/api/types";
 
 interface FaqProps {
-	data: FaqStrapi[]
+  data: FaqStrapi[];
 }
 
-const Faq = ({data}: FaqProps) => {
+const Faq = ({ data }: FaqProps) => {
   const [openId, setOpenId] = useState<number | null>(null);
 
   return (

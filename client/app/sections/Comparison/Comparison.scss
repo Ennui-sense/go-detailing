@@ -32,7 +32,7 @@
     }
 
     @include mobile-s {
-      transform: translateX(rem(-120)) rotate(-5deg);
+      display: none;
     }
   }
 

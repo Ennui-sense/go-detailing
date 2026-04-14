@@ -1,7 +1,7 @@
 import "./Cta.scss";
 
 import Section from "~/layouts/Section/Section";
-import Button from "~/components/Button/Button";
+import Link from "~/components/Link/Link";
 
 const Cta = () => {
   return (
@@ -17,10 +17,15 @@ const Cta = () => {
         </>
       }
       innerLayout="row"
-      description="Заполните форму и мы свяжемся с вами!"
     >
       <div className="cta__body">
-        <Button className="cta__button">Заполнить</Button>
+        <Link
+          className="cta__link"
+          href="https://n2056470.yclients.com/"
+          openInNewWindow
+        >
+          Записаться
+        </Link>
       </div>
     </Section>
   );

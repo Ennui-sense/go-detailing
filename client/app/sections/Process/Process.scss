@@ -25,25 +25,26 @@
 			}
     }
   }
-
+	
   &__action {
-    display: flex;
+		display: flex;
     justify-content: space-between;
 		align-items: center;
-
+		
 		@include mobile {
 			flex-direction: column;
 			row-gap: rem(20)
 		}
-
+		
     &-text {
 			@include fluid-text(32, 24);
-
+			
       font-weight: 200;
       line-height: 1.55;
-
+			
 			@include mobile {
 				text-align: center;
+				line-height: 1.2;
 			}
     }
   }

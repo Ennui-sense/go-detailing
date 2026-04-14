@@ -5,7 +5,7 @@ import "./Header.scss";
 
 import Logo from "../Logo/Logo";
 import Menu from "../Menu/Menu";
-import Button from "../Button/Button";
+import Link from "../Link/Link";
 import BurgerButton from "../BurgerButton/BurgerButton";
 import MenuModal from "../MobileModal/MobileModal";
 
@@ -40,17 +40,19 @@ const Header = () => {
 
         {!isMobile && <Menu className="header__menu" />}
 
-        <div className="header__buttons">
-          <Button
-            className="header__phone"
-            href="tel:+73422737107"
-            isPhoneButton
-          >
+        <div className="header__actions">
+          <Link className="header__link" href="tel:+73422737107" variant="border">
             +7 (342) 27-37-107
-          </Button>
+          </Link>
 
           {!isMobile ? (
-            <Button className="header__button">Записаться</Button>
+            <Link
+              className="header__link"
+              href="https://n2056470.yclients.com/"
+							openInNewWindow
+            >
+              Записаться
+            </Link>
           ) : (
             <>
               <BurgerButton onClick={openModal} />

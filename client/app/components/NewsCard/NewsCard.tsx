@@ -1,6 +1,6 @@
 import "./NewsCard.scss";
 
-import Button from "../Button/Button";
+import Link from "../Link/Link";
 
 interface NewsCardProps {
   text: string;
@@ -33,9 +33,14 @@ const NewsCard = ({ text, photo, date, url }: NewsCardProps) => {
 
         <p className="news-card__text">{text}</p>
 
-        <Button className="news-card__button" href={url} variant="dark">
+        <Link
+          className="news-card__link"
+          href={url}
+          variant="dark"
+          openInNewWindow
+        >
           Читать
-        </Button>
+        </Link>
       </div>
     </article>
   );

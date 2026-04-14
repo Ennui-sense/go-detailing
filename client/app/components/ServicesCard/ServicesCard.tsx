@@ -1,7 +1,7 @@
 import "./ServicesCard.scss";
 
 import ServicesInfo from "../ServicesInfo/ServicesInfo";
-import Button from "../Button/Button";
+import Link from "../Link/Link";
 
 import type { ServiceStrapiItem } from "~/api/types";
 
@@ -15,7 +15,7 @@ interface ServicesCardProps {
   includedItems: ServiceStrapiItem[];
   includedItemsOnBodywork: ServiceStrapiItem[];
   includedItemsOnSalon: ServiceStrapiItem[];
-  id: number;
+  index: number;
   href: string;
 }
 
@@ -29,7 +29,7 @@ const ServicesCard = ({
   includedItems,
   includedItemsOnBodywork,
   includedItemsOnSalon,
-  id,
+  index,
   href,
 }: ServicesCardProps) => {
   const formatPrice = (minPrice: number, maxPrice: number) => {
@@ -63,13 +63,14 @@ const ServicesCard = ({
             includedItemsOnBodywork={includedItemsOnBodywork}
             includedItemsOnSalon={includedItemsOnSalon}
           />
-          <Button
-            className="services-card__button"
-            variant={id === 2 ? "dark" : undefined}
+          <Link
+            className="services-card__link"
+            variant={index === 2 ? "dark" : undefined}
             href={href}
+						openInNewWindow
           >
             Заказать
-          </Button>
+          </Link>
         </div>
       </div>
     </article>

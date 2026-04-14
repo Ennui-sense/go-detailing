@@ -47,7 +47,7 @@ const ServicesMobile = ({ data }: ServicesMobileProps) => {
             bodywork_items,
             salon_items,
             href,
-          }) => (
+          }, index) => (
             <SwiperSlide key={id} className="services-mobile__swiper-slide">
               <ServicesCard
                 time={time}
@@ -59,8 +59,8 @@ const ServicesMobile = ({ data }: ServicesMobileProps) => {
                 includedItems={base_items}
                 includedItemsOnBodywork={bodywork_items}
                 includedItemsOnSalon={salon_items}
-                id={id}
                 href={href}
+								index={index + 1}
               />
             </SwiperSlide>
           ),

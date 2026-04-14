@@ -1,7 +1,7 @@
 import "./Additions.scss";
 
 import Section from "~/layouts/Section/Section";
-import Button from "~/components/Button/Button";
+import Link from "~/components/Link/Link";
 import AdditionsCard from "~/components/AdditionsCard/AdditionsCard";
 
 import { useState, useRef, useEffect } from "react";
@@ -73,7 +73,7 @@ const Additions = ({ data }: AdditionsProps) => {
           </Swiper>
         ) : (
           <ul className="additions__list" ref={additionsListRef}>
-            {data.map(({title, description, time, price, imageSrc, id}) => (
+            {data.map(({ title, description, time, price, imageSrc, id }) => (
               <li className="additions__item" key={id}>
                 <AdditionsCard
                   title={title}
@@ -89,9 +89,14 @@ const Additions = ({ data }: AdditionsProps) => {
           </ul>
         )}
 
-        <Button className="additions__button" variant="dark">
+        <Link
+          className="additions__link"
+          variant="dark"
+          href="https://n2056470.yclients.com/"
+					openInNewWindow
+        >
           Оформить заказ
-        </Button>
+        </Link>
       </div>
     </Section>
   );

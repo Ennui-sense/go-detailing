@@ -2,9 +2,8 @@ import "./Reviews.scss";
 
 import Section from "~/layouts/Section/Section";
 import ReviewsCard from "~/components/ReviewsCard/ReviewsCard";
-import Button from "~/components/Button/Button";
+import Link from "~/components/Link/Link";
 import ArrowButton from "~/components/ArrowButton/ArrowButton";
-
 
 import { useState } from "react";
 import { useMediaQuery } from "~/hooks/useMediaQuery";
@@ -84,17 +83,23 @@ const Reviews = ({ data }: ReviewsProps) => {
           )}
         </div>
 
-        <div className="reviews__buttons">
+        <div className="reviews__links">
           {!isMobile && (
-            <Button
-              className="reviews__button"
+            <Link
+              className="reviews__link"
               href="tel:+73422737107"
-              isPhoneButton
+              variant="border"
             >
               +7 (342) 27-37-107
-            </Button>
+            </Link>
           )}
-          <Button className="reviews__button">Записаться</Button>
+          <Link
+            className="reviews__link"
+            openInNewWindow
+            href="https://n2056470.yclients.com/"
+          >
+            Записаться
+          </Link>
         </div>
       </div>
     </Section>

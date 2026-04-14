@@ -5,6 +5,9 @@ import Contacts from "~/sections/Contacts/Contacts";
 import Process from "~/sections/Process/Process";
 import News from "~/sections/News/News";
 
+import { getVkNews } from "~/api/news";
+import { useLoaderData } from "react-router";
+
 export function meta() {
   return [
     { title: "Go detailing | Контакты" },
@@ -12,17 +15,25 @@ export function meta() {
   ];
 }
 
+export async function loader() {
+  const news = await getVkNews();
+
+  return news;
+}
+
 export default function ContactsRoute() {
+  const news = useLoaderData<typeof loader>();
+
   return (
     <Page>
-			<h1 className="visually-hidden">Наши контакты</h1>
+      <h1 className="visually-hidden">Наши контакты</h1>
 
       <div className="bg__dark">
         <Contacts heroOffset />
         <Process />
       </div>
 
-      <News withBottomMargin/>
+      <News withBottomMargin data={news} />
     </Page>
   );
 }

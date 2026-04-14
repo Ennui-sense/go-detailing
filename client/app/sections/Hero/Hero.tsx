@@ -3,7 +3,7 @@ import "./Hero.scss";
 import HeroImageSrc from "~/assets/images/hero-img.jpg";
 import HeroImageMobileSrc from "~/assets/images/hero-img-mobile.jpg";
 
-import Button from "~/components/Button/Button";
+import Link from "~/components/Link/Link";
 
 import { useMediaQuery } from "~/hooks/useMediaQuery";
 
@@ -38,13 +38,12 @@ const Hero = () => {
           </p>
         )}
 
-        <Button
-          className="hero__button"
+        <Link
+          className="hero__link"
           href="#services"
-          openInNewWindow={false}
         >
           Выбрать тариф
-        </Button>
+        </Link>
       </div>
     </section>
   );

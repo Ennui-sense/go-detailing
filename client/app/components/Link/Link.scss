@@ -1,6 +1,6 @@
 @use "~/styles/helpers" as *;
 
-.button {
+.link {
   @include button-reset;
   @include flex-center(true);
   @include fluid-text(24, 16);
@@ -32,8 +32,24 @@
     z-index: -1;
     transition-duration: var(--transition-duration);
   }
-
+	
+  &--border {
+    background: transparent;
+    border-color: var(--color-accent);
+		
+    @include mobile {
+			border: none !important;
+      letter-spacing: 0.04em;
+    }
+  }
+	
+	&--dark {
+		color: var(--color-dark);
+	}
+	
   @include hover(false) {
+		color: var(--color-light);
+
     &::after {
       opacity: 1;
     }

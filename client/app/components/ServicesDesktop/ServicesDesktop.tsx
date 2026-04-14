@@ -2,7 +2,7 @@ import "./ServicesDesktop.scss";
 
 import ServicesAccordion from "~/components/ServicesAccordion/ServicesAccordion";
 import ServicesInfo from "~/components/ServicesInfo/ServicesInfo";
-import Button from "~/components/Button/Button";
+import Link from "../Link/Link";
 
 import { useState } from "react";
 
@@ -58,12 +58,13 @@ const ServicesDesktop = ({data}: ServicesDesktopProps) => {
           transition={{ duration: 1 }} // Настройки анимации
           viewport={{ once: false }} // Анимировать только один раз (или false, чтобы каждый раз)
         >
-          <Button
-            className="services-desktop__button"
+          <Link
+            className="services-desktop__link"
             href={activeServicesCard.href}
+						openInNewWindow
           >
             Уточнить детали
-          </Button>
+          </Link>
         </motion.div>
       </div>
     </div>
