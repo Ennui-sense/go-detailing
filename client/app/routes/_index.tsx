@@ -10,6 +10,12 @@ import Steps from "~/sections/Steps/Steps";
 import Cta from "~/sections/Cta/Cta";
 import News from "~/sections/News/News";
 
+import { useLoaderData } from "react-router";
+
+import { getVkNews } from "~/api/news";
+import { getMainPage } from "~/api";
+
+
 export function meta() {
   return [
     { title: "GO detailing | Главная" },
@@ -17,23 +23,32 @@ export function meta() {
   ];
 }
 
-export default function IndexRoute() {	
-	return (
+
+export async function loader() {
+  const [mainPage, news] = await Promise.all([getMainPage(), getVkNews()]);
+
+  return { mainPage, news };
+}
+
+export default function IndexRoute() {
+	const { mainPage, news } = useLoaderData<typeof loader>();
+
+  return (
     <Page>
       <Hero />
       <Benefits />
       <Brands />
 
       <div className="bg__dark" id="services">
-        <Services />
-        <Reviews />
+        <Services data={mainPage.services}/>
+        <Reviews data={mainPage.reviews}/>
       </div>
 
-      <News />
+      <News data={news}/>
       <Steps />
 
       <div className="bg__accent-light">
-        <Faq />
+        <Faq data={mainPage.faqs}/>
       </div>
 
       <div className="bg__dark">

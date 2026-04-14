@@ -6,33 +6,35 @@ import Button from "~/components/Button/Button";
 
 import { useState } from "react";
 
-import type { ServiceCard } from "~/types";
-
-import { ServicesCardsData } from "~/data/ServicesCardsData";
-
 import { motion } from "motion/react";
 
-const ServicesDesktop = () => {
-  const [activeId, setActiveId] = useState<number>(1);
+import type { ServiceStrapi } from "~/api/types";
+
+interface ServicesDesktopProps {
+	data: ServiceStrapi[]
+}
+
+const ServicesDesktop = ({data}: ServicesDesktopProps) => {
+  const [activeId, setActiveId] = useState<number>(data[0].id);
 
   const handleClick = (id: number) => {
     setActiveId(id);
   };
 
-  const activeServicesCard = ServicesCardsData.find(
+  const activeServicesCard = data.find(
     ({ id }) => id === activeId,
-  ) as ServiceCard;
+  ) as ServiceStrapi; 
 
   return (
     <div className="services-desktop">
       <div className="services-desktop__accordions">
-        {ServicesCardsData.map(
-          ({ label, description, maxPrice, minPrice, id }) => (
+        {data.map(
+          ({ title, description, maxPrice, minPrice, id }) => (
             <ServicesAccordion
-              label={label}
+              label={title}
               description={description}
-              maxPrice={maxPrice}
-              minPrice={minPrice}
+              maxPrice={Number(maxPrice)}
+              minPrice={Number(minPrice)}
               isActive={id === activeId}
               key={id}
               onClick={() => handleClick(id)}
@@ -43,9 +45,9 @@ const ServicesDesktop = () => {
       <div className="services-desktop__body">
         <ServicesInfo
           time={activeServicesCard.time}
-          includedItems={activeServicesCard.includedItems}
-          includedItemsOnBodywork={activeServicesCard.includedItemsOnBodywork}
-          includedItemsOnSalon={activeServicesCard.includedItemsOnSalon}
+          includedItems={activeServicesCard.base_items}
+          includedItemsOnBodywork={activeServicesCard.bodywork_items}
+          includedItemsOnSalon={activeServicesCard.salon_items}
           border
           isSalonService={activeServicesCard.value === "salon"}
         />

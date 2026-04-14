@@ -13,12 +13,6 @@
   "attributes": {
     "label": {
       "type": "string"
-    },
-    "marker": {
-      "type": "boolean"
-    },
-    "italic": {
-      "type": "boolean"
     }
   }
 }

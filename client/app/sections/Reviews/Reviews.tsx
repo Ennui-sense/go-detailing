@@ -5,7 +5,6 @@ import ReviewsCard from "~/components/ReviewsCard/ReviewsCard";
 import Button from "~/components/Button/Button";
 import ArrowButton from "~/components/ArrowButton/ArrowButton";
 
-import { ReviewsCardsData } from "~/data/ReviewsCardsData";
 
 import { useState } from "react";
 import { useMediaQuery } from "~/hooks/useMediaQuery";
@@ -14,7 +13,13 @@ import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
-const Reviews = () => {
+import type { ReviewStrapi } from "~/api/types";
+
+interface ReviewsProps {
+  data?: ReviewStrapi[];
+}
+
+const Reviews = ({ data }: ReviewsProps) => {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
   const isMobile = useMediaQuery("(max-width: 47.9375rem)");
@@ -58,10 +63,10 @@ const Reviews = () => {
             spaceBetween={spaceBetween}
             className="reviews__slider"
           >
-            {ReviewsCardsData.map(({ id, text, name, rate }) => (
+            {data?.map(({ id, description, name, rate }) => (
               <SwiperSlide className="reviews__item" key={id}>
                 <ReviewsCard
-                  text={text}
+                  text={description}
                   name={name}
                   rate={rate}
                   className="reviews__card"

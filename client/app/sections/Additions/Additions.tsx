@@ -1,7 +1,5 @@
 import "./Additions.scss";
 
-import { AdditionsCardsData } from "~/data/AdditionsCardsData";
-
 import Section from "~/layouts/Section/Section";
 import Button from "~/components/Button/Button";
 import AdditionsCard from "~/components/AdditionsCard/AdditionsCard";
@@ -11,14 +9,19 @@ import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const Additions = () => {
+import type { AdditionStrapi } from "~/api/types";
+
+interface AdditionsProps {
+  data: AdditionStrapi[];
+}
+
+const Additions = ({ data }: AdditionsProps) => {
   const [visibleCardDetailsId, setVisibleCardDetailsId] = useState<
     number | null
   >(null);
 
   const additionsListRef = useRef<HTMLUListElement>(null);
   const isMobile = useMediaQuery("(max-width: 47.9375rem)");
-
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -53,12 +56,16 @@ const Additions = () => {
             spaceBetween={16}
             slidesPerView="auto"
           >
-            {AdditionsCardsData.map((data) => (
-              <SwiperSlide key={data.id} className="additions__swiper-slide">
+            {data.map(({ title, description, time, imageSrc, price, id }) => (
+              <SwiperSlide key={id} className="additions__swiper-slide">
                 <AdditionsCard
-                  data={data}
-                  onClick={() => onClick(data.id)}
-                  visibleDetails={visibleCardDetailsId === data.id}
+                  title={title}
+                  description={description}
+                  time={time}
+                  imageSrc={imageSrc.url}
+                  price={price}
+                  onClick={() => onClick(id)}
+                  visibleDetails={visibleCardDetailsId === id}
                   isMobile={isMobile}
                 />
               </SwiperSlide>
@@ -66,12 +73,16 @@ const Additions = () => {
           </Swiper>
         ) : (
           <ul className="additions__list" ref={additionsListRef}>
-            {AdditionsCardsData.map((data) => (
-              <li className="additions__item" key={data.id}>
+            {data.map(({title, description, time, price, imageSrc, id}) => (
+              <li className="additions__item" key={id}>
                 <AdditionsCard
-                  data={data}
-                  onClick={() => onClick(data.id)}
-                  visibleDetails={visibleCardDetailsId === data.id}
+                  title={title}
+                  description={description}
+                  time={time}
+                  imageSrc={imageSrc.url}
+                  price={price}
+                  onClick={() => onClick(id)}
+                  visibleDetails={visibleCardDetailsId === id}
                 />
               </li>
             ))}

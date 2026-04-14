@@ -1,0 +1,37 @@
+@use "~/styles/helpers" as *;
+
+.boot-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    329deg,
+    rgba(1, 0, 11, 0.97) 0%,
+    rgba(8, 20, 70, 0.94) 100%
+  );
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__spinner {
+    width: rem(52);
+    height: rem(52);
+    border-radius: 50%;
+    border: rem(3) solid rgba(59, 141, 242, 0.2);
+    border-top-color: var(--color-accent);
+    animation: boot-loader-spin 0.8s linear infinite;
+  }
+}
+
+@keyframes boot-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

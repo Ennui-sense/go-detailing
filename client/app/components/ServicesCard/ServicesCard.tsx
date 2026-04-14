@@ -3,7 +3,7 @@ import "./ServicesCard.scss";
 import ServicesInfo from "../ServicesInfo/ServicesInfo";
 import Button from "../Button/Button";
 
-import type { ServicesIncludedItem } from "~/types";
+import type { ServiceStrapiItem } from "~/api/types";
 
 interface ServicesCardProps {
   label: string;
@@ -11,10 +11,10 @@ interface ServicesCardProps {
   minPrice: number;
   maxPrice: number;
   description: string;
-  time: number;
-  includedItems: ServicesIncludedItem[];
-  includedItemsOnBodywork?: ServicesIncludedItem[];
-  includedItemsOnSalon?: ServicesIncludedItem[];
+  time: string;
+  includedItems: ServiceStrapiItem[];
+  includedItemsOnBodywork: ServiceStrapiItem[];
+  includedItemsOnSalon: ServiceStrapiItem[];
   id: number;
   href: string;
 }
@@ -36,10 +36,9 @@ const ServicesCard = ({
     return `от ${minPrice.toLocaleString("ru-Ru")} ₽-${maxPrice.toLocaleString("ru-Ru")} ₽`;
   };
 
-  const formatTime = (time: number) => {
-    return time % 60 === 0
-      ? `${time / 60} ч`
-      : `${Math.floor(time / 60)} ч ${time % 60} мин`;
+  const formatTime = (time: string) => {
+    const splittedTime = time.split(":");
+    return `${splittedTime[0]} ч ${splittedTime[1]} мин`;
   };
 
   return (

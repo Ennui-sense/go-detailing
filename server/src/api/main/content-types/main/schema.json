@@ -4,7 +4,7 @@
   "info": {
     "singularName": "main",
     "pluralName": "mains",
-    "displayName": "Main"
+    "displayName": "Index"
   },
   "options": {
     "draftAndPublish": true
@@ -25,6 +25,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::review.review"
+    },
+    "additions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::addition.addition"
     }
   }
 }

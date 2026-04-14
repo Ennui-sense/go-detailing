@@ -1,6 +1,6 @@
-import FirstImageSrc from "~/assets/images/about/1.jpg";
-import SecondImageSrc from "~/assets/images/about/2.jpg";
-import ThirdImageSrc from "~/assets/images/about/3.jpg";
+import FirstImageSrc from "~/assets/images/comparison/1.jpg";
+import SecondImageSrc from "~/assets/images/comparison/2.jpg";
+import ThirdImageSrc from "~/assets/images/comparison/3.jpg";
 
 import type { ComparisonCard } from "~/types";
 

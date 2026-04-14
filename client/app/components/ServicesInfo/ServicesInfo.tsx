@@ -1,16 +1,16 @@
 import "./ServicesInfo.scss";
 
-import type { ServicesIncludedItem } from "~/types";
+import type { ServiceStrapiItem } from "~/api/types";
 
 import clsx from "clsx";
 
 interface ServicesInfoProps {
-  includedItems: ServicesIncludedItem[];
-  time?: number;
+  includedItems: ServiceStrapiItem[];
+  time?: string;
   border?: boolean;
   isSalonService: boolean;
-  includedItemsOnBodywork?: ServicesIncludedItem[];
-  includedItemsOnSalon?: ServicesIncludedItem[];
+  includedItemsOnBodywork: ServiceStrapiItem[];
+  includedItemsOnSalon: ServiceStrapiItem[];
 }
 
 const ServicesInfo = ({
@@ -21,10 +21,9 @@ const ServicesInfo = ({
   includedItemsOnBodywork,
   includedItemsOnSalon,
 }: ServicesInfoProps) => {
-  const formatTime = (time: number) => {
-    return time % 60 === 0
-      ? `${time / 60} ч`
-      : `${Math.floor(time / 60)} ч ${time % 60} мин`;
+  const formatTime = (time: string) => {
+		const splittedTime = time.split(":")
+    return `${splittedTime[0]} ч ${splittedTime[1]} мин`
   };
 
   return (
@@ -49,7 +48,7 @@ const ServicesInfo = ({
           </ul>
         )}
 
-        {includedItemsOnSalon && (
+        {includedItemsOnSalon.length > 0 && (
           <div className="services-info__salon">
             <p className="services-info__text services-info__text--italic">
               По салону:
@@ -64,7 +63,7 @@ const ServicesInfo = ({
           </div>
         )}
 
-        {includedItemsOnBodywork && (
+        {includedItemsOnBodywork.length > 0 && (
           <div className="services-info__bodywork">
             <p className="services-info__text services-info__text--italic">
               По кузову:

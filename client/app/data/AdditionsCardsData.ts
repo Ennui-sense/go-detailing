@@ -11,15 +11,15 @@ import NinthImageSrc from "~/assets/images/additions/9.jpg";
 import type { AdditionCard } from "~/types";
 
 export const AdditionsCardsData: AdditionCard[] = [
-  {
-    id: 1,
-    title: "Гибридное покрытие RestoreFX",
-    imageSrc: FirstImageSrc,
-    time: 90,
-    price: 7290,
-    description:
-      "Быстрое нанесение защитного слоя без полировки, гидрофобный эффект, глубина цвета, блеск и защита от грязи на 6–9 месяцев",
-  },
+  // {
+  //   id: 1,
+  //   title: "Гибридное покрытие RestoreFX",
+  //   imageSrc: FirstImageSrc,
+  //   time: 90,
+  //   price: 7290,
+  //   description:
+  //     "Быстрое нанесение защитного слоя без полировки, гидрофобный эффект, глубина цвета, блеск и защита от грязи на 6–9 месяцев",
+  // },
   {
     id: 2,
     title: "Мойка подкапотного пространства",

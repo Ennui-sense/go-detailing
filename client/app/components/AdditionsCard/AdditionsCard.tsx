@@ -1,31 +1,33 @@
-import clsx from "clsx";
 import "./AdditionsCard.scss";
 
-import type { AdditionCard } from "~/types";
+import clsx from "clsx";
+
+import { STRAPI_BASE_URL } from "~/api/strapi";
 
 interface AdditionsCardProps {
-  data: AdditionCard;
+  title: string;
+  description: string;
+  price: number;
+  imageSrc: string;
+  time: string;
   onClick: () => void;
   visibleDetails: boolean;
   isMobile?: boolean;
 }
 
 const AdditionsCard = ({
-  data,
+  title,
+  time,
+  description,
+  price,
+  imageSrc,
   onClick,
   visibleDetails,
   isMobile,
 }: AdditionsCardProps) => {
-  const { title, time, description, imageSrc, price } = data;
-
-  const formatTime = (time: number) => {
-    if (time % 60 === 0) {
-      return `${time / 60} ч`;
-    } else if (time < 60) {
-      return `${time} мин`;
-    }
-
-    return `${Math.floor(time / 60)} ч ${time % 60} мин`;
+  const formatTime = (time: string) => {
+		const splittedTime = time.split(":")
+    return `${splittedTime[0]} ч ${splittedTime[1]} мин`
   };
 
   const formatPrice = (price: number) => {
@@ -45,7 +47,7 @@ const AdditionsCard = ({
         <div className="additions-card__face additions-card__face--front">
           <div className="additions-card__wrapper-image">
             <img
-              src={imageSrc}
+              src={`${STRAPI_BASE_URL}${imageSrc}`}
               alt=""
               className="additions-card__image"
               width={540}

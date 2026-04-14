@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "additions",
+  "info": {
+    "singularName": "addition",
+    "pluralName": "additions",
+    "displayName": "Addition"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "time": {
+      "type": "time"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "description": {
+      "type": "text"
+    },
+    "imageSrc": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

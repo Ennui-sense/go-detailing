@@ -5,10 +5,12 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./styles/main.scss"
+import "./styles/main.scss";
+import Loader from "./components/Loader/Loader";
 
 // export const links: Route.LinksFunction = () => [
 //   { rel: "stylesheet", href: stylesheet },
@@ -16,25 +18,53 @@ import "./styles/main.scss"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.png" sizes="48x48"></link>
+        <link rel="icon" href="/favicon.png" sizes="48x48" />
         <Meta />
         <Links />
       </head>
       <body id="root">
+        <div id="boot-loader">
+          <Loader variant="boot" />
+        </div>
+
         {children}
+
         <ScrollRestoration />
         <Scripts />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener("load", function () {
+                var loader = document.getElementById("boot-loader");
+                if (!loader) return;
+                loader.classList.add("boot-loader-hidden");
+                setTimeout(function () {
+                  loader.remove();
+                }, 300);
+              });
+            `,
+          }}
+        />
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+  const navigation = useNavigation();
+  const isLoading = navigation.state === "loading";
+
+  return (
+    <>
+      <Outlet />
+      {isLoading && <Loader variant="overlay" />}
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -54,11 +84,11 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
+    <main className="container">
       <h1>{message}</h1>
       <p>{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre>
           <code>{stack}</code>
         </pre>
       )}

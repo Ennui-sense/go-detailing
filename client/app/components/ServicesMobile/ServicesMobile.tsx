@@ -2,15 +2,19 @@ import "./ServicesMobile.scss";
 
 import ServicesCard from "~/components/ServicesCard/ServicesCard";
 
-import { ServicesCardsData } from "~/data/ServicesCardsData";
-
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
 import "swiper/swiper-bundle.css";
 
-const ServicesMobile = () => {
-  const labelsOfServices = ServicesCardsData.map((item) => item.label);
+import type { ServiceStrapi } from "~/api/types";
+
+interface ServicesMobileProps {
+  data: ServiceStrapi[];
+}
+
+const ServicesMobile = ({ data }: ServicesMobileProps) => {
+  const labelsOfServices = data.map((item) => item.title);
 
   return (
     <div className="services-mobile">
@@ -30,31 +34,31 @@ const ServicesMobile = () => {
             `<button class="${className}" type="button">${labelsOfServices[index]}</button>`,
         }}
       >
-        {ServicesCardsData.map(
+        {data.map(
           ({
-            label,
+            title,
             value,
             description,
             maxPrice,
             minPrice,
             id,
             time,
-            includedItems,
-            includedItemsOnBodywork,
-            includedItemsOnSalon,
+            base_items,
+            bodywork_items,
+            salon_items,
             href,
           }) => (
             <SwiperSlide key={id} className="services-mobile__swiper-slide">
               <ServicesCard
                 time={time}
-                label={label}
+                label={title}
                 value={value}
                 description={description}
-                maxPrice={maxPrice}
-                minPrice={minPrice}
-                includedItems={includedItems}
-                includedItemsOnBodywork={includedItemsOnBodywork}
-                includedItemsOnSalon={includedItemsOnSalon}
+                maxPrice={Number(maxPrice)}
+                minPrice={Number(minPrice)}
+                includedItems={base_items}
+                includedItemsOnBodywork={bodywork_items}
+                includedItemsOnSalon={salon_items}
                 id={id}
                 href={href}
               />

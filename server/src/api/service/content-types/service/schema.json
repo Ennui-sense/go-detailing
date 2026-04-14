@@ -29,10 +29,23 @@
     "href": {
       "type": "string"
     },
-    "items": {
+    "base_items": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::services-item.services-item"
+    },
+    "salon_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::services-item.services-item"
+    },
+    "bodywork_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::services-item.services-item"
+    },
+    "value": {
+      "type": "string"
     }
   }
 }

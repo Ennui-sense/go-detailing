@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comparison_items",
+  "info": {
+    "singularName": "comparison-item",
+    "pluralName": "comparison-items",
+    "displayName": "Comparison Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}

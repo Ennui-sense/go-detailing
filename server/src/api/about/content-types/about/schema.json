@@ -12,12 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+    "comparisons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comparison.comparison"
     }
   }
 }

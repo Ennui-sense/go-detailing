@@ -3,11 +3,15 @@ import "./Faq.scss";
 import Section from "~/layouts/Section/Section";
 import FaqAccordion from "~/components/FaqAccordion/FaqAccordion";
 
-import { FaqAccordionsData } from "~/data/FaqAccordionsData";
-
 import { useState } from "react";
 
-const Faq = () => {
+import type { FaqStrapi } from "~/api/types";
+
+interface FaqProps {
+	data: FaqStrapi[]
+}
+
+const Faq = ({data}: FaqProps) => {
   const [openId, setOpenId] = useState<number | null>(null);
 
   return (
@@ -17,11 +21,11 @@ const Faq = () => {
       innerLayout="row"
     >
       <ul className="faq__list">
-        {FaqAccordionsData.map(({ id, text, title }) => (
+        {data.map(({ id, question, answer }) => (
           <li className="faq__item" key={id}>
             <FaqAccordion
-              text={text}
-              title={title}
+              text={answer}
+              title={question}
               onClick={() => (openId === id ? setOpenId(null) : setOpenId(id))}
               isOpen={openId === id}
             />
