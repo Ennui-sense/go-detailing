@@ -1,3 +1,4 @@
+import { getMediaUrl } from "~/api/strapi";
 import "./ComparisonCard.scss";
 
 import clsx from "clsx";
@@ -36,7 +37,7 @@ const ComparisonCard = ({
       </div>
 
       <img
-        src={imageSrc}
+        src={getMediaUrl(imageSrc)}
         alt=""
         className="comparison-card__image"
         width={550}

@@ -8,7 +8,7 @@ import { getContactsLinksData } from "~/data/ContactsLinksData";
 import { useRouteLoaderData } from "react-router";
 import type { loader as rootLoader } from "~/root";
 
-import { STRAPI_BASE_URL } from "~/api/strapi";
+import { getMediaUrl } from "~/api/strapi";
 
 interface ContactsProps {
   heroOffset?: boolean;
@@ -47,7 +47,7 @@ const Contacts = ({ heroOffset }: ContactsProps) => {
 
         <div className="contacts__location">
           <img
-            src={`${STRAPI_BASE_URL}${info.address.map.url}`}
+            src={getMediaUrl(info.address.map.url)}
             alt=""
             className="contacts__image"
             width={600}

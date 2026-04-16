@@ -2,7 +2,7 @@ import "./AdditionsCard.scss";
 
 import clsx from "clsx";
 
-import { STRAPI_BASE_URL } from "~/api/strapi";
+import { getMediaUrl } from "~/api/strapi";
 
 interface AdditionsCardProps {
   title: string;
@@ -56,8 +56,8 @@ const AdditionsCard = ({
         <div className="additions-card__face additions-card__face--front">
           <div className="additions-card__wrapper-image">
             <img
-              src={`${STRAPI_BASE_URL}${imageSrc}`}
-              alt=""
+              src={getMediaUrl(imageSrc)}
+              alt=""	
               className="additions-card__image"
               width={540}
               height={405}

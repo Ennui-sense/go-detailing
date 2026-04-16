@@ -6,6 +6,16 @@ export const getStrapiUrl = (path: string) => {
   return `${STRAPI_BASE_URL}${path}`;
 };
 
+export const getMediaUrl = (url?: string | null) => {
+  if (!url) return "";
+
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url;
+  }
+
+  return `${STRAPI_BASE_URL}${url}`;
+};
+
 export async function fetchStrapi<T>(path: string): Promise<T> {
   const response = await fetch(getStrapiUrl(path));
 
