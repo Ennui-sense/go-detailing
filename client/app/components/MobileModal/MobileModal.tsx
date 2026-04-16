@@ -7,6 +7,11 @@ import Menu from "../Menu/Menu";
 import Soc1als from "../Soc1als/Soc1als";
 import Link from "../Link/Link";
 
+import { useRouteLoaderData } from "react-router";
+import type { loader as rootLoader } from "~/root";
+
+import { formatPhone } from "~/formatters/formatPhone";
+
 interface MobileModalProps {
   closeModal: () => void;
 }
@@ -36,6 +41,12 @@ const panelVariants = {
 } as const;
 
 const MobileModal = ({ closeModal }: MobileModalProps) => {
+  const rootData = useRouteLoaderData<typeof rootLoader>("root");
+
+  if (!rootData) return null;
+
+  const { info } = rootData;
+
   return (
     <motion.div
       className="mobile-modal"
@@ -63,17 +74,17 @@ const MobileModal = ({ closeModal }: MobileModalProps) => {
           <div className="mobile-modal__contacts">
             <Link
               className="mobile-modal__link"
-              href="tel:+73422737107"
+              href={`tel:${formatPhone(info.contacts.phone)}`}
               variant="transparent"
             >
-              +7 (342) 27-37-107
+              {info.contacts.phone}
             </Link>
 
             <a
-              href="mailto:godetailing@mail.com"
+              href={`mailto:${info.contacts.email}`}
               className="mobile-modal__email"
             >
-              godetailing@mail.com
+              {info.contacts.email}
             </a>
 
             <Soc1als className="mobile-modal__soc1als" />

@@ -58,3 +58,25 @@ export interface AdditionStrapi extends StrapiItem {
 	imageSrc: {url: string}
 	time: string;
 }
+
+export interface InfoContactsStrapi {
+	id: number;
+	phone: string;
+	email: string;
+	telegram_link: string;
+	telegram_username: string;
+	vk_link: string;
+}
+
+export interface InfoRequisitesStrapi {
+	id: number;
+	ip: string;
+	inn: string;
+	ogrn: string;
+}
+
+export interface InfoAddressStrapi {
+	id: number;
+	address: string;
+	map: {url: string};
+}

@@ -14,12 +14,23 @@ import "swiper/swiper-bundle.css";
 
 import type { ReviewStrapi } from "~/api/types";
 
+import { useRouteLoaderData } from "react-router";
+import type { loader as rootLoader } from "~/root";
+
+import { formatPhone } from "~/formatters/formatPhone";
+
 interface ReviewsProps {
   data?: ReviewStrapi[];
 }
 
 const Reviews = ({ data }: ReviewsProps) => {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
+
+  const rootData = useRouteLoaderData<typeof rootLoader>("root");
+
+  if (!rootData) return null;
+
+  const { info } = rootData;
 
   const isMobile = useMediaQuery("(max-width: 47.9375rem)");
   const isTablet = useMediaQuery("(max-width: 64rem)");
@@ -87,10 +98,10 @@ const Reviews = ({ data }: ReviewsProps) => {
           {!isMobile && (
             <Link
               className="reviews__link"
-              href="tel:+73422737107"
+              href={`tel:${formatPhone(info.contacts.phone)}`}
               variant="border"
             >
-              +7 (342) 27-37-107
+              {info.contacts.phone}
             </Link>
           )}
           <Link

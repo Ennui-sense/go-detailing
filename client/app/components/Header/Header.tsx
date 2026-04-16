@@ -14,13 +14,24 @@ import { useMediaQuery } from "~/hooks/useMediaQuery";
 import LogoImageSrc from "~/assets/images/logo.svg";
 import LogoImageSrcMobile from "~/assets/images/logo-mobile.svg";
 
+import { formatPhone } from "~/formatters/formatPhone";
+
+import { useRouteLoaderData } from "react-router";
+import type { loader as rootLoader } from "~/root";
+
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const isMobile = useMediaQuery("(max-width: 47.9375rem)");
+  const rootData = useRouteLoaderData<typeof rootLoader>("root");
+
+  if (!rootData) return null;
+
+  const { info } = rootData;
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
 
   useEffect(() => {
     document.documentElement.classList.toggle("is-lock", isModalOpen);
@@ -41,15 +52,19 @@ const Header = () => {
         {!isMobile && <Menu className="header__menu" />}
 
         <div className="header__actions">
-          <Link className="header__link" href="tel:+73422737107" variant="border">
-            +7 (342) 27-37-107
+          <Link
+            className="header__link"
+            href={`tel:${formatPhone(info.contacts.phone)}`}
+            variant="border"
+          >
+            {info.contacts.phone}
           </Link>
 
           {!isMobile ? (
             <Link
               className="header__link"
               href="https://n2056470.yclients.com/"
-							openInNewWindow
+              openInNewWindow
             >
               Записаться
             </Link>

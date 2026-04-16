@@ -21,8 +21,8 @@ export interface MediaContacts extends Struct.ComponentSchema {
   attributes: {
     email: Schema.Attribute.String;
     phone: Schema.Attribute.String;
-    telegram__username: Schema.Attribute.String;
     telegram_link: Schema.Attribute.String;
+    telegram_username: Schema.Attribute.String;
     vk_link: Schema.Attribute.String;
   };
 }

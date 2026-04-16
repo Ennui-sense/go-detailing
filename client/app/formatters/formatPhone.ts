@@ -1,0 +1,7 @@
+export const formatPhone = (phone: string) => {
+  return phone
+    .replaceAll(" ", "")
+    .replaceAll("(", "")
+    .replaceAll(")", "")
+    .replaceAll("-", "");
+};

@@ -3,15 +3,26 @@ import "./Contacts.scss";
 import Section from "~/layouts/Section/Section";
 import ContactsSoc1alsLink from "~/components/ContactsLink/ContactsSoc1alsLink";
 
-import { ContactsLinksData } from "~/data/ContactsLinksData";
+import { getContactsLinksData } from "~/data/ContactsLinksData";
 
-import mapImageSrc from "~/assets/images/map.jpg";
+import { useRouteLoaderData } from "react-router";
+import type { loader as rootLoader } from "~/root";
+
+import { STRAPI_BASE_URL } from "~/api/strapi";
 
 interface ContactsProps {
   heroOffset?: boolean;
 }
 
 const Contacts = ({ heroOffset }: ContactsProps) => {
+  const rootData = useRouteLoaderData<typeof rootLoader>("root");
+
+  if (!rootData) return null;
+
+  const { info } = rootData;
+
+  const contactsLinks = getContactsLinksData(info);
+
   return (
     <Section
       bodyClassName="contacts"
@@ -25,7 +36,7 @@ const Contacts = ({ heroOffset }: ContactsProps) => {
 
           <address className="contacts__soc1als">
             <ul className="contacts__soc1als-list">
-              {ContactsLinksData.map(({ id, label, href, Icon }) => (
+              {contactsLinks.map(({ id, label, href, Icon }) => (
                 <li className="contacts__soc1als-item" key={id}>
                   <ContactsSoc1alsLink label={label} href={href} Icon={Icon} />
                 </li>
@@ -36,7 +47,7 @@ const Contacts = ({ heroOffset }: ContactsProps) => {
 
         <div className="contacts__location">
           <img
-            src={mapImageSrc}
+            src={`${STRAPI_BASE_URL}${info.address.map.url}`}
             alt=""
             className="contacts__image"
             width={600}
@@ -44,7 +55,7 @@ const Contacts = ({ heroOffset }: ContactsProps) => {
             loading="lazy"
           />
 
-          <p className="contacts__address">Монастырская, 25</p>
+          <p className="contacts__address">{info.address.address}</p>
         </div>
       </div>
     </Section>

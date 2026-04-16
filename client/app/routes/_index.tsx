@@ -15,14 +15,12 @@ import { useLoaderData } from "react-router";
 import { getVkNews } from "~/api/news";
 import { getMainPage } from "~/api";
 
-
 export function meta() {
   return [
     { title: "GO detailing | Главная" },
     { name: "description", content: "Home Page" },
   ];
 }
-
 
 export async function loader() {
   const [mainPage, news] = await Promise.all([getMainPage(), getVkNews()]);
@@ -31,7 +29,7 @@ export async function loader() {
 }
 
 export default function IndexRoute() {
-	const { mainPage, news } = useLoaderData<typeof loader>();
+  const { mainPage, news } = useLoaderData<typeof loader>();
 
   return (
     <Page>
@@ -40,15 +38,15 @@ export default function IndexRoute() {
       <Brands />
 
       <div className="bg__dark" id="services">
-        <Services data={mainPage.services}/>
-        <Reviews data={mainPage.reviews}/>
+        <Services data={mainPage.services} />
+        <Reviews data={mainPage.reviews} />
       </div>
 
-      <News data={news}/>
+      <News data={news} />
       <Steps />
 
       <div className="bg__accent-light">
-        <Faq data={mainPage.faqs}/>
+        <Faq data={mainPage.faqs} />
       </div>
 
       <div className="bg__dark">

@@ -14,9 +14,12 @@ import Loader from "./components/Loader/Loader";
 import Link from "./components/Link/Link";
 import Page from "./layouts/Page";
 
-// export const links: Route.LinksFunction = () => [
-//   { rel: "stylesheet", href: stylesheet },
-// ];
+import { getInfo } from "./api/info";
+
+export async function loader() {
+  const info = await getInfo();
+  return { info };
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

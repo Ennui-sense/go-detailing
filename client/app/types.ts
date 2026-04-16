@@ -14,6 +14,7 @@ export type Soc1alButton = {
   id: number;
   Icon: React.FC<React.SVGProps<SVGSVGElement>>;
   title: string;
+	href: string;
 }
 
 export type BenefitCard = {

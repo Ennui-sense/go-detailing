@@ -1,6 +1,6 @@
 @use "~/styles/helpers" as *;
 
-.soc1als-button {
+.soc1als-link {
 	@include button-reset;
 	@include square(var(--button-height-large));
 	@include flex-center(true);

@@ -47,9 +47,9 @@ const Page = ({ children }: PageProps) => {
 
   return (
     <>
-      <Header />
+      <Header/>
       <main>{children}</main>
-      <Footer />
+      <Footer/>
 
       <ArrowButton
         onClick={scrollToTop}

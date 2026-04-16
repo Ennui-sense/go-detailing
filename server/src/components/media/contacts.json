@@ -18,7 +18,7 @@
     "vk_link": {
       "type": "string"
     },
-    "telegram__username": {
+    "telegram_username": {
       "type": "string"
     }
   },
