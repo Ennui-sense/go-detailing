@@ -38,7 +38,16 @@ const ServicesCard = ({
 
   const formatTime = (time: string) => {
     const splittedTime = time.split(":");
-    return `${splittedTime[0]} ч ${splittedTime[1]} мин`;
+    const hours = Number(splittedTime[0]);
+    const minutes = Number(splittedTime[1]);
+
+    if (!hours) {
+      return `${minutes} мин`;
+    } else if (!minutes) {
+      return `${hours} ч`;
+    }
+
+    return `${hours} ч ${minutes} мин`;
   };
 
   return (
@@ -67,7 +76,7 @@ const ServicesCard = ({
             className="services-card__link"
             variant={index === 2 ? "dark" : undefined}
             href={href}
-						openInNewWindow
+            openInNewWindow
           >
             Заказать
           </Link>

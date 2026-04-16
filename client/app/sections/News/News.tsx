@@ -17,7 +17,7 @@ import type { NewsStrapiItem } from "~/api/types";
 
 interface NewsProps {
   withBottomMargin?: boolean;
-	data?: NewsStrapiItem[]
+  data?: NewsStrapiItem[];
 }
 
 const News = ({ withBottomMargin, data }: NewsProps) => {
@@ -25,8 +25,8 @@ const News = ({ withBottomMargin, data }: NewsProps) => {
 
   const isMobile = useMediaQuery("(max-width: 47.9375rem)");
   const isTablet = useMediaQuery("(max-width: 64rem)");
-	
-	const slidesPerView = isMobile ? 1.4 : isTablet ? 2 : 3;
+
+  const slidesPerView = isMobile ? 1.4 : isTablet ? 2 : 3;
 
   return (
     <Section
@@ -42,6 +42,7 @@ const News = ({ withBottomMargin, data }: NewsProps) => {
             directionArrow="left"
             onClick={() => swiper?.slidePrev()}
             className="news__swiper-button"
+            variant="dark"
           />
         )}
 
@@ -64,6 +65,7 @@ const News = ({ withBottomMargin, data }: NewsProps) => {
             directionArrow="right"
             onClick={() => swiper?.slideNext()}
             className="news__swiper-button"
+            variant="dark"
           />
         )}
       </div>

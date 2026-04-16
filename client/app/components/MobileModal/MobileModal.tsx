@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import CrossIcon from "~/assets/icons/cross.svg?react";
 import Menu from "../Menu/Menu";
 import Soc1als from "../Soc1als/Soc1als";
-import Button from "../Button/Button";
+import Link from "../Link/Link";
 
 interface MobileModalProps {
   closeModal: () => void;
@@ -61,13 +61,13 @@ const MobileModal = ({ closeModal }: MobileModalProps) => {
           <Menu className="mobile-modal__menu" isModalMenu />
 
           <div className="mobile-modal__contacts">
-            <Button
-              isPhoneButton
+            <Link
               className="mobile-modal__link"
               href="tel:+73422737107"
+              variant="transparent"
             >
               +7 (342) 27-37-107
-            </Button>
+            </Link>
 
             <a
               href="mailto:godetailing@mail.com"

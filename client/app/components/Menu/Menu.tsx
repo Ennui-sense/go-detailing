@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import "./Menu.scss";
+import clsx from "clsx";
 
 import { Link } from "react-router";
 
@@ -12,9 +12,9 @@ interface MenuProps {
   isModalMenu?: boolean;
 }
 
-const Menu = ({ className, isModalMenu = false}: MenuProps) => {
+const Menu = ({ className, isModalMenu = false }: MenuProps) => {
   return (
-    <nav className={clsx("menu", className, {"menu--modal": isModalMenu})}>
+    <nav className={clsx("menu", className, { "menu--modal": isModalMenu })}>
       <ul className="menu__list">
         {MenuLinksData.map(({ id, label, href }) => (
           <li className="menu__item" key={id}>

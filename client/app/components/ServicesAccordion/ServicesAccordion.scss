@@ -5,17 +5,24 @@
   background: var(--color-gradient);
   border-radius: var(--border-radius);
   position: relative;
-	min-width: rem(725);
+  min-width: rem(725);
   border: var(--border);
   z-index: 1;
   display: flex;
   flex-direction: column;
   transition-duration: var(--transition-duration);
 
-	@include desktop {
-		min-width: rem(650);
-		padding: rem(20) rem(40);
-	}
+  @include desktop {
+    min-width: rem(650);
+    padding: rem(20) rem(40);
+  }
+
+  &:not(.services-accordion--active) {
+    @include hover {
+      opacity: 0.7;
+			transition-duration: var(--transition-duration);
+    }
+  }
 
   &--active {
     background: var(--color-light);
@@ -40,7 +47,7 @@
   }
 
   &__price {
-		@include fluid-text(36, 20);
+    @include fluid-text(36, 20);
 
     font-weight: 400;
     letter-spacing: -0.03em;
@@ -52,23 +59,23 @@
     right: rem(50);
     z-index: -1;
 
-		@include desktop {
-			top: rem(20);
-			right: rem(40);
-		}
+    @include desktop {
+      top: rem(20);
+      right: rem(40);
+    }
   }
 
   &__collapse {
     overflow: hidden;
-		height: 0px;
+    height: 0px;
     transition-duration: var(--transition-duration);
   }
 
   &__description {
-		@include fluid-text(20, 14);
+    @include fluid-text(20, 14);
 
     color: var(--color-dark);
-		padding-top: rem(15);
+    padding-top: rem(15);
     font-weight: 100;
     line-height: 1.3;
   }

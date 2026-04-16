@@ -21,9 +21,9 @@
     flex-wrap: wrap;
     row-gap: rem(12);
 
-		@include mobile-s {
-			column-gap: 0;
-		}
+    @include mobile-s {
+      column-gap: 0;
+    }
   }
 
   &__actions {
@@ -35,8 +35,15 @@
       column-gap: rem(10);
     }
 
-		@include mobile-s {
-			column-gap: 0;
-		}
+    @include mobile-s {
+      column-gap: 0;
+    }
+  }
+
+  &__link {
+    @include mobile {
+      border: none !important;
+      letter-spacing: 0.04em;
+    }
   }
 }

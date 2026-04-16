@@ -580,6 +580,33 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiInfoInfo extends Struct.SingleTypeSchema {
+  collectionName: 'infos';
+  info: {
+    displayName: 'Info';
+    pluralName: 'infos';
+    singularName: 'info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Component<'media.address', false>;
+    contacts: Schema.Attribute.Component<'media.contacts', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::info.info'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    requisites: Schema.Attribute.Component<'media.requisites', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMainMain extends Struct.SingleTypeSchema {
   collectionName: 'mains';
   info: {
@@ -1256,6 +1283,7 @@ declare module '@strapi/strapi' {
       'api::comparison-item.comparison-item': ApiComparisonItemComparisonItem;
       'api::comparison.comparison': ApiComparisonComparison;
       'api::faq.faq': ApiFaqFaq;
+      'api::info.info': ApiInfoInfo;
       'api::main.main': ApiMainMain;
       'api::price.price': ApiPricePrice;
       'api::review.review': ApiReviewReview;

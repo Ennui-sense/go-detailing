@@ -1,5 +1,45 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface MediaAddress extends Struct.ComponentSchema {
+  collectionName: 'components_media_addresses';
+  info: {
+    displayName: 'Address';
+    icon: 'lightbulb';
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    map: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface MediaContacts extends Struct.ComponentSchema {
+  collectionName: 'components_media_contacts';
+  info: {
+    displayName: 'Contacts';
+    icon: 'attachment';
+  };
+  attributes: {
+    email: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    telegram__username: Schema.Attribute.String;
+    telegram_link: Schema.Attribute.String;
+    vk_link: Schema.Attribute.String;
+  };
+}
+
+export interface MediaRequisites extends Struct.ComponentSchema {
+  collectionName: 'components_media_requisites';
+  info: {
+    displayName: 'Requisites';
+    icon: 'book';
+  };
+  attributes: {
+    inn: Schema.Attribute.String;
+    ip: Schema.Attribute.String;
+    ogrn: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -63,6 +103,9 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'media.address': MediaAddress;
+      'media.contacts': MediaContacts;
+      'media.requisites': MediaRequisites;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

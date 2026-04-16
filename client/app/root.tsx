@@ -11,6 +11,8 @@ import {
 import type { Route } from "./+types/root";
 import "./styles/main.scss";
 import Loader from "./components/Loader/Loader";
+import Link from "./components/Link/Link";
+import Page from "./layouts/Page";
 
 // export const links: Route.LinksFunction = () => [
 //   { rel: "stylesheet", href: stylesheet },
@@ -68,30 +70,52 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
+  let statusLabel = "Error";
+  let title = "Что-то пошло не так";
+  let description = "Произошла ошибка, но мы уже работаем над её устранением.";
   let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
-    details =
-      error.status === 404
-        ? "The requested page could not be found."
-        : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message;
-    stack = error.stack;
+    if (error.status === 404) {
+      statusLabel = "404";
+      title = "Эта страница уехала на детейлинг";
+      description = `Мы проверили все маршруты, но ссылка всё ещё вне зоны видимости.\nЗато ваш автомобиль мы найдём и приведём в порядок за 3 часа.`;
+    } else {
+      statusLabel = String(error.status);
+      title = "Неизвестная ошибка";
+      description = error.statusText || description;
+    }
+  } else if (error instanceof Error) {
+    if (import.meta.env.DEV) {
+      description = error.message || description;
+      stack = error.stack;
+    }
   }
 
   return (
-    <main className="container">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre>
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <Page>
+      <main className="error-page">
+        <div className="error-page__inner container">
+          <p className="error-page__status">{statusLabel}</p>
+          <div className="error-page__body">
+            <h1 className="error-page__title">{title}</h1>
+            <p className="error-page__description">{description}</p>
+
+            <div className="error-page__links">
+              <Link href="/" className="error-page__link" variant="border">
+                На главную
+              </Link>
+              <Link
+                className="error-page__link"
+                href="https://n2056470.yclients.com/"
+                openInNewWindow
+              >
+                Записаться на выезд
+              </Link>
+            </div>
+          </div>
+        </div>
+      </main>
+    </Page>
   );
 }

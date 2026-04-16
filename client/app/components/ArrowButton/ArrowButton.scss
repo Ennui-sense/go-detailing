@@ -14,27 +14,20 @@
 
   & svg {
     z-index: 100;
-		width: 50%;
+    width: 50%;
   }
 
-  &--scroll {
-    position: fixed;
-    bottom: rem(-80);
-    right: rem(20);
-    background-color: var(--color-accent-light);
-		color: var(--color-dark);
-
-		@include mobile {
-			@include square(rem(50));
-		}
-
-		& svg {
-			color: var(--color-dark);
-		}
-  }
-
-  &--visible {
-    bottom: rem(20);
+  &::after {
+    content: "";
+    background: var(--color-gradient-hover);
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: -1;
+    transition-duration: var(--transition-duration);
   }
 
   &--right {
@@ -44,4 +37,44 @@
   &--left {
     transform: rotate(270deg);
   }
+
+  @include hover(false) {
+		color: var(--color-light);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &--scroll {
+    position: fixed;
+    bottom: rem(-80);
+    right: rem(20);
+    background-color: var(--color-accent-light);
+
+    @include mobile {
+      @include square(rem(50));
+    }
+
+    & svg {
+      color: var(--color-dark);
+    }
+
+    @include hover(false) {
+      transform: scale(1.1);
+			color: var(--color-dark);
+
+			&::after {
+				opacity: 0;
+			}
+    }
+  }
+
+  &--visible {
+    bottom: rem(20);
+  }
+
+	&--dark {
+		color: var(--color-dark)
+	}
 }

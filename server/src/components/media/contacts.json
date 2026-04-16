@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_media_contacts",
+  "info": {
+    "displayName": "Contacts",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "telegram_link": {
+      "type": "string"
+    },
+    "vk_link": {
+      "type": "string"
+    },
+    "telegram__username": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

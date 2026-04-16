@@ -32,15 +32,15 @@
     z-index: -1;
     transition-duration: var(--transition-duration);
   }
+
+	&--transparent {
+		background: transparent;
+		border: none;
+	}
 	
   &--border {
     background: transparent;
     border-color: var(--color-accent);
-		
-    @include mobile {
-			border: none !important;
-      letter-spacing: 0.04em;
-    }
   }
 	
 	&--dark {

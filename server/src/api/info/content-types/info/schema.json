@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "infos",
+  "info": {
+    "singularName": "info",
+    "pluralName": "infos",
+    "displayName": "Info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contacts": {
+      "type": "component",
+      "component": "media.contacts",
+      "repeatable": false
+    },
+    "requisites": {
+      "type": "component",
+      "component": "media.requisites",
+      "repeatable": false
+    },
+    "address": {
+      "type": "component",
+      "component": "media.address",
+      "repeatable": false
+    }
+  }
+}

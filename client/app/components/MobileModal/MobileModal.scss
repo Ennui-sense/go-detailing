@@ -13,7 +13,7 @@
 	height: 100vh;
 	
   &__inner {
-		padding: rem(20);
+		padding: rem(42) rem(20);
 		display: flex;
 		flex-direction: column;
 		height: 100%;
@@ -26,9 +26,14 @@
 
   &__close-button {
     @include button-reset;
-    @include square(rem(16));
+    @include square(rem(26));
+		@include flex-center(true);
 
     color: var(--color-light);
+
+		& svg {
+			width: 100%;
+		}
   }
 
 	&__body {
@@ -45,8 +50,12 @@
 	&__contacts {
 		display: flex;
 		flex-direction: column;
-		row-gap: rem(10);
 		align-items: center;
 		margin-top: auto;
+	}
+
+	&__email {
+		font-weight: 200;
+		margin-bottom: rem(10);
 	}
 }

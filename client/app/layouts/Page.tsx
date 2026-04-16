@@ -55,6 +55,7 @@ const Page = ({ children }: PageProps) => {
         onClick={scrollToTop}
         className="back-to-top-button"
         isVisible={isVisibleBackToTopButton}
+        variant="dark"
         isScrollButton
       />
 

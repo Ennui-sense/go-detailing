@@ -10,6 +10,7 @@ interface ArrowButtonProps {
   className?: string;
   isVisible?: boolean;
   isScrollButton?: boolean;
+	variant?: "dark"
 }
 
 const ArrowButton = ({
@@ -18,6 +19,7 @@ const ArrowButton = ({
   className,
   isVisible,
   isScrollButton = false,
+	variant
 }: ArrowButtonProps) => {
   return (
     <button
@@ -26,6 +28,7 @@ const ArrowButton = ({
         "arrow-button",
         {
 					[`arrow-button--${directionArrow}`]: directionArrow,
+					[`arrow-button--${variant}`]: variant,
           "arrow-button--visible": isVisible,
           "arrow-button--scroll": isScrollButton,
         },
