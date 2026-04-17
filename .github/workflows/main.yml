@@ -42,13 +42,13 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.REG_RU_SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -p "${{ secrets.REG_RU_PORT }}" "${{ secrets.REG_RU_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -p 22 "${{ secrets.REG_RU_HOST }}" >> ~/.ssh/known_hosts
         working-directory: .
 
       - name: Upload site
         run: |
           rsync -az --delete \
-            -e "ssh -p ${{ secrets.REG_RU_PORT }}" \
+            -e "ssh -p 22" \
             ./client/build/client/ \
             "${{ secrets.REG_RU_USER }}@${{ secrets.REG_RU_HOST }}:${{ secrets.REG_RU_TARGET_PATH }}/"
         working-directory: .
@@ -72,6 +72,6 @@ jobs:
           </IfModule>
           EOF
 
-          scp -P "${{ secrets.REG_RU_PORT }}" .htaccess \
+          scp -P 22 .htaccess \
             "${{ secrets.REG_RU_USER }}@${{ secrets.REG_RU_HOST }}:${{ secrets.REG_RU_TARGET_PATH }}/.htaccess"
         working-directory: .
