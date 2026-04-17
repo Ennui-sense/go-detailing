@@ -1,0 +1,70 @@
+name: Build and deploy to REG.RU
+
+on:
+  repository_dispatch:
+    types: [strapi-content-changed]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npx react-router build
+        env:
+          NODE_ENV: production
+          # сюда твои фронтовые env, если они нужны на build
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+
+      - name: Prepare SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.REG_RU_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.REG_RU_PORT }}" "${{ secrets.REG_RU_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Deploy build/client to REG.RU
+        run: |
+          rsync -az --delete \
+            -e "ssh -p ${{ secrets.REG_RU_PORT }}" \
+            ./build/client/ \
+            "${{ secrets.REG_RU_USER }}@${{ secrets.REG_RU_HOST }}:${{ secrets.REG_RU_TARGET_PATH }}/"
+
+      - name: Ensure .htaccess exists
+        run: |
+          cat > .htaccess <<'EOF'
+          DirectoryIndex index.html
+
+          <IfModule mod_rewrite.c>
+            RewriteEngine On
+            RewriteBase /
+
+            RewriteRule ^index\.html$ - [L]
+
+            RewriteCond %{REQUEST_FILENAME} -f [OR]
+            RewriteCond %{REQUEST_FILENAME} -d
+            RewriteRule ^ - [L]
+
+            RewriteRule ^ /index.html [L]
+          </IfModule>
+          EOF
+
+          scp -P "${{ secrets.REG_RU_PORT }}" .htaccess \
+            "${{ secrets.REG_RU_USER }}@${{ secrets.REG_RU_HOST }}:${{ secrets.REG_RU_TARGET_PATH }}/.htaccess"
