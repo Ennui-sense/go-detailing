@@ -13,10 +13,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: client
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,28 +26,42 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        working-directory: client
 
       - name: Build app
         run: npx react-router build
+        working-directory: client
         env:
           NODE_ENV: production
           VITE_STRAPI_URL: ${{ secrets.VITE_STRAPI_URL }}
 
+      - name: Debug local build contents
+        run: |
+          echo "PWD=$(pwd)"
+          echo "=== build/client ==="
+          ls -la build/client
+          echo "=== recursive ==="
+          find build/client -maxdepth 2 | sort
+        working-directory: client
+
       - name: Prepare SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.REG_RU_SSH_KEY }}" > ~/.ssh/id_ed25519
+          printf '%s\n' "${{ secrets.REG_RU_SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -p 22 "${{ secrets.REG_RU_HOST }}" >> ~/.ssh/known_hosts
-        working-directory: .
 
       - name: Upload site
         run: |
-          rsync -az --delete \
+          rsync -avz --delete \
             -e "ssh -p 22" \
-            ./client/build/client/ \
+            client/build/client/ \
             "${{ secrets.REG_RU_USER }}@${{ secrets.REG_RU_HOST }}:${{ secrets.REG_RU_TARGET_PATH }}/"
-        working-directory: .
+
+      - name: Debug remote contents
+        run: |
+          ssh -p 22 "${{ secrets.REG_RU_USER }}@${{ secrets.REG_RU_HOST }}" \
+            "echo 'TARGET=${{ secrets.REG_RU_TARGET_PATH }}' && ls -la '${{ secrets.REG_RU_TARGET_PATH }}' && find '${{ secrets.REG_RU_TARGET_PATH }}' -maxdepth 2 | sort"
 
       - name: Upload .htaccess
         run: |
@@ -74,4 +84,3 @@ jobs:
 
           scp -P 22 .htaccess \
             "${{ secrets.REG_RU_USER }}@${{ secrets.REG_RU_HOST }}:${{ secrets.REG_RU_TARGET_PATH }}/.htaccess"
-        working-directory: .
