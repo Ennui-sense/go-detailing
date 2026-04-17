@@ -28,7 +28,7 @@ const Comparison = ({data}: ComparisonProps) => {
               <ComparisonCard
                 title={title}
                 items={comparison_items}
-                imageSrc={`${STRAPI_BASE_URL}${image.url}`}
+                imageSrc={image.url}
                 index={index + 1}
                 reversed={(index + 1) % 2 === 0}
               />
