@@ -1,4 +1,4 @@
-name: Build and deploy to REG.RU
+name: Deploy site from Strapi webhook
 
 on:
   repository_dispatch:
@@ -6,12 +6,16 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: deploy-production
+  group: production-deploy
   cancel-in-progress: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: client
 
     steps:
       - name: Checkout
@@ -22,6 +26,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: client/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -30,7 +35,6 @@ jobs:
         run: npx react-router build
         env:
           NODE_ENV: production
-          # сюда твои фронтовые env, если они нужны на build
           VITE_STRAPI_URL: ${{ secrets.VITE_STRAPI_URL }}
 
       - name: Prepare SSH
@@ -39,15 +43,17 @@ jobs:
           echo "${{ secrets.REG_RU_SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -p "${{ secrets.REG_RU_PORT }}" "${{ secrets.REG_RU_HOST }}" >> ~/.ssh/known_hosts
+        working-directory: .
 
-      - name: Deploy build/client to REG.RU
+      - name: Upload site
         run: |
           rsync -az --delete \
             -e "ssh -p ${{ secrets.REG_RU_PORT }}" \
-            ./build/client/ \
+            ./client/build/client/ \
             "${{ secrets.REG_RU_USER }}@${{ secrets.REG_RU_HOST }}:${{ secrets.REG_RU_TARGET_PATH }}/"
+        working-directory: .
 
-      - name: Ensure .htaccess exists
+      - name: Upload .htaccess
         run: |
           cat > .htaccess <<'EOF'
           DirectoryIndex index.html
@@ -68,3 +74,4 @@ jobs:
 
           scp -P "${{ secrets.REG_RU_PORT }}" .htaccess \
             "${{ secrets.REG_RU_USER }}@${{ secrets.REG_RU_HOST }}:${{ secrets.REG_RU_TARGET_PATH }}/.htaccess"
+        working-directory: .
